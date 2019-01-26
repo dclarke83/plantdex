@@ -1,3 +1,7 @@
+# Plantdex
+
+A simple app to read information on the plants that we own from a google spreadsheet.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
