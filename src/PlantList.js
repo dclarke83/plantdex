@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import config from './config';
-import load from './sheet';
-
+import Plant from './Plant';
 class PlantList extends Component {
 
     state = {
@@ -11,35 +9,33 @@ class PlantList extends Component {
     };
 
     componentDidMount() {
-        window.gapi.load('client', this.initClient);
-    }
-
-    onLoad = (data, error) => {
-        if (data) {
-            this.setState({
-                plants: data,
-                loading: false,
-            });
-        } else {
-            this.setState({ error, loading: false });
-        }
-    }
-
-    initClient = () => {
-        window.gapi.client
-            .init({
-                apiKey: config.apiKey,
-                discoveryDocs: config.discoveryDocs
-            })
-            .then(() => {
-                load(this.onLoad);
-            });
+        fetch('http://localhost:8080/plants')
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        plants: result,
+                        loading: false
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        error,
+                        loading: false,
+                        plants: []
+                    });
+                }
+            )
     }
 
     render() {
         return (
             <div>
-                The plant list goes here
+                <ul>
+                    {this.state.plants.map((plant) => (
+                        <Plant key={plant.id} plant={plant} />
+                    ))}
+                </ul>
             </div>
         );
     }
