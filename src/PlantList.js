@@ -31,11 +31,16 @@ class PlantList extends Component {
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.plants.map((plant) => (
-                        <Plant key={plant.id} plant={plant} />
-                    ))}
-                </ul>
+                {this.state.loading && 
+                    <div>Loading</div>
+                }
+                <div>
+                    <ul>
+                        {this.state.plants.map((plant) => (
+                            <Plant key={plant.id} plant={plant} />
+                        ))}
+                    </ul>
+                </div>
             </div>
         );
     }
