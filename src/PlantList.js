@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { DebounceInput } from 'react-debounce-input';
 import Plant from './Plant';
 
 const StyledPlantList = styled.ul`
@@ -11,11 +12,12 @@ const StyledPlantList = styled.ul`
 `;
 
 class PlantList extends Component {
-
     state = {
         loading: true,
         error: null,
-        plants: []
+        plants: [],
+        search: '',
+        currentResults: []
     };
 
     componentDidMount() {
@@ -25,28 +27,58 @@ class PlantList extends Component {
                 (result) => {
                     this.setState({
                         plants: result,
-                        loading: false
+                        currentResults: result,
+                        loading: false,
+                        search: '',
                     });
                 },
                 (error) => {
                     this.setState({
                         error,
                         loading: false,
-                        plants: []
+                        plants: [],
+                        currentResults: [],
+                        search: ''
                     });
                 }
             )
     }
 
+    handleSearch = (e) => {
+        const searchValue = e.target.value;
+        const searchResults = this.searchPlantNames(searchValue, this.state.plants.slice());
+
+        this.setState({
+           currentResults: searchResults,
+           search: searchValue,
+        });
+    }
+
+    searchPlantNames(string, plants) {      
+        return plants.filter(plant => {
+            const regex = new RegExp(string, 'gi');
+            return plant.name.match(regex) || plant.commonName.match(regex);
+        });
+    }    
+
     render() {
         return (
             <div>
+                <div>
+                    <div>Search</div>
+                    <div>
+                        <DebounceInput type='text' name='search' id='search' debounceTimeout={300} value={this.state.search} onChange={e => this.handleSearch(e)} />
+                    </div>
+                </div>
+                <div>
+                    <div>Filters</div>
+                </div>
                 {this.state.loading && 
                     <div>Loading</div>
                 }
                 <div>
                     <StyledPlantList>
-                        {this.state.plants.map((plant) => (
+                        {this.state.currentResults.map((plant) => (
                             <Plant key={plant.id} plant={plant} />
                         ))}
                     </StyledPlantList>
