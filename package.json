@@ -5,6 +5,7 @@
     "dependencies": {
         "json-server": "^0.14.2",
         "react": "^16.7.0",
+        "react-debounce-input": "^3.2.0",
         "react-dom": "^16.7.0",
         "react-scripts": "2.1.3",
         "styled-components": "^4.1.3"
