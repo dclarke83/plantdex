@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Plant from './Plant';
+
+const StyledPlantList = styled.ul`
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1;
+`;
+
 class PlantList extends Component {
 
     state = {
@@ -35,11 +45,11 @@ class PlantList extends Component {
                     <div>Loading</div>
                 }
                 <div>
-                    <ul>
+                    <StyledPlantList>
                         {this.state.plants.map((plant) => (
                             <Plant key={plant.id} plant={plant} />
                         ))}
-                    </ul>
+                    </StyledPlantList>
                 </div>
             </div>
         );
