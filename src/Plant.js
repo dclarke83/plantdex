@@ -91,6 +91,76 @@ const Property = styled.div`
     align-items: flex-start;
 `;
 
+const CardFooter = styled.div`
+    display: flex;
+    padding: 8px 4px;
+    align-items: center;
+    border-top: 1px solid #cacaca;
+    /* background-color: #cacaca; */
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+`;
+
+const StyledCardButton = styled.button`
+    margin: 0 4px;
+    padding: 4px 8px;
+    min-width: 64px;
+    line-height: 1.75;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: 0;
+    position: relative;
+    user-select: none;
+    vertical-align: middle;
+    display: inline-flex;
+    outline: none;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    color: #4caf50;
+    font-family: 'Roboto';
+    letter-spacing: 0.02857em;
+    
+    /* text-align: center; */
+
+    &:hover {
+        background-color: rgba(76, 175, 80, 0.08);
+        text-decoration:none;
+    }
+`;
+
+const CardButton = (props) => {
+    const spacer = {
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        zIndex: 0,
+        position: 'absolute',
+        overflow: 'hidden',
+        borderRadius: 'inherit',
+        pointerEvents: 'none',
+    };
+
+    const content = {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+
+    return (
+        <StyledCardButton type='button'>
+            <span style={content}>
+                {props.text}
+            </span>
+            <span style={spacer}></span>
+        </StyledCardButton>
+    );
+}
+
 const StyledProperty = (props) => {
     return (
         <Property>
@@ -125,12 +195,17 @@ class Plant extends Component {
                             <StyledProperty name='Exposure' value={this.props.plant.exposure}></StyledProperty>
                             <StyledProperty name='Soil' value={this.props.plant.soil}></StyledProperty>
                             <StyledProperty name='pH' value={this.props.plant.pH}></StyledProperty>
-                            <StyledProperty name='Moisture' value={this.props.plant.Moisture}></StyledProperty>
+                            <StyledProperty name='Sunlight' value={this.props.plant.sunlight}></StyledProperty>
+                            <StyledProperty name='Moisture' value={this.props.plant.moisture}></StyledProperty>
                             <StyledProperty name='Hardiness' value={this.props.plant.hardiness}></StyledProperty>
                             <StyledProperty name='Purchased' value={this.props.plant.purchased}></StyledProperty>
                             <StyledProperty name='Height' value={this.props.plant.height + ' (' + this.props.plant.ageToMaxHeight + ')'}></StyledProperty>
                         </PropertyBox>
                     </CardContent>
+                    <CardFooter>
+                        <CardButton text='More'></CardButton>
+                        <CardButton text='Edit'></CardButton>
+                    </CardFooter>
                 </Card>
             </StyledPlant>
         );
