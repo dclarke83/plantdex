@@ -62,7 +62,7 @@ const CardContent = styled.div`
     padding: 0.9375rem 20px;
     position: relative;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
 
@@ -73,6 +73,10 @@ const StyledPlant = styled.li`
     margin: 10px;
     display: flex;
     flex-direction: column;
+
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
 `;
 
 const PropertyBox = styled.div`
@@ -130,6 +134,11 @@ const StyledCardButton = styled.button`
     }
 `;
 
+const Notes = styled.div`
+    display: ${props => props.show ? 'block' : 'none' };
+    margin-bottom:3px;
+`;
+
 const CardButton = (props) => {
     const spacer = {
         top: 0,
@@ -152,7 +161,7 @@ const CardButton = (props) => {
     }
 
     return (
-        <StyledCardButton type='button'>
+        <StyledCardButton type='button' onClick={props.onClick}>
             <span style={content}>
                 {props.text}
             </span>
@@ -179,10 +188,53 @@ const formatBg = (path) => {
 } 
 
 class Plant extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isFlipped: false,
+        };
+        this.handleFlip = this.handleFlip.bind(this);
+    }
+    
+    handleFlip(e) {
+        e.preventDefault();
+        this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
+    }
+
     render() {
+        const front = {
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            left: '0',
+            visibility: this.state.isFlipped ? 'hidden' : '',
+            position: this.state.isFlipped ? 'absolute' : 'relative',
+            top: '0',
+            transform: `rotateY(${
+                this.state.isFlipped ? 180 : 0
+            }deg)`,
+            transformStyle: 'preserve-3d',
+            width: '100%',
+            zIndex: '2',
+            transition: '0.6s',
+        },
+        back = {
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            left: '0',
+            visibility: this.state.isFlipped ? '' : 'hidden',
+            position: this.state.isFlipped ? 'relative' : 'absolute',
+            transform: `rotateY(${
+              this.state.isFlipped ? 0 : -180
+            }deg)`,
+            transformStyle: 'preserve-3d',
+            top: '0',
+            width: '100%',
+            transition: '0.6s',
+        };
+
         return (
             <StyledPlant className='styledPlant'>
-                <Card className='card'>
+                <Card style={front}>
                     <CardTitleHolder className='cardTitleHolder' image={this.props.plant.mainImage}>
                         <CardTitleContent className='cardTitleContent'>
                             <Title className='title'>{this.props.plant.name}</Title>
@@ -203,7 +255,29 @@ class Plant extends Component {
                         </PropertyBox>
                     </CardContent>
                     <CardFooter>
-                        <CardButton text='More'></CardButton>
+                        <CardButton text='Notes' onClick={this.handleFlip}></CardButton>
+                        <CardButton text='Edit'></CardButton>
+                    </CardFooter>
+                </Card>
+                <Card style={back}>
+                <CardTitleHolder className='cardTitleHolder' image={this.props.plant.mainImage}>
+                        <CardTitleContent className='cardTitleContent'>
+                            <Title className='title'>{this.props.plant.name}</Title>
+                            <SubTitle className='subTitle'>{this.props.plant.commonName}</SubTitle>
+                        </CardTitleContent>
+                    </CardTitleHolder>
+                    <CardContent className='cardContent'>
+                        <Notes show={this.props.plant.notes}>
+                            <b>Notes</b><br/>
+                            {this.props.plant.notes}
+                        </Notes>
+                        <Notes show={this.props.plant.link}>
+                            <b>Link</b><br/>
+                            <a target='_blank' rel='noopener noreferrer' href={this.props.plant.link}>{this.props.plant.link}</a>
+                        </Notes>
+                    </CardContent>
+                    <CardFooter>
+                        <CardButton text='Details' onClick={this.handleFlip}></CardButton>
                         <CardButton text='Edit'></CardButton>
                     </CardFooter>
                 </Card>
