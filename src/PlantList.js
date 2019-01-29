@@ -25,9 +25,11 @@ class PlantList extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
+                    const formattedPlants = result.map((plant) => (this.formatPlant(plant)));
+                    
                     this.setState({
-                        plants: result.map((plant) => (this.formatPlant(plant))),
-                        currentResults: result.map((plant) => (this.formatPlant(plant))),
+                        plants: formattedPlants,
+                        currentResults: formattedPlants,
                         loading: false,
                         search: '',
                     });
@@ -59,7 +61,7 @@ class PlantList extends Component {
 
         splitFields.map((field) => (
             newPlant[field + 'Arr'] = plant[field].toLowerCase().split('/')
-        ))
+        ));
 
         return newPlant;
     }

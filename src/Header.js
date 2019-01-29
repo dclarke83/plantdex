@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { toggleFilters } from './redux/actions';
 
 class AppHeader extends Component {
+
+    handleToggleFilters = () => {
+        this.props.toggleFilters();
+    }
+
     render() {
         return (
             <div>
-                <button onClick={this.props.onToggleFilters}>Toggle Filters</button>
+                <button onClick={this.handleToggleFilters}>Toggle Filters</button>
             </div>
         );
     }
 }
 
-export default AppHeader;
+export default connect(
+    null,
+    { toggleFilters }
+) (AppHeader);

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { getFiltersVisibility } from './redux/selectors';
 
 const SideBar = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0px;
     z-index: 10;
-    right: ${props => props.filtersVisible ? '0px' : '-270px' };
-    transition: all 0.8s ease-in-out;
+    right: -270px;
+    transition: transform 0.8s ease-in-out;
     float: right;
     height: 100%;
     width: 270px;
     background-color: #66bb6a;
-    display: ${props => props.filtersVisible ? 'block' : 'none' };
+    transform: translateX(${props => props.show ? '-270px' : '0px' });
 `;
 
 class Filters extends Component {
@@ -21,7 +23,7 @@ class Filters extends Component {
             filters: {},
             error: null
         };
-    }
+    }   
 
     componentDidMount() {
         fetch('http://localhost:8080/filters')
@@ -44,8 +46,8 @@ class Filters extends Component {
     render() {
         return (
             <div>
-                <SideBar>
-                  {this.props.filtersVisible && (
+                {/* {this.props.filtersVisible && (                 */}
+                <SideBar show={this.props.filtersVisible}>
                     <div>
                       {Object.keys(this.state.filters).map((key) => (
                           <div key={key}>
@@ -60,12 +62,12 @@ class Filters extends Component {
                           </div>
                       ))}       
                     </div>             
-                  )}
                 </SideBar>
+                {/* )} */}
             </div>
         );
     }
 
 }
 
-export default Filters;
+export default connect(state => ({ filtersVisible: getFiltersVisibility(state) }))(Filters);

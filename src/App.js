@@ -20,8 +20,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppHeader onToggleFilters={this.ToggleFilters}></AppHeader>
-        <Filters filtersVisible={this.state.filtersVisible}></Filters>
+        <AppHeader></AppHeader>
+        <Filters></Filters>
         <PlantList />
       </div>
     );
