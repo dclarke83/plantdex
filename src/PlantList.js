@@ -26,8 +26,8 @@ class PlantList extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        plants: result,
-                        currentResults: result,
+                        plants: result.map((plant) => (this.formatPlant(plant))),
+                        currentResults: result.map((plant) => (this.formatPlant(plant))),
                         loading: false,
                         search: '',
                     });
@@ -43,6 +43,27 @@ class PlantList extends Component {
                 }
             )
     }
+
+    formatPlant = (plant) => {
+        const splitFields = [
+            'exposure',
+            'moisture',
+            'soil',
+            'pH',
+            'sunlight'
+        ];
+
+        let newPlant = {
+            ...plant
+        };
+
+        splitFields.map((field) => (
+            newPlant[field + 'Arr'] = plant[field].toLowerCase().split('/')
+        ))
+
+        return newPlant;
+    }
+
 
     handleSearch = (e) => {
         const searchValue = e.target.value;
