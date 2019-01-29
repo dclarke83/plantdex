@@ -146,8 +146,8 @@
             }
         ],
         "exposure": [{
-                "key": "any",
-                "value": "Any"
+                "key": "sheltered/exposed",
+                "value": "Sheltered / Exposed"
             },
             {
                 "key": "sheltered",
