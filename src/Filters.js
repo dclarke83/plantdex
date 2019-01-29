@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import AppHeader from './Header';
 
 const SideBar = styled.div`
     position: absolute;
     top: 0px;
     z-index: 10;
-    right: ${props => props.filtersVisible ? '0px' : '-270px' };
+    right: 0;
     transition: all 0.8s ease-in-out;
     float: right;
     height: 100%;
     width: 270px;
     background-color: #66bb6a;
-    display: ${props => props.filtersVisible ? 'block' : 'none' };
 `;
 
 class Filters extends Component {
     constructor(props){
         super(props);
         this.state = {
+            filtersVisible: false,
             filters: {},
             error: null
         };
+        this.ToggleFilters = this.ToggleFilters.bind(this);
+    }
+
+    ToggleFilters() {
+        this.setState(prevState => ({ filtersVisible: !prevState.filtersVisible }));
     }
 
     componentDidMount() {
@@ -30,7 +36,7 @@ class Filters extends Component {
                 (result) => {
                     this.setState({
                         filters: result[0]
-                    });
+                    }, () => {});
                 },
                 (error) => {
                     this.setState({
@@ -38,30 +44,29 @@ class Filters extends Component {
                         filters: {}
                     });
                 }
-            ) 
+            )    
     }
 
     render() {
         return (
             <div>
-                <SideBar>
-                  {this.props.filtersVisible && (
-                    <div>
-                      {Object.keys(this.state.filters).map((key) => (
-                          <div key={key}>
-                              <div>{key.toUpperCase()}</div>
-                              <div>
-                                  <select>
-                                      {this.state.filters[key].map((option) => (
-                                          <option key={key + ' ' + option.key} value={option.key}>{option.value}</option>
-                                      ))}
-                                  </select>
-                              </div>
-                          </div>
-                      ))}       
-                    </div>             
-                  )}
-                </SideBar>
+            <AppHeader onToggleFilters={this.ToggleFilters} />
+                {this.state.filtersVisible && (
+                    <SideBar>
+                        {Object.keys(this.state.filters).map((key) => (
+                            <div key={key}>
+                                <div>{key.toUpperCase()}</div>
+                                <div>
+                                    <select>
+                                        {this.state.filters[key].map((option) => (
+                                            <option key={key + ' ' + option.key} value={option.key}>{option.value}</option>
+                                            ))}
+                                    </select>
+                                </div>
+                            </div>
+                        ))}                    
+                    </SideBar>
+                )}
             </div>
         );
     }
