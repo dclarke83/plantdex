@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { DebounceInput } from 'react-debounce-input';
+
+import { fetchPlants, setSearch } from './redux/actions';
+import { getPlantsState, getSearchedPlants } from './redux/selectors';
+
 import Plant from './Plant';
 
 const StyledPlantList = styled.ul`
@@ -12,77 +17,14 @@ const StyledPlantList = styled.ul`
 `;
 
 class PlantList extends Component {
-    state = {
-        loading: true,
-        error: null,
-        plants: [],
-        search: '',
-        currentResults: []
-    };
-
     componentDidMount() {
-        fetch('http://localhost:8080/plants')
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    const formattedPlants = result.map((plant) => (this.formatPlant(plant)));
-                    
-                    this.setState({
-                        plants: formattedPlants,
-                        currentResults: formattedPlants,
-                        loading: false,
-                        search: '',
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        error,
-                        loading: false,
-                        plants: [],
-                        currentResults: [],
-                        search: ''
-                    });
-                }
-            )
+        this.props.dispatch(fetchPlants());
     }
-
-    formatPlant = (plant) => {
-        const splitFields = [
-            'exposure',
-            'moisture',
-            'soil',
-            'pH',
-            'sunlight'
-        ];
-
-        let newPlant = {
-            ...plant
-        };
-
-        splitFields.map((field) => (
-            newPlant[field + 'Arr'] = plant[field].toLowerCase().split('/')
-        ));
-
-        return newPlant;
-    }
-
 
     handleSearch = (e) => {
         const searchValue = e.target.value;
-        const searchResults = this.searchPlantNames(searchValue, this.state.plants.slice());
-
-        this.setState({
-           currentResults: searchResults,
-           search: searchValue,
-        });
+        this.props.dispatch(setSearch(searchValue));
     }
-
-    searchPlantNames(string, plants) {      
-        return plants.filter(plant => {
-            const regex = new RegExp(string, 'gi');
-            return plant.name.match(regex) || plant.commonName.match(regex);
-        });
-    }    
 
     render() {
         return (
@@ -90,18 +32,15 @@ class PlantList extends Component {
                 <div>
                     <div>Search</div>
                     <div>
-                        <DebounceInput type='text' name='search' id='search' debounceTimeout={300} value={this.state.search} onChange={e => this.handleSearch(e)} />
+                        <DebounceInput type='text' name='search' id='search' debounceTimeout={300} value={this.props.search} onChange={e => this.handleSearch(e)} />
                     </div>
                 </div>
-                <div>
-                    <div>Filters</div>
-                </div>
-                {this.state.loading && 
+                {this.props.loading && 
                     <div>Loading</div>
                 }
                 <div>
                     <StyledPlantList>
-                        {this.state.currentResults.map((plant) => (
+                        {this.props.currentResults.map((plant) => (
                             <Plant key={plant.id} plant={plant} />
                         ))}
                     </StyledPlantList>
@@ -111,4 +50,11 @@ class PlantList extends Component {
     }
 }
 
-export default PlantList;
+const mapStateToProps = (state) => {
+    return {
+        ...getPlantsState(state),
+        currentResults: getSearchedPlants(state)
+    }
+}
+
+export default connect(mapStateToProps)(PlantList);
