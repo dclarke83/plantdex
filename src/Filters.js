@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Select from 'react-select';
 import { connect } from 'react-redux';
 import { getFiltersState } from './redux/selectors';
-import { fetchFilters } from './redux/actions';
+import { fetchFilters, updateFilter } from './redux/actions';
 
 const SideBar = styled.div`
     position: fixed;
@@ -22,20 +23,36 @@ class Filters extends Component {
         this.props.dispatch(fetchFilters());
     }
 
+    handleChange = filter => selectedOptions => {
+        this.props.dispatch(updateFilter(filter, selectedOptions.map((option) => ( option.value ))));
+    }
+
+    getOptions(filter){
+        return filter.options.map((option) => (
+            {
+                ...option,
+                filterName: filter.name
+            }
+        ));
+    }
+
     render() {
         return (
             <div>
                 <SideBar show={this.props.filtersVisible}>
                     <div>
-                      {Object.keys(this.props.filters).map((key) => (
-                          <div key={key}>
-                              <div>{key.toUpperCase()}</div>
+                      {this.props.filters.map((filter) => (
+                          <div key={filter.name}>
+                              <div>{filter.name.toUpperCase()}</div>
                               <div>
-                                  <select>
-                                      {this.props.filters[key].map((option) => (
-                                          <option key={key + ' ' + option.key} value={option.key}>{option.value}</option>
-                                      ))}
-                                  </select>
+                                  <Select
+                                    key={filter.name}
+                                    name={filter.name}
+                                    isClearable={true}
+                                    isMulti={true}
+                                    onChange={this.handleChange(filter.name)}
+                                    options={this.getOptions(filter)}
+                                  />
                               </div>
                           </div>
                       ))}       

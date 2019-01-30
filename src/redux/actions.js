@@ -1,5 +1,6 @@
 import { 
     TOGGLE_FILTERS, 
+    UPDATE_FILTER,
     REQUEST_FILTERS,
     RECEIVE_FILTERS,
     ERROR_FILTERS,
@@ -14,6 +15,14 @@ import {
 export const toggleFilters = () => ({
     type: TOGGLE_FILTERS,
     payload: {}
+});
+
+export const updateFilter = (filter, values) => ({
+    type: UPDATE_FILTER,
+    payload: {
+        filter: filter,
+        values: values
+    }
 });
 
 export const requestFilters = () => ({
@@ -41,7 +50,7 @@ export const fetchFilters = () => {
         return fetch('http://localhost:8080/filters')
             .then(response => response.json())
             .then((json) => {
-                const filters = json[0] || {};
+                const filters = json || [];
                 dispatch(receiveFilters(filters));
             },
             (error) => {

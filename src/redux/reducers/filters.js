@@ -2,14 +2,16 @@ import {
     TOGGLE_FILTERS,
     REQUEST_FILTERS,
     RECEIVE_FILTERS,
-    ERROR_FILTERS
+    ERROR_FILTERS,
+    UPDATE_FILTER,
 } from '../actionTypes';
 
 const initialState = {
     filtersVisible: false,
     loading: false,
-    filters: {},
-    error: null
+    filters: [],
+    error: null,
+    selectedFilters: {}
 };
 
 export default function(state = initialState, action) {
@@ -18,6 +20,18 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 filtersVisible: !state.filtersVisible,
+            };
+        }
+        case UPDATE_FILTER: {
+            let selectedFilters = 
+                Object.assign(
+                    {}, 
+                    state.selectedFilters, 
+                    {[action.payload.filter]: action.payload.values}
+                );
+            return {
+                ...state,
+                selectedFilters: selectedFilters
             };
         }
         case REQUEST_FILTERS: {
@@ -38,7 +52,7 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                filters: {},
+                filters: [],
                 error: action.payload
             }
         }        
