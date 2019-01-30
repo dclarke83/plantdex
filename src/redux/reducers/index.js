@@ -1,4 +1,7 @@
 import { combineReducers } from "redux";
 import filters from './filters';
+import plants from './plants';
 
-export default combineReducers({ filters });
+const rootReducer = combineReducers({ filters, plants });
+
+export default rootReducer;
