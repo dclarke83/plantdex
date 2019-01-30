@@ -1,13 +1,59 @@
 import { 
     TOGGLE_FILTERS, 
+    REQUEST_FILTERS,
+    RECEIVE_FILTERS,
+    ERROR_FILTERS,
     REQUEST_PLANTS, 
     RECEIVE_PLANTS,
     ERROR_PLANTS,
-    SET_SEARCH,
+    SET_SEARCH,    
 } from './actionTypes';
 
+// FILTERS
+
+export const toggleFilters = () => ({
+    type: TOGGLE_FILTERS,
+    payload: {}
+});
+
+export const requestFilters = () => ({
+    type: REQUEST_FILTERS,
+    payload: {}
+});
+
+export const receiveFilters = (json) => ({
+    type: RECEIVE_FILTERS,
+    payload: {
+        filters: json
+    }
+});
+
+export const errorFilters = (error) => ({
+    type: ERROR_FILTERS,
+    payload: {
+        error: error
+    }
+});
+
+export const fetchFilters = () => {
+    return (dispatch) => {
+        dispatch(requestFilters())
+        return fetch('http://localhost:8080/filters')
+            .then(response => response.json())
+            .then((json) => {
+                const filters = json[0] || {};
+                dispatch(receiveFilters(filters));
+            },
+            (error) => {
+                dispatch(errorFilters(error));
+            })
+    }
+};
+
+// PLANTS
+
 const formatPlant = (plant) => {
-    const splitFields = [
+    const fieldsToSplit = [
         'exposure',
         'moisture',
         'soil',
@@ -19,17 +65,12 @@ const formatPlant = (plant) => {
         ...plant
     };
 
-    splitFields.map((field) => (
+    fieldsToSplit.map((field) => (
         newPlant[field + 'Arr'] = plant[field].toLowerCase().split('/')
     ));
 
     return newPlant;
 }
-
-export const toggleFilters = () => ({
-    type: TOGGLE_FILTERS,
-    payload: {}
-});
 
 export const requestPlants = () => ({
     type: REQUEST_PLANTS,
