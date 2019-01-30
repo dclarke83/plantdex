@@ -16,7 +16,7 @@ const CardTitleHolder = styled.div`
     margin: 0;
     padding: 0 15px;
     min-height: 120px;
-    background-image: ${props => formatBg(props.image) || null }; /*'url(https://via.placeholder.com/500x120)' }; */
+    background-image: ${props => formatBg(props.image) || null };
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
@@ -100,7 +100,6 @@ const CardFooter = styled.div`
     padding: 8px 4px;
     align-items: center;
     border-top: 1px solid #cacaca;
-    /* background-color: #cacaca; */
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 `;
@@ -125,8 +124,6 @@ const StyledCardButton = styled.button`
     color: #4caf50;
     font-family: 'Roboto';
     letter-spacing: 0.02857em;
-    
-    /* text-align: center; */
 
     &:hover {
         background-color: rgba(76, 175, 80, 0.08);
@@ -188,8 +185,8 @@ const formatBg = (path) => {
 } 
 
 class Plant extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             isFlipped: false,
         };
