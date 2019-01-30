@@ -1,223 +1,245 @@
 {
     "filters": [{
-        "type": [{
-                "key": "aquatic",
-                "value": "Aquatic"
-            },
-            {
-                "key": "bush",
-                "value": "Bush"
-            },
-            {
-                "key": "climber",
-                "value": "Climber"
-            },
-            {
-                "key": "conifer",
-                "value": "Conifer"
-            },
-            {
-                "key": "fern",
-                "value": "Fern"
-            },
-            {
-                "key": "grass",
-                "value": "Grass"
-            },
-            {
-                "key": "perennial",
-                "value": "Perennial"
-            },
-            {
-                "key": "shrub",
-                "value": "Shrub"
-            },
-            {
-                "key": "spruce",
-                "value": "Spruce"
-            },
-            {
-                "key": "tree",
-                "value": "Tree"
-            }
-        ],
-        "foliage": [{
-                "key": "Deciduous",
-                "value": "Deciduous"
-            },
-            {
-                "key": "Evergreen",
-                "value": "Evergreen"
-            },
-            {
-                "key": "Semi-Evergreen",
-                "value": "Semi-Evergreen"
-            }
-        ],
-        "habit": [{
-                "key": "bushy",
-                "value": "Bushy"
-            },
-            {
-                "key": "clump-forming",
-                "value": "Clump-forming"
-            },
-            {
-                "key": "suckering",
-                "value": "Suckering"
-            },
-            {
-                "key": "tufted",
-                "value": "Tufted"
-            },
-            {
-                "key": "columnar / upright",
-                "value": "Columnar / Upright"
-            },
-            {
-                "key": "climbing",
-                "value": "Climbing"
-            },
-            {
-                "key": "spreading / branched",
-                "value": "Spreading / Branched"
-            },
-            {
-                "key": "pendulous/weeping",
-                "value": "Pendulous / Weeping"
-            }
-        ],
-        "sunlight": [{
-                "key": "full sun",
-                "value": "Full Sun"
-            },
-            {
-                "key": "partial sun",
-                "value": "Partial Sun"
-            },
-            {
-                "key": "partial shade",
-                "value": "Partial Shade"
-            },
-            {
-                "key": "full shade",
-                "value": "Full Shade"
-            }
-        ],
-        "hardiness": [{
-                "key": "h1a",
-                "value": "H1a (15C, USDA 13)"
-            },
-            {
-                "key": "h1b",
-                "value": "H1b (10 to 15C, USDA 12)"
-            },
-            {
-                "key": "h1c",
-                "value": "H1c (5 to 10C, USDA 11"
-            },
-            {
-                "key": "h2",
-                "value": "H2 (1 to 5C, USDA 10)"
-            },
-            {
-                "key": "h3",
-                "value": "H3 (-5 to 1C, USDA 9)"
-            },
-            {
-                "key": "h4",
-                "value": "H4 (-10 to -5C, USDA 8/9)"
-            },
-            {
-                "key": "h5",
-                "value": "H5 (-15 to -10C, USDA 7/8)"
-            },
-            {
-                "key": "h6",
-                "value": "H6 (-20 to -15C, USDA 6/7)"
-            },
-            {
-                "key": "h7",
-                "value": "H7 (-25 to -20, USDA 5/6)"
-            },
-            {
-                "key": "unknown",
-                "value": "UNKNOWN"
-            }
-        ],
-        "exposure": [{
-                "key": "sheltered/exposed",
-                "value": "Sheltered / Exposed"
-            },
-            {
-                "key": "sheltered",
-                "value": "Sheltered"
-            },
-            {
-                "key": "exposure",
-                "value": "Exposure"
-            }
-        ],
-        "soil": [{
-                "key": "chalk",
-                "value": "Chalk"
-            },
-            {
-                "key": "clay",
-                "value": "Clay"
-            },
-            {
-                "key": "loam",
-                "value": "Loam"
-            },
-            {
-                "key": "sand",
-                "value": "Sand"
-            },
-            {
-                "key": "unknown",
-                "value": "UNKNOWN"
-            }
-        ],
-        "moisture": [{
-                "key": "poorly drained",
-                "value": "Poorly"
-            },
-            {
-                "key": "moist",
-                "value": "Moist"
-            },
-            {
-                "key": "moist but well-drained",
-                "value": "Moist but well-drained"
-            },
-            {
-                "key": "well-drained",
-                "value": "Conifer"
-            },
-            {
-                "key": "unknown",
-                "value": "UNKNOWN"
-            }
-        ],
-        "pH": [{
-                "key": "acid",
-                "value": "Acid"
-            },
-            {
-                "key": "neutral",
-                "value": "Neutral"
-            },
-            {
-                "key": "alkaline",
-                "value": "Alkaline"
-            },
-            {
-                "key": "unknown",
-                "value": "UNKNOWN"
-            }
-        ]
-    }],
+            "name": "type",
+            "options": [{
+                    "value": "aquatic",
+                    "label": "Aquatic"
+                },
+                {
+                    "value": "bush",
+                    "label": "Bush"
+                },
+                {
+                    "value": "climber",
+                    "label": "Climber"
+                },
+                {
+                    "value": "conifer",
+                    "label": "Conifer"
+                },
+                {
+                    "value": "fern",
+                    "label": "Fern"
+                },
+                {
+                    "value": "grass",
+                    "label": "Grass"
+                },
+                {
+                    "value": "perennial",
+                    "label": "Perennial"
+                },
+                {
+                    "value": "shrub",
+                    "label": "Shrub"
+                },
+                {
+                    "value": "spruce",
+                    "label": "Spruce"
+                },
+                {
+                    "value": "tree",
+                    "label": "Tree"
+                }
+            ]
+        },
+        {
+            "name": "foliage",
+            "options": [{
+                    "value": "Deciduous",
+                    "label": "Deciduous"
+                },
+                {
+                    "value": "Evergreen",
+                    "label": "Evergreen"
+                },
+                {
+                    "value": "Semi-Evergreen",
+                    "label": "Semi-Evergreen"
+                }
+            ]
+        },
+        {
+            "name": "habit",
+            "options": [{
+                    "value": "bushy",
+                    "label": "Bushy"
+                },
+                {
+                    "value": "clump-forming",
+                    "label": "Clump-forming"
+                },
+                {
+                    "value": "suckering",
+                    "label": "Suckering"
+                },
+                {
+                    "value": "tufted",
+                    "label": "Tufted"
+                },
+                {
+                    "value": "columnar / upright",
+                    "label": "Columnar / Upright"
+                },
+                {
+                    "value": "climbing",
+                    "label": "Climbing"
+                },
+                {
+                    "value": "spreading / branched",
+                    "label": "Spreading / Branched"
+                },
+                {
+                    "value": "pendulous/weeping",
+                    "label": "Pendulous / Weeping"
+                }
+            ]
+        },
+        {
+            "name": "sunlight",
+            "options": [{
+                    "value": "full sun",
+                    "label": "Full Sun"
+                },
+                {
+                    "value": "partial sun",
+                    "label": "Partial Sun"
+                },
+                {
+                    "value": "partial shade",
+                    "label": "Partial Shade"
+                },
+                {
+                    "value": "full shade",
+                    "label": "Full Shade"
+                }
+            ]
+        },
+        {
+            "name": "hardiness",
+            "options": [{
+                    "value": "h1a",
+                    "label": "H1a (15C, USDA 13)"
+                },
+                {
+                    "value": "h1b",
+                    "label": "H1b (10 to 15C, USDA 12)"
+                },
+                {
+                    "value": "h1c",
+                    "label": "H1c (5 to 10C, USDA 11"
+                },
+                {
+                    "value": "h2",
+                    "label": "H2 (1 to 5C, USDA 10)"
+                },
+                {
+                    "value": "h3",
+                    "label": "H3 (-5 to 1C, USDA 9)"
+                },
+                {
+                    "value": "h4",
+                    "label": "H4 (-10 to -5C, USDA 8/9)"
+                },
+                {
+                    "value": "h5",
+                    "label": "H5 (-15 to -10C, USDA 7/8)"
+                },
+                {
+                    "value": "h6",
+                    "label": "H6 (-20 to -15C, USDA 6/7)"
+                },
+                {
+                    "value": "h7",
+                    "label": "H7 (-25 to -20, USDA 5/6)"
+                },
+                {
+                    "value": "unknown",
+                    "label": "UNKNOWN"
+                }
+            ]
+        }, {
+            "name": "exposure",
+            "options": [{
+                    "value": "sheltered/exposed",
+                    "label": "Sheltered / Exposed"
+                },
+                {
+                    "value": "sheltered",
+                    "label": "Sheltered"
+                },
+                {
+                    "value": "exposure",
+                    "label": "Exposure"
+                }
+            ]
+        }, {
+            "name": "soil",
+            "options": [{
+                    "value": "chalk",
+                    "label": "Chalk"
+                },
+                {
+                    "value": "clay",
+                    "label": "Clay"
+                },
+                {
+                    "value": "loam",
+                    "label": "Loam"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "unknown",
+                    "label": "UNKNOWN"
+                }
+            ]
+        }, {
+            "name": "moisture",
+            "options": [{
+                    "value": "poorly drained",
+                    "label": "Poorly"
+                },
+                {
+                    "value": "moist",
+                    "label": "Moist"
+                },
+                {
+                    "value": "moist but well-drained",
+                    "label": "Moist but well-drained"
+                },
+                {
+                    "value": "well-drained",
+                    "label": "Conifer"
+                },
+                {
+                    "value": "unknown",
+                    "label": "UNKNOWN"
+                }
+            ]
+        }, {
+            "name": "pH",
+            "options": [{
+                    "value": "acid",
+                    "label": "Acid"
+                },
+                {
+                    "value": "neutral",
+                    "label": "Neutral"
+                },
+                {
+                    "value": "alkaline",
+                    "label": "Alkaline"
+                },
+                {
+                    "value": "unknown",
+                    "label": "UNKNOWN"
+                }
+            ]
+        }
+    ],
     "plants": [{
             "id": "597227a4-2a5e-489b-83f9-0e40e522c4db",
             "mainImage": "https://apps.rhs.org.uk/plantselectorimages/detail/WSY0024217_12066.jpg",
