@@ -6,7 +6,7 @@ import { toggleFilters, setSearch } from './redux/actions';
 class AppHeader extends Component {
 
     handleToggleFilters = () => {
-        this.props.toggleFilters();
+        this.props.dispatch(toggleFilters());
     }
 
     handleSearch = (e) => {
