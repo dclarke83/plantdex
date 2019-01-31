@@ -1,5 +1,8 @@
 export const TOGGLE_FILTERS = 'TOGGLE_FILTERS';
+
+export const SET_LOADING = 'SET_LOADING';
 export const UPDATE_FILTER = 'UPDATE_FILTER';
+
 export const REQUEST_FILTERS = 'REQUEST_FILTERS';
 export const RECEIVE_FILTERS = 'RECEIVE_FILTERS';
 export const ERROR_FILTERS = 'ERROR_FILTERS';

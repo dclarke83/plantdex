@@ -3,7 +3,7 @@ import {
     REQUEST_FILTERS,
     RECEIVE_FILTERS,
     ERROR_FILTERS,
-    UPDATE_FILTER,
+    UPDATE_FILTER
 } from '../actionTypes';
 
 const initialState = {
@@ -22,17 +22,29 @@ export default function(state = initialState, action) {
                 filtersVisible: !state.filtersVisible,
             };
         }
-        case UPDATE_FILTER: {
-            let selectedFilters = 
-                Object.assign(
-                    {}, 
-                    state.selectedFilters, 
-                    {[action.payload.filter]: action.payload.values}
-                );
+        case UPDATE_FILTER: {          
+            let selectedFilters;
+
+            if(action.payload.values.length > 0) {
+                selectedFilters = 
+                    Object.assign(
+                        {}, 
+                        state.selectedFilters, 
+                        {[action.payload.filter]: action.payload.values}
+                    );
+            } else {
+                selectedFilters = 
+                    Object.assign(
+                        {},
+                        state.selectedFilters
+                    );
+                
+                delete selectedFilters[action.payload.filter];
+            } 
             return {
                 ...state,
                 selectedFilters: selectedFilters
-            };
+            }            
         }
         case REQUEST_FILTERS: {
             return {

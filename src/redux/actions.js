@@ -8,6 +8,7 @@ import {
     RECEIVE_PLANTS,
     ERROR_PLANTS,
     SET_SEARCH,    
+    SET_LOADING,
 } from './actionTypes';
 
 // FILTERS
@@ -80,6 +81,13 @@ const formatPlant = (plant) => {
 
     return newPlant;
 }
+
+export const setLoading = (loadingState) => ({
+    type: SET_LOADING,
+    payload: {
+        loading: loadingState
+    }
+});
 
 export const requestPlants = () => ({
     type: REQUEST_PLANTS,

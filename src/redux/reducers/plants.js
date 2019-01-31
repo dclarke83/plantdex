@@ -3,6 +3,7 @@ import {
     RECEIVE_PLANTS,
     ERROR_PLANTS,
     SET_SEARCH,
+    SET_LOADING,
 } from '../actionTypes';
 
 const initialState = {
@@ -40,6 +41,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 search: action.payload.search
+            }
+        }
+        case SET_LOADING: {
+            return {
+                ...state,
+                loading: action.payload.loading
             }
         }
         default:

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { DebounceInput } from 'react-debounce-input';
 
 import { fetchPlants, setSearch } from './redux/actions';
-import { getPlantsState, getSearchedPlants } from './redux/selectors';
+import { getPlantsState, getFilteredPlants } from './redux/selectors';
 
 import Plant from './Plant';
 
@@ -38,13 +38,15 @@ class PlantList extends Component {
                 {this.props.loading && 
                     <div>Loading</div>
                 }
-                <div>
-                    <StyledPlantList>
-                        {this.props.currentResults.map((plant) => (
-                            <Plant key={plant.id} plant={plant} />
-                        ))}
-                    </StyledPlantList>
-                </div>
+                {!this.props.loading &&
+                    <div>
+                        <StyledPlantList>
+                            {this.props.currentResults.map((plant) => (
+                                <Plant key={plant.id} plant={plant} />
+                            ))}
+                        </StyledPlantList>
+                    </div>
+                }
             </div>
         );
     }
@@ -53,7 +55,7 @@ class PlantList extends Component {
 const mapStateToProps = (state) => {
     return {
         ...getPlantsState(state),
-        currentResults: getSearchedPlants(state)
+        currentResults: getFilteredPlants(state),    
     }
 }
 

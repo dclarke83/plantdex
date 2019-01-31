@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Select from 'react-select';
 import { connect } from 'react-redux';
 import { getFiltersState } from './redux/selectors';
-import { fetchFilters, updateFilter } from './redux/actions';
+import { fetchFilters, updateFilter, setLoading } from './redux/actions';
 
 const SideBar = styled.div`
     position: fixed;
@@ -24,7 +24,9 @@ class Filters extends Component {
     }
 
     handleChange = filter => selectedOptions => {
+        this.props.dispatch(setLoading(true));
         this.props.dispatch(updateFilter(filter, selectedOptions.map((option) => ( option.value ))));
+        this.props.dispatch(setLoading(false));
     }
 
     getOptions(filter){
