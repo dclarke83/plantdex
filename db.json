@@ -46,15 +46,15 @@
         {
             "name": "foliage",
             "options": [{
-                    "value": "Deciduous",
+                    "value": "deciduous",
                     "label": "Deciduous"
                 },
                 {
-                    "value": "Evergreen",
+                    "value": "evergreen",
                     "label": "Evergreen"
                 },
                 {
-                    "value": "Semi-Evergreen",
+                    "value": "semi-evergreen",
                     "label": "Semi-Evergreen"
                 }
             ]
@@ -169,8 +169,8 @@
                     "label": "Sheltered"
                 },
                 {
-                    "value": "exposure",
-                    "label": "Exposure"
+                    "value": "exposed",
+                    "label": "Exposed"
                 }
             ]
         }, {
@@ -212,7 +212,7 @@
                 },
                 {
                     "value": "well-drained",
-                    "label": "Conifer"
+                    "label": "Well-Drained"
                 },
                 {
                     "value": "unknown",
