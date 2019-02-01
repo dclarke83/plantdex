@@ -6,10 +6,6 @@
                     "label": "Aquatic"
                 },
                 {
-                    "value": "bush",
-                    "label": "Bush"
-                },
-                {
                     "value": "climber",
                     "label": "Climber"
                 },
@@ -200,7 +196,7 @@
             "name": "moisture",
             "options": [{
                     "value": "poorly drained",
-                    "label": "Poorly"
+                    "label": "Poorly Drained"
                 },
                 {
                     "value": "moist",
@@ -687,7 +683,7 @@
             "purchased": "",
             "name": "Pieris Japonica 'Carnaval'",
             "commonName": "",
-            "type": "Bush",
+            "type": "Shrub",
             "foliage": "Evergreen",
             "habit": "Bushy",
             "sunlight": "Full Sun/Partial Sun",
