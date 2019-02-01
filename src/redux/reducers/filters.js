@@ -3,7 +3,8 @@ import {
     REQUEST_FILTERS,
     RECEIVE_FILTERS,
     ERROR_FILTERS,
-    UPDATE_FILTER
+    UPDATE_FILTER,
+    CLEAR_FILTERS
 } from '../actionTypes';
 
 const initialState = {
@@ -20,6 +21,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 filtersVisible: !state.filtersVisible,
+            };
+        }
+        case CLEAR_FILTERS: {
+            return {
+                ...state,
+                selectedFilters: {}
             };
         }
         case UPDATE_FILTER: {          

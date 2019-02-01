@@ -9,12 +9,18 @@ import {
     ERROR_PLANTS,
     SET_SEARCH,    
     SET_LOADING,
+    CLEAR_FILTERS,
 } from './actionTypes';
 
 // FILTERS
 
 export const toggleFilters = () => ({
     type: TOGGLE_FILTERS,
+    payload: {}
+});
+
+export const clearFilters = () => ({
+    type: CLEAR_FILTERS,
     payload: {}
 });
 
