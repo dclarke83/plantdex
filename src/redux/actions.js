@@ -10,6 +10,8 @@ import {
     SET_SEARCH,    
     SET_LOADING,
     CLEAR_FILTERS,
+    OPEN_NEW_PLANT,
+    CLOSE_NEW_PLANT,
 } from './actionTypes';
 
 // FILTERS
@@ -134,4 +136,14 @@ export const setSearch = (searchString) => ({
     payload: {
         search: searchString
     }
+});
+
+export const openNewPlant = () => ({
+    type: OPEN_NEW_PLANT,
+    payload: {}
+});
+
+export const closeNewPlant = () => ({
+    type: CLOSE_NEW_PLANT,
+    payload: {}
 });

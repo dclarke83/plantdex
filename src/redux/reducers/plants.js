@@ -4,13 +4,14 @@ import {
     ERROR_PLANTS,
     SET_SEARCH,
     SET_LOADING,
+
 } from '../actionTypes';
 
 const initialState = {
     plants: [],
     loading: false,
     error: null,
-    search: ''
+    search: '',
 };
 
 export default function(state = initialState, action) {

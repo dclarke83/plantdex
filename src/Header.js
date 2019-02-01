@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DebounceInput } from 'react-debounce-input';
 import styled from 'styled-components';
-import { toggleFilters, setSearch } from './redux/actions';
+import { toggleFilters, setSearch, openNewPlant } from './redux/actions';
 
 const Header = styled.header`
     top: auto;
@@ -110,6 +110,10 @@ class AppHeader extends Component {
         this.props.dispatch(setSearch(searchValue));
     }
 
+    handleNewPlant = () => {
+        this.props.dispatch(openNewPlant());
+    }
+
     render() {
         return (
             <Header>
@@ -119,7 +123,7 @@ class AppHeader extends Component {
                         placeholder='Search' style={searchStyle}
                         debounceTimeout={300} value={this.props.search} onChange={e => this.handleSearch(e)} />
                     </div>                     
-                    <RoundButton>
+                    <RoundButton onClick={this.handleNewPlant}>
                         +
                     </RoundButton>
                     <MenuButton onClick={this.handleToggleFilters}>

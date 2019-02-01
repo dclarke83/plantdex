@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
 
+export const getEditingState = store => store.editing;
+
 export const getFiltersState = store => store.filters;
 export const getPlantsState = store => store.plants;
 
