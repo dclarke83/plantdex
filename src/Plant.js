@@ -69,7 +69,7 @@ const CardContent = styled.div`
 `;
 
 const StyledPlant = styled.li`
-    flex: 1 0 300px;
+    flex: 1 0 375px;
     margin: 10px;
     display: flex;
     flex-direction: column;
