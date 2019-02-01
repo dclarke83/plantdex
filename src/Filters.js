@@ -28,17 +28,67 @@ const FilterElement = styled.div`
     margin-bottom: 15px;
 `;
 
+// Returns a new object with properties for each of
+// the filter names in the source array - for use
+// in setting up the internal state for react-select
+const setupFilterState = (filters) => {
+    return filters.reduce((acc, cur) => {
+        acc[cur.name] = null;
+        return acc; 
+    }, {});
+}
+
 class Filters extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            filters: null
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch(fetchFilters());
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        // Conditionally calls setupFilterState to create the dynamic
+        // filter properties on the internal state, for use as values
+        // for the dynamically created react-select controls
+        if(prevState.filters === null && nextProps.filters.length > 0) {
+            return {
+                 filters: setupFilterState(nextProps.filters)
+            };
+        } else {
+            return prevState;
+        }
+    }
+
     handleChange = filter => selectedOptions => {
+        // Annoying code to enable react-select to store selected values
+        const filters = { [filter]: selectedOptions };
+        const newFilters = Object.assign({}, this.state.filters, filters);
+        this.setState({
+            filters: newFilters
+        });
+
+        // Proper Redux state management
         this.props.dispatch(setLoading(true));
         this.props.dispatch(updateFilter(filter, selectedOptions.map((option) => ( option.value ))));
         this.props.dispatch(setLoading(false));
     }
 
+    handleClear = () => {
+        // This is purely for react-select to appear to have nothing selected
+        this.setState({
+            filters: setupFilterState(this.props.filters)
+        });
+
+        // This does the actual work
+        this.props.dispatch(clearFilters());
+    }
+
+    // Takes the filter options (value and label)
+    // and adds a filter name property for use later
     getOptions(filter){
         return filter.options.map((option) => (
             {
@@ -46,10 +96,6 @@ class Filters extends Component {
                 filterName: filter.name
             }
         ));
-    }
-
-    handleClear = () => {
-        this.props.dispatch(clearFilters());
     }
 
     render() {
@@ -65,6 +111,7 @@ class Filters extends Component {
                                     <Select
                                         key={filter.name}
                                         name={filter.name}
+                                        value={this.state.filters[filter.name]}
                                         isClearable={true}
                                         isMulti={true}
                                         onChange={this.handleChange(filter.name)}
