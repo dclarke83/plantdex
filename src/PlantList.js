@@ -6,6 +6,7 @@ import { fetchPlants } from './redux/actions';
 import { getPlantsState, getFilteredPlants } from './redux/selectors';
 
 import Plant from './Plant';
+import Spinner from './Spinner';
 
 const StyledPlantList = styled.ul`
     list-style-type: none;
@@ -13,6 +14,12 @@ const StyledPlantList = styled.ul`
     flex-wrap: wrap;
     justify-content: center;
     flex: 1 1;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+`;
+
+const PlantListContainer = styled.div`
+    margin-bottom: 64px;
 `;
 
 class PlantList extends Component {
@@ -22,11 +29,8 @@ class PlantList extends Component {
 
     render() {
         return (
-            <div>
-
-                {this.props.loading && 
-                    <div>Loading</div>
-                }
+            <PlantListContainer>
+                <Spinner loading={this.props.loading}></Spinner>
                 {!this.props.loading &&
                     <div>
                         <StyledPlantList>
@@ -36,7 +40,7 @@ class PlantList extends Component {
                         </StyledPlantList>
                     </div>
                 }
-            </div>
+            </PlantListContainer>
         );
     }
 }
