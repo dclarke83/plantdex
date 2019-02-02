@@ -197,7 +197,6 @@ class Plant extends Component {
     }
     
     handleFlip(e) {
-        //e.preventDefault();
         this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
     }
 

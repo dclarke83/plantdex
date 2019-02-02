@@ -1,13 +1,14 @@
 import { createSelector } from 'reselect';
+import uuid from 'uuid';
 
 export const getEditingState = store => store.editing;
 
-export const getFiltersState = store => store.filters;
 export const getPlantsState = store => store.plants;
+export const getPlants = store => getPlantsState(store).plants;
 
+export const getFiltersState = store => store.filters;
 export const getFiltersVisibility = store => 
     getFiltersState(store) ? getFiltersState(store).filtersVisible : false;
-
 export const getSelectedFilters = store => store.filters.selectedFilters;
 export const getAvailableFilters = store => store.filters.filters;
 
@@ -29,12 +30,12 @@ export const getFilteredPlants = createSelector(
 
             return plants.filter(plant => {
                 return filterKeys.every(filter => {
-                    if(!plant.hasOwnProperty(filter + 'Arr')) {
+                    if(!Array.isArray(plant[filter])) {
                         // If the filter is for a plant string property
                         return filters[filter].indexOf(plant[filter].toLowerCase()) >= 0;
                     } else {
                         // If the filter is for a plant array property
-                        return filters[filter].some(r => plant[filter + 'Arr'].indexOf(r) >= 0);
+                        return filters[filter].some(r => plant[filter].indexOf(r) >= 0);
                     }
                 })
             });
@@ -63,3 +64,62 @@ export const getFilterStatus = createSelector(
         return formatted;
     }
 );
+
+export const getFiltersAsObj = createSelector(
+    [getAvailableFilters],
+    (filters) => {
+        return filters.reduce((newFilters, filter) => {
+            newFilters[filter.name] = filter;
+            return newFilters;
+        }, {});
+    }
+);
+
+export const getNewPlantInfo = createSelector(
+    [getEditingState, getAvailableFilters, getFiltersAsObj, getPlants],
+    (editing, filtersArr, filtersObj, plants) => {
+        let editingPlant = {};
+
+        if(editing.plantId) {
+            const plant = Object.assign({}, plants.find(plant => plant.id === editing.plantId));
+            const plantKeys = Object.keys(plant);
+
+            editingPlant = plantKeys.reduce((newPlant, plantKey) => {
+                if(filtersObj.hasOwnProperty(plantKey)){
+                    if(Array.isArray(plant[plantKey])) {
+                        newPlant[plantKey] = filtersObj[plantKey].options.filter(option => plant[plantKey].indexOf(option.value) >= 0);
+                    } else {
+                        newPlant[plantKey] = filtersObj[plantKey].options.filter(option => plant[plantKey] === option.value);
+                    }
+                } else {
+                    newPlant[plantKey] = plant[plantKey];
+                }
+                return newPlant;
+            }, {});
+        } else {
+            editingPlant = {
+                id: uuid(),
+                name: '',
+                commonName: '',
+                purchased: '',
+                notes: '',
+                link: '',
+                mainImage: '',
+                height: '',
+                spread: '',
+                ageToMaxHeight: '',
+                 ...filtersArr.reduce((obj, filter) => {
+                    obj[filter.name] = (filter.multi) ? [] : '';
+                    return obj;
+                }, {})
+            };
+        }
+
+        return {
+            ...editing,
+            selectFields: filtersArr,
+            plant: editingPlant
+        };
+    }
+);
+
