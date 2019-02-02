@@ -1,6 +1,7 @@
 {
     "filters": [{
             "name": "type",
+            "multi": false,
             "options": [{
                     "value": "aquatic",
                     "label": "Aquatic"
@@ -41,6 +42,7 @@
         },
         {
             "name": "foliage",
+            "multi": false,
             "options": [{
                     "value": "deciduous",
                     "label": "Deciduous"
@@ -57,6 +59,7 @@
         },
         {
             "name": "habit",
+            "multi": false,
             "options": [{
                     "value": "bushy",
                     "label": "Bushy"
@@ -93,6 +96,7 @@
         },
         {
             "name": "sunlight",
+            "multi": true,
             "options": [{
                     "value": "full sun",
                     "label": "Full Sun"
@@ -113,6 +117,7 @@
         },
         {
             "name": "hardiness",
+            "multi": false,
             "options": [{
                     "value": "h1a",
                     "label": "H1a (15C, USDA 13)"
@@ -156,6 +161,7 @@
             ]
         }, {
             "name": "exposure",
+            "multi": false,
             "options": [{
                     "value": "sheltered/exposed",
                     "label": "Sheltered / Exposed"
@@ -171,6 +177,7 @@
             ]
         }, {
             "name": "soil",
+            "multi": true,
             "options": [{
                     "value": "chalk",
                     "label": "Chalk"
@@ -194,6 +201,7 @@
             ]
         }, {
             "name": "moisture",
+            "multi": true,
             "options": [{
                     "value": "poorly drained",
                     "label": "Poorly Drained"
@@ -217,6 +225,7 @@
             ]
         }, {
             "name": "pH",
+            "multi": true,
             "options": [{
                     "value": "acid",
                     "label": "Acid"
@@ -242,20 +251,32 @@
             "purchased": "",
             "name": "Chamaecyparis pisifera 'Boulevard'",
             "commonName": "",
-            "type": "Conifer",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "conifer",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "4-8m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "20-50 years",
             "notes": "Aphids, honey fungus, phytophthora root disease",
-            "link": "https://www.rhs.org.uk/Plants/91501/i-Chamaecyparis-pisifera-i-Boulevard/Details"
+            "link": "https://www.rhs.org.uk/Plants/91501/i-Chamaecyparis-pisifera-i-Boulevard/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "0c9014be-c368-4916-a4fb-4378dce3d298",
@@ -263,20 +284,33 @@
             "purchased": "",
             "name": "Chamaecyparis obtusa 'Kosteri'",
             "commonName": "Hinoki Cypress 'Kosteri'",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "20-50 years",
             "notes": "Aphids",
-            "link": "https://www.rhs.org.uk/Plants/94843/i-Chamaecyparis-obtusa-i-Kosteri/Details"
+            "link": "https://www.rhs.org.uk/Plants/94843/i-Chamaecyparis-obtusa-i-Kosteri/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "3e3fa7d7-96ee-4a3c-9bb3-78e0d5b7b1fb",
@@ -284,20 +318,34 @@
             "purchased": "",
             "name": "Prunus incisa 'Kojo-no-mai'",
             "commonName": "Fuji Cherry",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "20-50 years",
             "notes": "Aphids, caterpillars and bullfinches. Silver leaf, honey fungus, blossom wilt and Taphrina wiesneri.",
-            "link": "https://www.rhs.org.uk/Plants/70924/i-Prunus-incisa-i-Kojo-no-mai/Details"
+            "link": "https://www.rhs.org.uk/Plants/70924/i-Prunus-incisa-i-Kojo-no-mai/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "03055a52-be66-4bd2-ac8b-1c289862d8f2",
@@ -305,20 +353,34 @@
             "purchased": "",
             "name": "Chimonanthus praecox",
             "commonName": "Wintersweet",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Winter-flowering",
-            "link": "https://www.rhs.org.uk/Plants/29215/i-Chimonanthus-praecox-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/29215/i-Chimonanthus-praecox-i/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "de3920f2-7e62-4c0d-9b86-3bd26d7cd450",
@@ -326,20 +388,32 @@
             "purchased": "",
             "name": "Ophiopogon planiscapus 'Nigrescens'",
             "commonName": "Black Mondo Grass",
-            "type": "Grass",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "grass",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "Slugs",
-            "link": "https://www.rhs.org.uk/Plants/93120/i-Ophiopogon-planiscapus-i-Nigrescens/Details"
+            "link": "https://www.rhs.org.uk/Plants/93120/i-Ophiopogon-planiscapus-i-Nigrescens/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "c32d821c-3a2c-4eff-94c8-74a170277646",
@@ -347,20 +421,33 @@
             "purchased": "",
             "name": "Iris Sibirica 'Tropic Night'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "1-2 years",
             "notes": "Slugs, aphid borne viral diseases",
-            "link": "https://www.rhs.org.uk/Plants/141706/i-Iris-i-Tropic-Night-(Sib)/Details"
+            "link": "https://www.rhs.org.uk/Plants/141706/i-Iris-i-Tropic-Night-(Sib)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "18f6fbd0-d32e-4650-a983-f0c7c3e0c75c",
@@ -368,20 +455,34 @@
             "purchased": "",
             "name": "Cotinus coggygria 'Golden Spirit'",
             "commonName": "Smoke bush",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/137770/i-Cotinus-coggygria-i-FONT-FACE-Times-New-Roman-Golden-Spirit-FONT-Ancot-sup-(PBR)-sup/Details"
+            "link": "https://www.rhs.org.uk/Plants/137770/i-Cotinus-coggygria-i-FONT-FACE-Times-New-Roman-Golden-Spirit-FONT-Ancot-sup-(PBR)-sup/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "dcd80c1d-1867-41ce-b63e-e05194755b1c",
@@ -389,20 +490,34 @@
             "purchased": "",
             "name": "Cotinus coggygria 'Royal Purple'",
             "commonName": "Smoke bush",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/97746/i-Cotinus-coggygria-i-Royal-Purple/Details"
+            "link": "https://www.rhs.org.uk/Plants/97746/i-Cotinus-coggygria-i-Royal-Purple/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "3463215a-bdd1-4cb7-85ff-fa8f2ca0ce2d",
@@ -410,20 +525,34 @@
             "purchased": "",
             "name": "Sambucus racemosa 'Sutherland Gold'",
             "commonName": "European red elder 'Sutherland Gold'",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Thrives on v. chalky sites. Blackfly / Red spider mite / Verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/63760/i-Sambucus-racemosa-i-Sutherland-Gold/Details"
+            "link": "https://www.rhs.org.uk/Plants/63760/i-Sambucus-racemosa-i-Sutherland-Gold/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "15f804f7-01cb-495d-b8ef-6e70e4c4fd92",
@@ -431,20 +560,34 @@
             "purchased": "",
             "name": "Hakonechloa macra 'Aureola'",
             "commonName": "Japanese Forest Grass",
-            "type": "Grass",
-            "foliage": "Deciduous",
-            "habit": "Tufted",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "grass",
+            "foliage": "deciduous",
+            "habit": "tufted",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/91600/i-Hakonechloa-macra-i-Aureola/Details"
+            "link": "https://www.rhs.org.uk/Plants/91600/i-Hakonechloa-macra-i-Aureola/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "d112bd0f-b21c-46c6-8d98-02530c382ba9",
@@ -452,20 +595,34 @@
             "purchased": "",
             "name": "Berberis thunbergii f. atropurpurea 'Admiration'",
             "commonName": "Japanese Barberry 'Admiration'",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Powdery mildew",
-            "link": "https://www.rhs.org.uk/Plants/226438/i-Berberis-thunbergii-i-f-i-atropurpurea-i-Admiration-sup-(PBR)-sup/Details"
+            "link": "https://www.rhs.org.uk/Plants/226438/i-Berberis-thunbergii-i-f-i-atropurpurea-i-Admiration-sup-(PBR)-sup/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "ee81acb4-7303-4c96-a2ee-96079118df6a",
@@ -473,20 +630,32 @@
             "purchased": "",
             "name": "Imperata cylindrica 'Red Baron'",
             "commonName": "Blood Grass",
-            "type": "Grass",
-            "foliage": "Deciduous",
-            "habit": "Tufted",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Clay/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "grass",
+            "foliage": "deciduous",
+            "habit": "tufted",
+            "hardiness": "unknown",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": "https://www.dobbies.com/products/plants/ornamental-grasses/imperata-cylindrica-red-baron/"
+            "link": "https://www.dobbies.com/products/plants/ornamental-grasses/imperata-cylindrica-red-baron/",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "5f081884-236b-4027-b9c2-e2f74c88a068",
@@ -494,20 +663,34 @@
             "purchased": "",
             "name": "Houttuynia cordata 'Chameleon'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Poorly-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "Spreads",
-            "link": "https://www.rhs.org.uk/Plants/90526/i-Houttuynia-cordata-i-Chameleon-(v)/Details"
+            "link": "https://www.rhs.org.uk/Plants/90526/i-Houttuynia-cordata-i-Chameleon-(v)/Details",
+            "moisture": [
+                "poorly-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "dbd8b831-7a01-4542-90ab-d783bd84ab98",
@@ -515,20 +698,34 @@
             "purchased": "",
             "name": "Sorbaria sorbifolia 'Sem'",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Suckering",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "suckering",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "Thicket-forming",
-            "link": "https://www.rhs.org.uk/Plants/217822/i-Sorbaria-sorbifolia-i-Sem-sup-(PBR)-sup/Details"
+            "link": "https://www.rhs.org.uk/Plants/217822/i-Sorbaria-sorbifolia-i-Sem-sup-(PBR)-sup/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "ae80f94e-4be7-4c1a-808b-7f7da22fd8d2",
@@ -536,20 +733,35 @@
             "purchased": "",
             "name": "Hakonechloa macra",
             "commonName": "Japanese Forest Grass",
-            "type": "Grass",
-            "foliage": "Deciduous",
-            "habit": "Tufted",
-            "sunlight": "Full Sun/Partial Shade/Full Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "grass",
+            "foliage": "deciduous",
+            "habit": "tufted",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/33668/i-Hakonechloa-macra-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/33668/i-Hakonechloa-macra-i/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "53837aa7-72b7-4210-9180-19f2d883461d",
@@ -557,20 +769,34 @@
             "purchased": "",
             "name": "Fargesia murielae 'Simba'",
             "commonName": "",
-            "type": "Grass",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade/Full Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam",
-            "moisture": "Poorly-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "grass",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "unknown",
+            "exposure": "sheltered",
             "height": "1.5-2m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "",
             "notes": "Fast growing, dwarf",
-            "link": "http://www.jacksonsnurseries.co.uk/fargesia-murielae-simba.html"
+            "link": "http://www.jacksonsnurseries.co.uk/fargesia-murielae-simba.html",
+            "moisture": [
+                "poorly-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "1654e3cc-4a49-449d-8d7c-b6e33ee3d40b",
@@ -578,20 +804,34 @@
             "purchased": "",
             "name": "Cryptomeria japonica 'Spiralis'",
             "commonName": "Grannies' Ringlets",
-            "type": "Conifer",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "conifer",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/94935/i-Cryptomeria-japonica-i-Spiralis/Details"
+            "link": "https://www.rhs.org.uk/Plants/94935/i-Cryptomeria-japonica-i-Spiralis/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "bcd67c0b-bc67-4da9-8d99-75a9ddb78b63",
@@ -599,20 +839,34 @@
             "purchased": "",
             "name": "Cryptomeria japonica 'Tilford Gold'",
             "commonName": "Japanese Cedar 'Tilford Gold'",
-            "type": "Conifer",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "conifer",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/58392/i-Cryptomeria-japonica-i-Tilford-Gold/Details"
+            "link": "https://www.rhs.org.uk/Plants/58392/i-Cryptomeria-japonica-i-Tilford-Gold/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "d95bfb66-2166-4fc3-81dc-9bd6b7840b49",
@@ -620,20 +874,34 @@
             "purchased": "",
             "name": "Juniperus x pfizeriana 'Carbery Gold'",
             "commonName": "Juniper",
-            "type": "Conifer",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "conifer",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "sheltered/exposed",
             "height": "0.5-1m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "Aphids, juniper scale insects and caterpillars",
-            "link": "https://www.rhs.org.uk/Plants/72157/i-Juniperus-i-times;-i-pfitzeriana-i-Carbery-Gold/Details"
+            "link": "https://www.rhs.org.uk/Plants/72157/i-Juniperus-i-times;-i-pfitzeriana-i-Carbery-Gold/Details",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "e79ef4c7-05f8-473d-9664-e12a6f82b977",
@@ -641,20 +909,35 @@
             "purchased": "",
             "name": "Chaenomeles speciosa 'Geisha Girl'",
             "commonName": "Japanese Quince",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Brown scale, aphids, fireblight",
-            "link": "https://www.rhs.org.uk/Plants/29024/i-Chaenomeles-speciosa-i-Geisha-Girl-(d)/Details"
+            "link": "https://www.rhs.org.uk/Plants/29024/i-Chaenomeles-speciosa-i-Geisha-Girl-(d)/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "887e1d6a-2764-42e2-a1cf-a86b300448dd",
@@ -662,20 +945,29 @@
             "purchased": "",
             "name": "Paeonia suffruticosa",
             "commonName": "Peonie",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Well-drained",
-            "pH": "Neutral",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": "https://www.rhs.org.uk/advice/profile?PID=711"
+            "link": "https://www.rhs.org.uk/advice/profile?PID=711",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "56e88ddb-c1b6-4edf-99e4-82416f991c27",
@@ -683,20 +975,30 @@
             "purchased": "",
             "name": "Pieris Japonica 'Carnaval'",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Loam/Sand",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Pieris lacebug, leaf spot and phytophthora root diseases",
-            "link": "https://www.rhs.org.uk/Plants/165971/i-Pieris-japonica-i-Carnaval-(v)/Details"
+            "link": "https://www.rhs.org.uk/Plants/165971/i-Pieris-japonica-i-Carnaval-(v)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial sun"
+            ]
         },
         {
             "id": "5f37333b-2e1c-4482-9fa6-917ff6c4aff2",
@@ -704,20 +1006,31 @@
             "purchased": "",
             "name": "Acer palmatum 'Marlo'",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Aphids, scale insects, coral spot, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/288795/i-Acer-palmatum-i-Marlo-sup-(PBR)-sup-(D)/Details"
+            "link": "https://www.rhs.org.uk/Plants/288795/i-Acer-palmatum-i-Marlo-sup-(PBR)-sup-(D)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "3efaf1ac-9933-4d16-9724-1ab1789b9f26",
@@ -725,20 +1038,32 @@
             "purchased": "",
             "name": "Acer palmatum 'Going green' ('Sonkootgre')",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "http://www.crocus.co.uk/plants/_/acer-palmatum-going-green-sonkootgre-pbr/classid.2000023636/"
+            "link": "http://www.crocus.co.uk/plants/_/acer-palmatum-going-green-sonkootgre-pbr/classid.2000023636/",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "c8d3ec61-894a-4726-a136-a36d83b0052c",
@@ -746,20 +1071,32 @@
             "purchased": "",
             "name": "Skimmia japonica subsp. Reevesiana",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "5-10 years",
             "notes": "Scale insects",
-            "link": "https://www.rhs.org.uk/Plants/90122/i-Skimmia-japonica-i-subsp-i-reevesiana-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/90122/i-Skimmia-japonica-i-subsp-i-reevesiana-i/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "717cba88-f6b4-4e5e-918f-ff0c9872ebb3",
@@ -767,20 +1104,34 @@
             "purchased": "",
             "name": "Sarcococca confusa",
             "commonName": "Sweet Box",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/16452/i-Sarcococca-confusa-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/16452/i-Sarcococca-confusa-i/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "434cf61a-f6b6-48b9-97ca-aada4638bf5c",
@@ -788,20 +1139,33 @@
             "purchased": "",
             "name": "Acer palmatum 'Orange Dream'",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/60709/i-Acer-palmatum-i-Orange-Dream-(P)/Details"
+            "link": "https://www.rhs.org.uk/Plants/60709/i-Acer-palmatum-i-Orange-Dream-(P)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "47e58693-7bd6-401d-a4e6-f1a7abb1511d",
@@ -809,20 +1173,33 @@
             "purchased": "",
             "name": "Acer palmatum 'Shaina'",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/105091/i-Acer-palmatum-i-Shaina-(P)/Details"
+            "link": "https://www.rhs.org.uk/Plants/105091/i-Acer-palmatum-i-Shaina-(P)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "da69a833-6c25-4e08-a8a6-0cc4d3f13ea7",
@@ -830,20 +1207,33 @@
             "purchased": "",
             "name": "Acer palmatum 'Dissectum'",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/293699/i-Acer-palmatum-i-Dissectum-(D)/Details"
+            "link": "https://www.rhs.org.uk/Plants/293699/i-Acer-palmatum-i-Dissectum-(D)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "c1b0940c-4a00-4e52-9237-b1ec91a467d5",
@@ -851,20 +1241,33 @@
             "purchased": "",
             "name": "Acer palmatum 'Atropurpureum'",
             "commonName": "Japanese Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/90961/i-Acer-palmatum-i-Atropurpureum-(A)/Details"
+            "link": "https://www.rhs.org.uk/Plants/90961/i-Acer-palmatum-i-Atropurpureum-(A)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "cf1749fc-c4f1-46eb-bc61-1859ad99088a",
@@ -872,20 +1275,34 @@
             "purchased": "",
             "name": "Acer shirasawanum 'Aureum'",
             "commonName": "Golden Shirasawa Maple",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "Aphids, scale insects, verticillium wilt",
-            "link": "https://www.rhs.org.uk/Plants/67192/i-Acer-shirasawanum-i-Aureum/Details"
+            "link": "https://www.rhs.org.uk/Plants/67192/i-Acer-shirasawanum-i-Aureum/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "bc7a00fa-e718-465d-9d05-b2491b1ea1eb",
@@ -893,20 +1310,33 @@
             "purchased": "Feb-18",
             "name": "Fatsia japonica 'Spider's Web'",
             "commonName": "False Castor Oil",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "White flowers followed by black berries",
-            "link": "https://www.rhs.org.uk/Plants/198563/i-Fatsia-japonica-i-Spider-s-Web-(v)/Details"
+            "link": "https://www.rhs.org.uk/Plants/198563/i-Fatsia-japonica-i-Spider-s-Web-(v)/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "51959000-35dc-4e20-8fcd-5622d5f6f747",
@@ -914,20 +1344,34 @@
             "purchased": "Feb-18",
             "name": "Aucuba japonica variegata",
             "commonName": "Japanese Laurel",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Shade/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained/Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Small purple flowers followed by red berries if male nearby",
-            "link": "https://www.rhs.org.uk/Plants/90778/i-Aucuba-japonica-i-Variegata-(f-v)/Details"
+            "link": "https://www.rhs.org.uk/Plants/90778/i-Aucuba-japonica-i-Variegata-(f-v)/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full shade",
+                "partial shade"
+            ]
         },
         {
             "id": "1cc2ed80-ec0e-4fc4-8ad4-eb1338f8fba6",
@@ -935,20 +1379,33 @@
             "purchased": "Feb-18",
             "name": "Nandina domestica",
             "commonName": "Sacred Bamboo",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "Star shaped white flower pannicles followed by red berries",
-            "link": "https://www.rhs.org.uk/Plants/11327/i-Nandina-domestica-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/11327/i-Nandina-domestica-i/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "3008717c-e66e-4fb5-9b0b-e1ceb7465f63",
@@ -956,20 +1413,34 @@
             "purchased": "Oct-17",
             "name": "Polystichum tsussimense",
             "commonName": "Korean Rock Fern",
-            "type": "Fern",
-            "foliage": "Evergreen",
-            "habit": "Tufted",
-            "sunlight": "Full Shade/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "fern",
+            "foliage": "evergreen",
+            "habit": "tufted",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/77381/i-Polystichum-tsussimense-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/77381/i-Polystichum-tsussimense-i/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full shade",
+                "partial shade"
+            ]
         },
         {
             "id": "fc8c2783-6544-4ea8-8fd9-194799561a10",
@@ -977,20 +1448,33 @@
             "purchased": "Oct-17",
             "name": "Asplenium scolopendrium",
             "commonName": "Harts Tongue Fern",
-            "type": "Fern",
-            "foliage": "Evergreen",
-            "habit": "Tufted",
-            "sunlight": "Full Shade/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Alkaline/Neutral",
+            "type": "fern",
+            "foliage": "evergreen",
+            "habit": "tufted",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/plants/details?plantid=191"
+            "link": "https://www.rhs.org.uk/plants/details?plantid=191",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full shade",
+                "partial shade"
+            ]
         },
         {
             "id": "220cddca-9e1b-4399-9726-3145b15a5404",
@@ -998,20 +1482,30 @@
             "purchased": "Feb-18",
             "name": "Heuchera 'Lime Marmalade'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Semi-evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Neutral",
+            "type": "perennial",
+            "foliage": "semi-evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "1 year",
             "notes": "Vigorous. 45cm spread, White flowers.",
-            "link": "https://www.rhs.org.uk/Plants/286096/i-Heuchera-i-Lime-Marmalade/Details"
+            "link": "https://www.rhs.org.uk/Plants/286096/i-Heuchera-i-Lime-Marmalade/Details",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "173a36f5-33a6-442c-8c46-47bdd8310ff9",
@@ -1019,20 +1513,30 @@
             "purchased": "Feb-18",
             "name": "Heucherella 'Tapestry'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Neutral",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "unknown",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "6ed6cef3-95ef-4b1c-b8f9-3a7d6d594db4",
@@ -1040,20 +1544,36 @@
             "purchased": "Mar-18",
             "name": "Dryopertis Erythorosora 'Brilliance'",
             "commonName": "Copper Shield Fern",
-            "type": "Fern",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Poorly-drained/moist but well-drained/well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "fern",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "0.5m-1m",
             "spread": "0.5m-1m",
             "ageToMaxHeight": "5-10 years",
             "notes": "Easy to grow in most cool, moist, lightly shaded sites and will grow in full sun if given plenty of moisture. Tolerant of dry shade but water regularly in their first season and mulch well",
-            "link": "https://www.rhs.org.uk/Plants/219161/Dryopteris-erythrosora-Brilliance/Details"
+            "link": "https://www.rhs.org.uk/Plants/219161/Dryopteris-erythrosora-Brilliance/Details",
+            "moisture": [
+                "poorly-drained",
+                "moist but well-drained",
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "1539eddb-8c3f-4a1f-b67b-9167ad80d179",
@@ -1061,20 +1581,33 @@
             "purchased": "Mar-18",
             "name": "Camellia x Williamsii 'Les Jury'",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/87195/i-Camellia-i-times;-i-williamsii-i-Les-Jury/Details"
+            "link": "https://www.rhs.org.uk/Plants/87195/i-Camellia-i-times;-i-williamsii-i-Les-Jury/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "0e54b067-71d3-4b23-bb37-c1d6ae1a08a5",
@@ -1082,20 +1615,33 @@
             "purchased": "Mar-18",
             "name": "Polystichum polyblepharum",
             "commonName": "Japanese Lace Fern",
-            "type": "Fern",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "fern",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/25908/i-Polystichum-polyblepharum-i/Details"
+            "link": "https://www.rhs.org.uk/Plants/25908/i-Polystichum-polyblepharum-i/Details",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "1ea3d8c4-49a7-4c7c-9999-adc8a4911f7f",
@@ -1103,20 +1649,33 @@
             "purchased": "Mar-18",
             "name": "Arachniodes aristata",
             "commonName": "Bearded Indian Holly Fern",
-            "type": "Fern",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "fern",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "0.6m",
             "spread": "0.7m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.shootgardening.co.uk/plant/arachniodes-aristata"
+            "link": "https://www.shootgardening.co.uk/plant/arachniodes-aristata",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "09a8a639-ba5f-426c-b187-71c3f8f5ba60",
@@ -1124,20 +1683,35 @@
             "purchased": "Mar-18",
             "name": "Mahonia eurybracteata subsp. Ganpinensis 'Soft Caress'",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": "https://www.rhs.org.uk/Plants/327167/i-Mahonia-eurybracteata-i-subsp-i-ganpinensis-i-Soft-Caress/Details"
+            "link": "https://www.rhs.org.uk/Plants/327167/i-Mahonia-eurybracteata-i-subsp-i-ganpinensis-i-Soft-Caress/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "8f6ead79-cbed-474f-886c-8430150f0712",
@@ -1145,20 +1719,33 @@
             "purchased": "Apr-18",
             "name": "Liquidambar styraciflua",
             "commonName": "Sweet Gum Tree",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Clay/Sand",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "12m",
             "spread": "8m",
             "ageToMaxHeight": "50 years",
             "notes": "Grow in lime-free soil in sun or partial shade. Suitable for woodlands",
-            "link": "https://www.rhs.org.uk/Plants/10334/Liquidambar-styraciflua/Details"
+            "link": "https://www.rhs.org.uk/Plants/10334/Liquidambar-styraciflua/Details",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "clay",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "9eb419c0-3101-4c12-8bab-f435c8bb510f",
@@ -1166,20 +1753,35 @@
             "purchased": "Apr-18",
             "name": "Wisteria frutescens 'Amethyst Falls'",
             "commonName": "",
-            "type": "Climber",
-            "foliage": "Semi-evergreen",
-            "habit": "Climbing",
-            "sunlight": "Full Sun/Partial shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist/but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "climber",
+            "foliage": "semi-evergreen",
+            "habit": "climbing",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "5m",
             "spread": "3m",
             "ageToMaxHeight": "?",
             "notes": "Prune in July and February every year. During the first two years, prune to create a framework of permanent stems. Tie in selected lateral shoots and cut back unwanted growth. In Autumn or Spring, apply a mulch of well-rotted manure or compost to the base of the plant.",
-            "link": "https://www.thompson-morgan.com/p/wisteria-frutescens-amethyst-falls/t74406TM?gclid=Cj0KCQjwzcbWBRDmARIsAM6uChXWEpnpYVhPopaivpZN8IVjo_g75pdywLMZa2i5WDw8FNvZ5nwrmewaAhrMEALw_wcB"
+            "link": "https://www.thompson-morgan.com/p/wisteria-frutescens-amethyst-falls/t74406TM?gclid=Cj0KCQjwzcbWBRDmARIsAM6uChXWEpnpYVhPopaivpZN8IVjo_g75pdywLMZa2i5WDw8FNvZ5nwrmewaAhrMEALw_wcB",
+            "moisture": [
+                "moist",
+                "but well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "6eb875dc-7f58-4586-ab4b-0769ada0929d",
@@ -1187,20 +1789,30 @@
             "purchased": "Apr-18",
             "name": "Acacia dealbata",
             "commonName": "Flowering Mimosa Tree",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "8-12m",
             "spread": "2.5-4",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": "https://www.bloomingdirect.com/item-p-510235/flowering-mimosa-tree"
+            "link": "https://www.bloomingdirect.com/item-p-510235/flowering-mimosa-tree",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "4b470d4a-29d9-4703-8004-9d0cba696997",
@@ -1208,20 +1820,33 @@
             "purchased": "May-18",
             "name": "Tetrapanax papyriferus 'Rex'",
             "commonName": "Chinese Rice Paper Plant",
-            "type": "Shrub",
-            "foliage": "Semi-evergreen",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "semi-evergreen",
+            "habit": "columnar / upright",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "45384eda-0b6a-4ea0-944c-08c3f125ad21",
@@ -1229,20 +1854,33 @@
             "purchased": "Apr-18",
             "name": "Trachycarpus fortunei",
             "commonName": "Chusan Palm",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Loam/Chalk/Sand",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "12m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam",
+                "chalk",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "06eabfec-78a1-471d-a8e5-c7b1872896bf",
@@ -1250,20 +1888,29 @@
             "purchased": "Apr-18",
             "name": "Chamaerops humilis",
             "commonName": "",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "26170f6b-0639-48ca-9a0f-275aa3767534",
@@ -1271,20 +1918,32 @@
             "purchased": "Apr-18",
             "name": "Alcea rosea",
             "commonName": "Hollyhock",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Chalk/Sand/Loam",
-            "moisture": "Well-drained",
-            "pH": "Neutral/Acid/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "neutral",
+                "acid",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "e2e86c23-cacc-4d4c-b436-cce78eb0e91e",
@@ -1292,20 +1951,33 @@
             "purchased": "Apr-18",
             "name": "Lonicera similis var. Delavayi",
             "commonName": "Honeysuckle",
-            "type": "Shrub",
-            "foliage": "Semi-evergreen",
-            "habit": "Climbing",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "semi-evergreen",
+            "habit": "climbing",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "4caaa423-618b-4bad-8445-4ce7b77095be",
@@ -1313,20 +1985,35 @@
             "purchased": "Apr-18",
             "name": "Canna 'Cleopatra'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam/Clay",
-            "moisture": "Moist but well-drained/Poorly-drained",
-            "pH": "Alkaline/Neutral/Acid",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained",
+                "poorly-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam",
+                "clay"
+            ],
+            "pH": [
+                "alkaline",
+                "neutral",
+                "acid"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "4354efe8-61e0-48d8-b1ce-fd8fbd20ed20",
@@ -1334,20 +2021,28 @@
             "purchased": "Apr-18",
             "name": "Fargesia robusta wolong",
             "commonName": "",
-            "type": "Grass",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H5",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Well-drained",
-            "pH": "UNKNOWN",
+            "type": "grass",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h5",
+            "exposure": "unknown",
             "height": "3m",
             "spread": "",
             "ageToMaxHeight": "4 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "0a985bbb-dcb1-4573-bc13-97e81691bd4f",
@@ -1355,20 +2050,31 @@
             "purchased": "Apr-18",
             "name": "Phyllostachys humilis",
             "commonName": "",
-            "type": "Grass",
-            "foliage": "Evergreen",
+            "type": "grass",
+            "foliage": "evergreen",
             "habit": "Running",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H7",
-            "exposure": "UNKNOWN",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Well-drained",
-            "pH": "UNKNOWN",
+            "hardiness": "h7",
+            "exposure": "unknown",
             "height": "4-5m",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "47d69e51-73b1-46f6-9916-3369ed3c0c05",
@@ -1376,20 +2082,28 @@
             "purchased": "Apr-18",
             "name": "Geum 'Borisii'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Well-drained",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "0.3m",
             "spread": "0.3m",
             "ageToMaxHeight": "",
             "notes": "Fast growing",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "629d4f79-cf17-4d21-8f8f-362230aab576",
@@ -1397,20 +2111,28 @@
             "purchased": "Apr-18",
             "name": "Passiflora UNKNOWN",
             "commonName": "Passion Flower",
-            "type": "Climber",
-            "foliage": "Semi-evergreen",
-            "habit": "Climbing",
-            "sunlight": "Full Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "UNKNOWN",
-            "pH": "UNKNOWN",
+            "type": "climber",
+            "foliage": "semi-evergreen",
+            "habit": "climbing",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "unknown"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "cd470806-c752-48f2-9c26-5b3ebe9941f6",
@@ -1418,20 +2140,28 @@
             "purchased": "May-18",
             "name": "Fuschia 'Moari Maid'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "UNKNOWN",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "unknown"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "b7988eff-97c8-4404-ba3c-866a04f653a1",
@@ -1439,20 +2169,29 @@
             "purchased": "May-18",
             "name": "Phoenix canariensis",
             "commonName": "Canary Island Date Palm",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "H2",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h2",
+            "exposure": "sheltered",
             "height": "12m",
             "spread": "8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "000ab8a2-222c-452e-8f9e-fe85a690c54d",
@@ -1460,20 +2199,31 @@
             "purchased": "Apr-18",
             "name": "Dicksonia Antarctica",
             "commonName": "Tree Fern",
-            "type": "Fern",
-            "foliage": "Deciduous",
-            "habit": "Tufted",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Loam/Sand",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "fern",
+            "foliage": "deciduous",
+            "habit": "tufted",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "a95d9fb1-f83b-4595-951e-ee1679f85679",
@@ -1481,20 +2231,30 @@
             "purchased": "May-18",
             "name": "Fargesia 'Rufa'",
             "commonName": "Fountain Bamboo",
-            "type": "Grass",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade/Full Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "UNKNOWN",
-            "pH": "UNKNOWN",
+            "type": "grass",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "2.5-3m",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "unknown"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "d92447fa-651b-4ba0-ace1-8dda03483ef5",
@@ -1502,20 +2262,34 @@
             "purchased": "May-18",
             "name": "Crocosmia 'Emberglow'",
             "commonName": "Monbretia",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Chalk/Sand/Clay",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered/exposed",
             "height": "0.5-1m",
             "spread": "0-0.1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "chalk",
+                "sand",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "3b674284-ac2a-4dd8-939c-d06d3e16aed0",
@@ -1523,20 +2297,31 @@
             "purchased": "May-18",
             "name": "Lobelia cardinalis 'Queen Victoria'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam",
-            "moisture": "Poorly drained",
-            "pH": "Neural/Alkaline/Acid",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h3",
+            "exposure": "sheltered/exposed",
             "height": "0.5-1m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "poorly drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "neural",
+                "alkaline",
+                "acid"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "0f91056f-3502-4e13-a897-034119f0b267",
@@ -1544,20 +2329,28 @@
             "purchased": "May-18",
             "name": "Picae abies 'lilliput'",
             "commonName": "Norway Spruce",
-            "type": "Spruce",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well drained",
-            "pH": "UNKNOWN",
+            "type": "spruce",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "0.25m",
             "spread": 0.25,
             "ageToMaxHeight": "10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "b4c179cc-89a9-4225-bffc-0e5cc4d3a2c4",
@@ -1565,20 +2358,35 @@
             "purchased": "May-18",
             "name": "Taxus baccata 'standishii'",
             "commonName": "Common Yew",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun/Partial Shade/Full Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "columnar / upright",
+            "hardiness": "h7",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "f01437b2-3499-449a-9ddc-09a84115c805",
@@ -1586,20 +2394,28 @@
             "purchased": "May-18",
             "name": "Acorus calamus",
             "commonName": "",
-            "type": "Reed",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Poorly drained",
-            "pH": "UNKNOWN",
+            "type": "reed",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "0.9m",
             "spread": "0.6m",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "poorly drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "b7340010-000c-44c1-8e05-965348d9adfc",
@@ -1607,20 +2423,34 @@
             "purchased": "May-18",
             "name": "Hosta 'Great Expectations'",
             "commonName": "Plantain Lily",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade/Full Sun",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Loam/Sand/Clay",
-            "moisture": "Moist/Moist but well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "0.5-0.7m",
             "spread": "0.7-1.2m",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full sun"
+            ]
         },
         {
             "id": "d7b81df7-833d-4a24-bfcd-cb7accc08045",
@@ -1628,20 +2458,30 @@
             "purchased": "May-18",
             "name": "Hosta 'Sum and Substance'",
             "commonName": "Plantain Lily",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Loam/Clay",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "loam",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "d0d01184-856e-46ee-a71a-a072ded98266",
@@ -1649,20 +2489,30 @@
             "purchased": "May-18",
             "name": "Hosta 'Halcyon'",
             "commonName": "Plantain Lily",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "0.1-0.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "68038633-15d7-4e88-a921-b794cdff9caa",
@@ -1670,20 +2520,32 @@
             "purchased": "May-18",
             "name": "Kniphofia 'John Benary'",
             "commonName": "Red-Hot Poker",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "c16c75db-474b-47b9-a3f2-c346936fe660",
@@ -1691,20 +2553,32 @@
             "purchased": "May-18",
             "name": "Matteuccia Struthiopteris",
             "commonName": "Ostrich Fern",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Suckering",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "suckering",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "774f81ac-d3cd-478e-9268-04f6bfccabd2",
@@ -1712,20 +2586,33 @@
             "purchased": "May-18",
             "name": "Rodgersia Aesculifolia Purdomii",
             "commonName": "Chestnut-Leaved Rodgersia",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam",
-            "moisture": "Poorly drained/Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "poorly drained",
+                "moist but well drained"
+            ],
+            "soil": [
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "2a9bfe35-1d38-4532-99cb-83ab5954a4b3",
@@ -1733,20 +2620,35 @@
             "purchased": "May-18",
             "name": "Hedera Colchica 'Sulphur Heart'",
             "commonName": "Ivy",
-            "type": "Climber",
-            "foliage": "Evergreen",
-            "habit": "Climbing",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained/well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "climber",
+            "foliage": "evergreen",
+            "habit": "climbing",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "4-8m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained",
+                "well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "6df0e3fb-2a4e-4abb-9f5e-828603f9cb31",
@@ -1754,20 +2656,33 @@
             "purchased": "May-18",
             "name": "Rheum x hybridium 'Timperley Early'",
             "commonName": "Rhubarb",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "0d7ad8a5-4d67-401c-900a-af1766257f3d",
@@ -1775,20 +2690,32 @@
             "purchased": "May-18",
             "name": "Musa Basjoo",
             "commonName": "Japanese Banana",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Suckering",
-            "sunlight": "Full Sun",
-            "hardiness": "H2",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "suckering",
+            "hardiness": "h2",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "ff53c888-fc91-4aeb-af19-de0ae6c33e15",
@@ -1796,20 +2723,33 @@
             "purchased": "May-18",
             "name": "Musa Lasiocarpa",
             "commonName": "Chinese Banana",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h3",
+            "exposure": "sheltered/exposed",
             "height": "2m",
             "spread": "0.75m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "3ca8bf9f-5d9a-47c3-ac46-c1726c5ebfbd",
@@ -1817,20 +2757,32 @@
             "purchased": "May-18",
             "name": "Ficus Carica",
             "commonName": "Fig",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "d88a21f5-4450-4cc1-8e8e-811b642006db",
@@ -1838,20 +2790,30 @@
             "purchased": "May-18",
             "name": "Begonia 'Garden Angel Plum'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "unknown",
+            "exposure": "sheltered",
             "height": "0.6m",
             "spread": "0.45m",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "c3851a17-d64e-4319-967c-dedb0a28af63",
@@ -1859,20 +2821,28 @@
             "purchased": "Jun-18",
             "name": "Eucalyptus Gregsoniana",
             "commonName": "Wolgon Snow Gum",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered/Exposed",
-            "soil": "UNKNOWN",
-            "moisture": "Well-drained",
-            "pH": "UNKNOWN",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "columnar / upright",
+            "hardiness": "h4",
+            "exposure": "sheltered/exposed",
             "height": "6m",
             "spread": "",
             "ageToMaxHeight": "10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "54b93ebf-553a-427e-8568-d524baf74214",
@@ -1880,20 +2850,32 @@
             "purchased": "Jun-18",
             "name": "Actaea Simplex Atropurpurea",
             "commonName": "Baneberry",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade",
-            "hardiness": "H7",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam",
-            "moisture": "Poorly-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h7",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "poorly-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "c314a3f3-129d-4006-8ccc-61a8ac9eb618",
@@ -1901,20 +2883,30 @@
             "purchased": "Jun-18",
             "name": "Dierama 'Guinevere'",
             "commonName": "Angel's fishing rod",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "b7d3688f-3e16-4360-8115-86ab90c93d7e",
@@ -1922,20 +2914,30 @@
             "purchased": "Jun-18",
             "name": "Dierama 'Blackbird'",
             "commonName": "Angel's fishing rod",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "6473f78d-4501-47bc-8bba-9daf174f4774",
@@ -1943,20 +2945,29 @@
             "purchased": "Jun-18",
             "name": "Schefflera delavayi",
             "commonName": "",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Partial Shade/Full Shade",
-            "hardiness": "H5",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well-drained",
-            "pH": "UNKNOWN",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "unknown",
             "height": "8m",
             "spread": "",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "47552e6b-7292-4028-8797-f30efc5b2390",
@@ -1964,20 +2975,28 @@
             "purchased": "Jun-18",
             "name": "Hedychium aurantiacum",
             "commonName": "Ginger",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Well-drained",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "1-2m",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "a0351258-7a97-41ec-aa1d-fbbb6cb64cc1",
@@ -1985,20 +3004,34 @@
             "purchased": "Jun-18",
             "name": "Pittosporum tobira",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Sand/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "f1605ecb-009f-4cea-948e-6fd8bc788edc",
@@ -2006,20 +3039,31 @@
             "purchased": "Jun-18",
             "name": "Primula Vialii",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "d7ee007a-8f0d-4bc3-a40b-4b8d7756cdf2",
@@ -2027,20 +3071,34 @@
             "purchased": "Jul-18",
             "name": "Prunus x incam 'Okame'",
             "commonName": "Cherry",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Sand/Clay/Chalk",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "8-12m",
             "spread": "4-8m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand",
+                "clay",
+                "chalk"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "a1b93007-d0e7-4f6c-aa36-6cfe3ad98882",
@@ -2048,20 +3106,29 @@
             "purchased": "Jul-18",
             "name": "Myriophyllum brasiliensis",
             "commonName": "Red Stemmed Parrot's Feather",
-            "type": "Aquatic",
-            "foliage": "Evergreen",
-            "habit": "Suckering",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "UNKNOWN",
-            "pH": "UNKNOWN",
+            "type": "aquatic",
+            "foliage": "evergreen",
+            "habit": "suckering",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "unknown"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "00389953-5694-44b9-9657-1cb7e5a85b60",
@@ -2069,20 +3136,28 @@
             "purchased": "Jul-18",
             "name": "Nymphea",
             "commonName": "Water Lily",
-            "type": "Aquatic",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "",
-            "hardiness": "UNKNOWN",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "UNKNOWN",
-            "pH": "UNKNOWN",
+            "type": "aquatic",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "unknown",
+            "exposure": "unknown",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "unknown"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                ""
+            ]
         },
         {
             "id": "dea191e3-8c80-4fa0-ba1d-0e3beeef9729",
@@ -2090,20 +3165,36 @@
             "purchased": "Sep-18",
             "name": "Weigela 'Florida Variegata'",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade/Full Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Clay/Chalk/Sand/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "clay",
+                "chalk",
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade",
+                "full shade"
+            ]
         },
         {
             "id": "dcf01af2-61b4-4131-9861-5553a579fbfe",
@@ -2111,20 +3202,33 @@
             "purchased": "Sep-18",
             "name": "Magnolia × soulangeana 'Rustica Rubra'",
             "commonName": "Saucer Magnolia",
-            "type": "Shrub",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "shrub",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "25f5fc9f-a819-480e-b373-76ef33170d27",
@@ -2132,20 +3236,34 @@
             "purchased": "Sep-18",
             "name": "Prunus cerasifera 'Nigra'",
             "commonName": "Black Cherry Plum",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Spreading / Branched",
-            "sunlight": "Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Sand/Clay/Chalk",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "spreading / branched",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "8-12m",
             "spread": "8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand",
+                "clay",
+                "chalk"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "400d618e-6db0-494b-9b35-b5f9011d5b22",
@@ -2153,20 +3271,33 @@
             "purchased": "Sep-18",
             "name": "Choisya ternata Sundance = 'Lich'",
             "commonName": "Mexican Orange",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "4093bbdd-01ee-4626-b82f-00a58bbef90f",
@@ -2174,20 +3305,32 @@
             "purchased": "Aug-18",
             "name": "Albizia Julibrissin 'Summer Chocolate'",
             "commonName": "Silk Tree",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "908025e5-ac95-4d92-8222-41011ccd7e5d",
@@ -2195,20 +3338,32 @@
             "purchased": "Sep-18",
             "name": "Albizia Julibrissin 'Rosea'",
             "commonName": "Pink Silk Tree",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "f043c74f-bc6b-4a86-aee3-b9bc10bd3b7f",
@@ -2216,20 +3371,34 @@
             "purchased": "Aug-18",
             "name": "Phormium 'Maori Queen'",
             "commonName": "Flax",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Loam/Sand/Chalk",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h4",
+            "exposure": "sheltered/exposed",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand",
+                "chalk"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "ce533450-d321-49b6-981c-594546ac66a4",
@@ -2237,20 +3406,31 @@
             "purchased": "Aug-18",
             "name": "Pennisetum × advena 'Fireworks'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Loam/Sand",
-            "moisture": "Well-drained",
-            "pH": "Neutral/Acid/Alkaline",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "1-2 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "neutral",
+                "acid",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "bb6dbb8f-9c83-405b-a86e-98cbc0b0710c",
@@ -2258,20 +3438,33 @@
             "purchased": "Aug-18",
             "name": "Eriobotrya japonica",
             "commonName": "Japanese Loquat",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "4-8m",
             "spread": "4-8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "5058474a-e313-47f2-9a6a-e55690b41abb",
@@ -2279,20 +3472,32 @@
             "purchased": "Aug-18",
             "name": "Pleioblastus Auricomus (aka Viridistriatus)",
             "commonName": "Kamuro-Zasa",
-            "type": "Grass",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "grass",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "585e1509-b9e2-4539-9f94-db30fe0f4386",
@@ -2300,20 +3505,32 @@
             "purchased": "Aug-18",
             "name": "Colocasia Esculenta 'Metallica'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H1B",
-            "exposure": "Sheltered",
-            "soil": "Loam/Clay/Sand",
-            "moisture": "Poorly-drained/moist but well-drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h1b",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "poorly-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "clay",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "e898f645-5be2-49b3-a56a-d4408e511872",
@@ -2321,20 +3538,33 @@
             "purchased": "Aug-18",
             "name": "Campsis x tagliabuana 'Madame Galen'",
             "commonName": "Trumpet Creeper",
-            "type": "Climber",
-            "foliage": "Deciduous",
-            "habit": "Climbing",
-            "sunlight": "Full Sun",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "climber",
+            "foliage": "deciduous",
+            "habit": "climbing",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "8-12m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "acfb6f8b-18f4-4505-94ca-b499559c8175",
@@ -2342,20 +3572,33 @@
             "purchased": "Aug-18",
             "name": "Melianthus major",
             "commonName": "Honey Bush",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam/Chalk/Clay",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "loam",
+                "chalk",
+                "clay"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "4aa503f1-bdd8-47f8-bef4-3aac16861d82",
@@ -2363,20 +3606,29 @@
             "purchased": "Aug-18",
             "name": "Cycas revoluta",
             "commonName": "Japanese Sago Palm",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Tufted",
-            "sunlight": "Partial Shade",
-            "hardiness": "H2",
-            "exposure": "Sheltered",
-            "soil": "Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "tufted",
+            "hardiness": "h2",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "c54b72c9-870f-4006-8af8-a19da3636bb4",
@@ -2384,20 +3636,32 @@
             "purchased": "Aug-18",
             "name": "Ensete ventricosum 'Maurelii'",
             "commonName": "Ethiopean Black Banana",
-            "type": "Perennial",
-            "foliage": "Evergreen",
-            "habit": "Tufted",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H2",
-            "exposure": "Sheltered",
-            "soil": "Loam/Sand",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "perennial",
+            "foliage": "evergreen",
+            "habit": "tufted",
+            "hardiness": "h2",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "2.5-4m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "805d1644-53d3-4ab5-bcbc-c70e82c9f56b",
@@ -2405,20 +3669,28 @@
             "purchased": "Aug-18",
             "name": "Zantedeschia 'Hercules'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Semi-evergreen",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well drained",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "semi-evergreen",
+            "habit": "clump-forming",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "1.25-1.5m",
             "spread": "1.25-1.5m",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "8465fc3f-f759-4671-9e71-71197e7f6e60",
@@ -2426,20 +3698,33 @@
             "purchased": "Aug-18",
             "name": "Catalpa bignonoides 'Aurea'",
             "commonName": "Golden Indian Bean Tree",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Spreading / Branched",
-            "sunlight": "Full Sun",
-            "hardiness": "H6",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "spreading / branched",
+            "hardiness": "h6",
+            "exposure": "sheltered",
             "height": "8-12m",
             "spread": "8m",
             "ageToMaxHeight": "20-50 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "d7ad17f7-f0b3-4b47-ab4c-78bb330d1c5d",
@@ -2447,20 +3732,33 @@
             "purchased": "Aug-18",
             "name": "Cercis canadensis 'Ruby Falls'",
             "commonName": "",
-            "type": "Tree",
-            "foliage": "Deciduous",
-            "habit": "Pendulous/Weeping",
-            "sunlight": "Full Sun",
-            "hardiness": "H5",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Well-drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "tree",
+            "foliage": "deciduous",
+            "habit": "pendulous/weeping",
+            "hardiness": "h5",
+            "exposure": "sheltered/exposed",
             "height": "1.5-2.5m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "c76a1939-ab03-4a4d-983b-0b33f01091be",
@@ -2468,20 +3766,33 @@
             "purchased": "Sep-18",
             "name": "Nerium Oleander 'Salmon'",
             "commonName": "Oleander Bush",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "10-20 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "eb3f8da7-a04f-4fcf-862b-9fd4d3a0edec",
@@ -2489,20 +3800,28 @@
             "purchased": "Sep-18",
             "name": "Rheum × hybridum 'Victoria'",
             "commonName": "Rhubarb",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Full Sun",
-            "hardiness": "H6",
-            "exposure": "UNKNOWN",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well drained",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h6",
+            "exposure": "unknown",
             "height": "0.6m",
             "spread": "1.2m",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "91bf8f4c-0677-4e2c-852a-4947ae931313",
@@ -2510,20 +3829,34 @@
             "purchased": "Sep-18",
             "name": "Adiantum Pedatum",
             "commonName": "Five-Fingered Maidenhair Fern",
-            "type": "Fern",
-            "foliage": "Deciduous",
-            "habit": "Bushy",
-            "sunlight": "Full Shade/Partial Shade",
-            "hardiness": "H6",
-            "exposure": "Sheltered/Exposed",
-            "soil": "Sand/Clay/Chalk/Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "fern",
+            "foliage": "deciduous",
+            "habit": "bushy",
+            "hardiness": "h6",
+            "exposure": "sheltered/exposed",
             "height": "0.1-0.5m",
             "spread": "0.1-0.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full shade",
+                "partial shade"
+            ]
         },
         {
             "id": "02ba9556-2359-4607-8c73-65bff45b1491",
@@ -2531,20 +3864,29 @@
             "purchased": "Sep-18",
             "name": "Coleonema 'Sunset Gold' (Diosma 'Golden sunset')",
             "commonName": "Confetti Bush",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "Sand/Loam",
-            "moisture": "Well drained",
-            "pH": "Acid",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "1-1.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well drained"
+            ],
+            "soil": [
+                "sand",
+                "loam"
+            ],
+            "pH": [
+                "acid"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "f6f6416b-d265-4c06-bd5e-71704c4e1c12",
@@ -2552,20 +3894,34 @@
             "purchased": "Sep-18",
             "name": "Loropetalum chinense",
             "commonName": "Chinese Witch Hazel",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well drained/moist but well drained",
-            "pH": "Acid/Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well drained",
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "e9efc42b-dfc1-4ae3-b682-2866d621b13c",
@@ -2573,20 +3929,31 @@
             "purchased": "Sep-18",
             "name": "Leonotis Leonurus",
             "commonName": "Lion's Tail",
-            "type": "Shrub",
-            "foliage": "Semi-evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun",
-            "hardiness": "H2",
-            "exposure": "Sheltered",
-            "soil": "Sand/Chalk/Loam",
-            "moisture": "Well drained",
-            "pH": "Alkaline/Neutral",
+            "type": "shrub",
+            "foliage": "semi-evergreen",
+            "habit": "bushy",
+            "hardiness": "h2",
+            "exposure": "sheltered",
             "height": "1.5-2.5m",
             "spread": "1-1.5m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well drained"
+            ],
+            "soil": [
+                "sand",
+                "chalk",
+                "loam"
+            ],
+            "pH": [
+                "alkaline",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun"
+            ]
         },
         {
             "id": "2bcc1a95-4bdc-47e5-ada0-33934eabce6d",
@@ -2594,20 +3961,32 @@
             "purchased": "Sep-18",
             "name": "Zingiber Mioga",
             "commonName": "Japanese Ginger",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Columnar / Upright",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Sand/Clay/Loam",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "columnar / upright",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "0.5-1m",
             "spread": "0.5-1m",
             "ageToMaxHeight": "2-5 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "sand",
+                "clay",
+                "loam"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "3ef7cbd7-6f60-462d-9365-2f5a30423e20",
@@ -2615,20 +3994,28 @@
             "purchased": "Sep-18",
             "name": "Colocasia Esculenta 'Pink China'",
             "commonName": "",
-            "type": "Perennial",
-            "foliage": "Deciduous",
-            "habit": "Clump-forming",
-            "sunlight": "Partial Shade",
-            "hardiness": "H3",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Moist",
-            "pH": "UNKNOWN",
+            "type": "perennial",
+            "foliage": "deciduous",
+            "habit": "clump-forming",
+            "hardiness": "h3",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "Frost-hardy if well-mulched",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "partial shade"
+            ]
         },
         {
             "id": "62d5d093-63e3-4a73-a030-891197adf360",
@@ -2636,20 +4023,33 @@
             "purchased": "Sep-18",
             "name": "Chamaedorea radicalis",
             "commonName": "Hardy Parlour Palm",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Shade/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Chalk/Clay/Loam/Sand",
-            "moisture": "Moist but well drained",
-            "pH": "Acid/Neutral",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "0.9-1.2m",
             "spread": "0.9-1.2m",
             "ageToMaxHeight": "5-10 years",
             "notes": "A cold hardy palm species originating from altitude in Mexico.\nThis attractive plant develops deep green and tough pinnate leaves, and reliably flowers when mature. Very much an understory palm, Chamaedorea radicalis requires a shaded spot to thrive, where it can be deceptively tough and tolerate lows down to -6 to -8. Plant in any good quality humus rich soil.",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well drained"
+            ],
+            "soil": [
+                "chalk",
+                "clay",
+                "loam",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral"
+            ],
+            "sunlight": [
+                "full shade",
+                "partial shade"
+            ]
         },
         {
             "id": "5888b3cd-2e8d-4f78-9d6e-bd8df598650e",
@@ -2657,20 +4057,33 @@
             "purchased": "Sep-18",
             "name": "Trachycarpus fortunei x nanus",
             "commonName": "",
-            "type": "Tree",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H5",
-            "exposure": "Sheltered",
-            "soil": "Loam/Chalk/Sand",
-            "moisture": "Well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "tree",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h5",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "One for the collector! This is an unusual cross between Trachycarpus fortunei and the rarely encountered Trachycarpus nanus. Both palm species are hardy in the UK, and the cross will undoubtedly produce a most interesting and hardy palm.",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained"
+            ],
+            "soil": [
+                "loam",
+                "chalk",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "a8e57867-befb-4615-b1c1-b19a4a81ab2b",
@@ -2678,20 +4091,29 @@
             "purchased": "Jan-19",
             "name": "Schefflera gracilis",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well-drained",
-            "pH": "UNKNOWN",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "0aaf45de-16e2-43cd-8b26-b1f311253887",
@@ -2699,20 +4121,29 @@
             "purchased": "Jan-19",
             "name": "Schefflera rhododendrifolia",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "UNKNOWN",
-            "moisture": "Moist but well-drained",
-            "pH": "UNKNOWN",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "",
             "spread": "",
             "ageToMaxHeight": "",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "moist but well-drained"
+            ],
+            "soil": [
+                "unknown"
+            ],
+            "pH": [
+                "unknown"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         },
         {
             "id": "03bb2432-6a8f-4dc3-a479-33ddbb033a3c",
@@ -2720,20 +4151,34 @@
             "purchased": "Jan-19",
             "name": "Schefflera Taiwaniana",
             "commonName": "",
-            "type": "Shrub",
-            "foliage": "Evergreen",
-            "habit": "Bushy",
-            "sunlight": "Full Sun/Partial Shade",
-            "hardiness": "H4",
-            "exposure": "Sheltered",
-            "soil": "Loam/Chalk/Sand",
-            "moisture": "Well-drained/moist but well-drained",
-            "pH": "Acid/Neutral/Alkaline",
+            "type": "shrub",
+            "foliage": "evergreen",
+            "habit": "bushy",
+            "hardiness": "h4",
+            "exposure": "sheltered",
             "height": "2.5-4m",
             "spread": "1.5-2.5m",
             "ageToMaxHeight": "5-10 years",
             "notes": "",
-            "link": ""
+            "link": "",
+            "moisture": [
+                "well-drained",
+                "moist but well-drained"
+            ],
+            "soil": [
+                "loam",
+                "chalk",
+                "sand"
+            ],
+            "pH": [
+                "acid",
+                "neutral",
+                "alkaline"
+            ],
+            "sunlight": [
+                "full sun",
+                "partial shade"
+            ]
         }
     ]
 }
