@@ -14,7 +14,8 @@ const styles = {
         zIndex: 9999
     },
     content: {
-        bottom: '100px',
+        // bottom: '100px',
+        bottom: 'auto',
         padding: 0,
         borderRadius: '6px',
         boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.14)',
@@ -116,6 +117,74 @@ const formatBg = (path) => {
     return output;
 } 
 
+const buttonArea = {
+    padding: '10px 4px 4px 4px',
+    borderTop: '1px solid #bababa',
+    marginTop: '15px'
+};
+
+const StyledButton = (props) => {
+    const Button = styled.button`
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 4px 8px;
+        min-width: 64px;
+        line-height: 1.75;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border: 1px solid #cacaca;
+        border-radius: 4px;
+        position: relative;
+        user-select: none;
+        vertical-align: middle;
+        display: inline-flex;
+        outline: none;
+        align-items: center;
+        background-color: transparent;
+        cursor: pointer;
+        color: #4caf50;
+        font-family: 'Roboto';
+        letter-spacing: 0.02857em;
+
+        &:hover {
+            background-color: rgba(76, 175, 80, 0.2);
+            text-decoration:none;
+        }
+    `;
+
+    const spacer = {
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        zIndex: 0,
+        position: 'absolute',
+        overflow: 'hidden',
+        borderRadius: 'inherit',
+        pointerEvents: 'none',
+    };
+
+    const content = {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+
+    return (
+        <Button type={props.type} onClick={props.onClick}>
+            <span style={content}>
+                {props.text}
+            </span>
+            <span style={spacer}></span>
+        </Button>
+    );
+}
+
 class NewPlant extends Component {
     constructor(props){
         super(props);
@@ -204,8 +273,10 @@ class NewPlant extends Component {
                                 <textarea rows='4' name='notes' placeholder='Notes' value={this.state.notes} onChange={this.handleChange('notes')}></textarea>
                             </FormField>
                         </FormArea>
-                        <button type='submit'>Save</button>
-                        <button onClick={this.handleClose}>Close</button>
+                        <FormArea style={buttonArea}>
+                            <StyledButton type='submit' text='Save' />
+                            <StyledButton type='button' text='Close' onClick={this.handleClose} />
+                        </FormArea>
                     </form>
 
                 </Modal>
