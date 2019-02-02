@@ -1,3 +1,4 @@
+import { post, put } from '../helpers/ajax';
 import { 
     TOGGLE_FILTERS, 
     UPDATE_FILTER,
@@ -13,7 +14,11 @@ import {
     OPEN_NEW_PLANT,
     OPEN_EXISTING_PLANT,
     CLOSE_PLANT,
+    SAVE_PLANT_SUCCESS,
+    SAVE_PLANT_ERROR,
 } from './actionTypes';
+
+const apiUrl = 'http://localhost:8080/';
 
 // FILTERS
 
@@ -57,7 +62,7 @@ export const errorFilters = (error) => ({
 export const fetchFilters = () => {
     return (dispatch) => {
         dispatch(requestFilters())
-        return fetch('http://localhost:8080/filters')
+        return fetch(apiUrl + 'filters')
             .then(response => response.json())
             .then((json) => {
                 const filters = json || [];
@@ -99,7 +104,7 @@ export const errorPlants = (error) => ({
 export const fetchPlants = () => {
     return (dispatch) => {
         dispatch(requestPlants())
-        return fetch('http://localhost:8080/plants')
+        return fetch(apiUrl + 'plants')
             .then(response => response.json())
             .then((json) => {
                 dispatch(receivePlants(json));
@@ -133,3 +138,85 @@ export const closePlant = () => ({
     type: CLOSE_PLANT,
     payload: {}
 });
+
+const plantStatus = (plant) => {
+    return (plant.isNew) ? post(apiUrl + 'plants', transformPlantForSaving(plant)) : put(apiUrl + 'plants/' + plant.id, transformPlantForSaving(plant));
+}
+
+export const savePlant = (plant) => {
+    return (dispatch) => {
+        return plantStatus(plant)
+            .then((json) => {
+                console.log(json);
+                dispatch(savePlantSuccess(json, plant.isNew));
+            },
+            (error) => {
+                console.log(error);
+                dispatch(savePlantError(error));
+            })
+    }
+};
+
+export const savePlantSuccess = (response, isNew) => ({
+    type: SAVE_PLANT_SUCCESS,
+    payload: {
+        response: response,
+        isNew: isNew
+    }
+});
+
+export const savePlantError = (error) => ({
+    type: SAVE_PLANT_ERROR,
+    payload: {
+        error: error
+    }
+});
+
+const transformPlantForSaving = (plant) => {
+    const STRING = 'STRING';
+    const SINGLE = 'SINGLE';
+    const MULTI = 'MULTI';
+
+    const schema = {
+        name: STRING,
+        commonName: STRING,
+        mainImage: STRING,
+        url: STRING,
+        purchased: STRING,
+        notes: STRING,
+        height: STRING,
+        spread: STRING,
+        ageToMaxHeight: STRING,
+
+        exposure: SINGLE,
+        foliage: SINGLE,
+        habit: SINGLE,
+        hardiness: SINGLE,
+        type: SINGLE,
+
+        moisture: MULTI,
+        pH: MULTI,
+        soil: MULTI,
+        sunlight: MULTI
+    };
+
+    const schemaKeys = Object.keys(schema);
+
+    return schemaKeys.reduce((newPlant, key) => {
+        switch (schema[key]) {
+            case SINGLE: {
+                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key][0].value : '';
+                break;
+            }
+            case MULTI: {
+                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key].map(option => { return option.value; }) : [];
+                break;
+            }
+            case STRING:
+            default: {
+                newPlant[key] = (plant[key]) ? plant[key] : '';
+            }
+        }
+        return newPlant;
+    }, {});
+}

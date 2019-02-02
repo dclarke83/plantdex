@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 import Select from 'react-select';
-import { closePlant } from './redux/actions';
+import { closePlant, savePlant } from './redux/actions';
 import { getNewPlantInfo } from './redux/selectors';
 
 Modal.setAppElement('#root');
@@ -49,7 +49,7 @@ const FormField = styled.label`
 `;
 
 const SelectField = styled.label`
-    flex: 0 1 32%;
+    flex: 0 1 49%;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -142,7 +142,7 @@ class NewPlant extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state);
+        this.props.dispatch(savePlant(this.state));
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -169,7 +169,9 @@ class NewPlant extends Component {
                                 <Title>{
                                     (this.state.name) ? this.state.name : 'New Plant'
                                 }</Title>
-                                <SubTitle></SubTitle>
+                                <SubTitle>
+                                    {this.state.commonName}
+                                </SubTitle>
                             </CardTitleContent>
                         </ImageArea>
                         <FormArea>

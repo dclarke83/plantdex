@@ -96,8 +96,11 @@ export const getNewPlantInfo = createSelector(
                 }
                 return newPlant;
             }, {});
+            
+            editingPlant.isNew = false;
         } else {
             editingPlant = {
+                isNew: true,
                 id: uuid(),
                 name: '',
                 commonName: '',
