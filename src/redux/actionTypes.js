@@ -15,4 +15,5 @@ export const ERROR_PLANTS = 'ERROR_PLANTS';
 export const SET_SEARCH = 'SET_SEARCH';
 
 export const OPEN_NEW_PLANT = 'OPEN_NEW_PLANT';
-export const CLOSE_NEW_PLANT = 'CLOSE_NEW_PLANT';
+export const OPEN_EXISTING_PLANT = 'OPEN_EXISTING_PLANT';
+export const CLOSE_PLANT = 'CLOSE_PLANT';

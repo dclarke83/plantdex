@@ -11,7 +11,8 @@ import {
     SET_LOADING,
     CLEAR_FILTERS,
     OPEN_NEW_PLANT,
-    CLOSE_NEW_PLANT,
+    OPEN_EXISTING_PLANT,
+    CLOSE_PLANT,
 } from './actionTypes';
 
 // FILTERS
@@ -69,27 +70,6 @@ export const fetchFilters = () => {
 };
 
 // PLANTS
-
-const formatPlant = (plant) => {
-    const fieldsToSplit = [
-        'exposure',
-        'moisture',
-        'soil',
-        'pH',
-        'sunlight'
-    ];
-
-    let newPlant = {
-        ...plant
-    };
-
-    fieldsToSplit.map((field) => (
-        newPlant[field + 'Arr'] = plant[field].toLowerCase().split('/')
-    ));
-
-    return newPlant;
-}
-
 export const setLoading = (loadingState) => ({
     type: SET_LOADING,
     payload: {
@@ -122,8 +102,7 @@ export const fetchPlants = () => {
         return fetch('http://localhost:8080/plants')
             .then(response => response.json())
             .then((json) => {
-                const formattedPlants = json.map((plant) => (formatPlant(plant)));
-                dispatch(receivePlants(formattedPlants));
+                dispatch(receivePlants(json));
             },
             (error) => {
                 dispatch(errorPlants(error));
@@ -143,7 +122,14 @@ export const openNewPlant = () => ({
     payload: {}
 });
 
-export const closeNewPlant = () => ({
-    type: CLOSE_NEW_PLANT,
+export const openExistingPlant = (id) => ({
+    type: OPEN_EXISTING_PLANT,
+    payload: {
+        id: id
+    }
+});
+
+export const closePlant = () => ({
+    type: CLOSE_PLANT,
     payload: {}
 });
