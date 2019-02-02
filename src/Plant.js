@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { openExistingPlant } from './redux/actions';
 
 const Card = styled.div`
     width: 100%;
@@ -191,11 +193,16 @@ class Plant extends Component {
             isFlipped: false,
         };
         this.handleFlip = this.handleFlip.bind(this);
+        this.handleEditClick = this.handleEditClick.bind(this);
     }
     
     handleFlip(e) {
-        e.preventDefault();
+        //e.preventDefault();
         this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
+    }
+
+    handleEditClick(e) {
+        this.props.dispatch(openExistingPlant(this.props.plant.id));
     }
 
     render() {
@@ -253,7 +260,7 @@ class Plant extends Component {
                     </CardContent>
                     <CardFooter>
                         <CardButton text='Notes' onClick={this.handleFlip}></CardButton>
-                        <CardButton text='Edit'></CardButton>
+                        <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
                     </CardFooter>
                 </Card>
                 <Card style={back}>
@@ -275,7 +282,7 @@ class Plant extends Component {
                     </CardContent>
                     <CardFooter>
                         <CardButton text='Details' onClick={this.handleFlip}></CardButton>
-                        <CardButton text='Edit'></CardButton>
+                        <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
                     </CardFooter>
                 </Card>
             </StyledPlant>
@@ -283,4 +290,4 @@ class Plant extends Component {
     }
 }
 
-export default Plant;
+export default connect()(Plant);
