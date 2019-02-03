@@ -5,5 +5,14 @@ jobs:
       - image: circleci/node:latest-browsers
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            # Fallback to using the latest cache
+            - v1-dependencies-
       - run: npm install
-      - run: node node_modules\eslint\bin\eslint -c node_modules\eslint-config-react-app\index.js src
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+      - run: node node_modules/eslint/bin/eslint -c node_modules/eslint-config-react-app/index.js src
