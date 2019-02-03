@@ -1,4 +1,4 @@
-import { post, put } from '../helpers/ajax';
+import { post, put, remove } from '../helpers/ajax';
 import { 
     TOGGLE_FILTERS, 
     UPDATE_FILTER,
@@ -16,6 +16,8 @@ import {
     CLOSE_PLANT,
     SAVE_PLANT_SUCCESS,
     SAVE_PLANT_ERROR,
+    DELETE_PLANT_SUCCESS,
+    DELETE_PLANT_ERROR,
 } from './actionTypes';
 
 const apiUrl = 'http://localhost:8080/';
@@ -147,11 +149,9 @@ export const savePlant = (plant) => {
     return (dispatch) => {
         return plantStatus(plant)
             .then((json) => {
-                console.log(json);
                 dispatch(savePlantSuccess(json, plant.isNew));
             },
             (error) => {
-                console.log(error);
                 dispatch(savePlantError(error));
             })
     }
@@ -220,3 +220,29 @@ const transformPlantForSaving = (plant) => {
         return newPlant;
     }, {});
 }
+
+export const deletePlant = (id) => {
+    return (dispatch) => {
+        remove(apiUrl + 'plants/' + id)
+        .then((json) => {
+            dispatch(deletePlantSuccess(id));
+        },
+        (error) => {
+            dispatch(deletePlantError(error));
+        })
+    }
+}
+
+export const deletePlantSuccess = (id) => ({
+    type: DELETE_PLANT_SUCCESS,
+    payload: {
+        id: id
+    }
+});
+
+export const deletePlantError = (error) => ({
+    type: DELETE_PLANT_ERROR,
+    payload: {
+        error: error
+    }
+});

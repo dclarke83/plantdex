@@ -5,6 +5,7 @@ import {
     SET_SEARCH,
     SET_LOADING,
     SAVE_PLANT_SUCCESS,
+    DELETE_PLANT_SUCCESS,
 
 } from '../actionTypes';
 
@@ -66,6 +67,12 @@ export default function(state = initialState, action) {
                 ...state,
                 plants: plants
             };
+        }
+        case DELETE_PLANT_SUCCESS: {
+            return {
+                ...state,
+                plants: state.plants.filter(plant => plant.id !== action.payload.id)
+            }
         }
         default:
             return state;

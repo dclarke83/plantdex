@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { openExistingPlant } from './redux/actions';
+import { openExistingPlant, deletePlant } from './redux/actions';
 
 const Card = styled.div`
     width: 100%;
@@ -127,6 +127,9 @@ const StyledCardButton = styled.button`
     font-family: 'Roboto';
     letter-spacing: 0.02857em;
 
+    position: ${props => (props.right) ? 'absolute' : 'relative' };
+    right: ${props => (props.right) ? '0' : 'auto' };
+
     &:hover {
         background-color: rgba(76, 175, 80, 0.08);
         text-decoration:none;
@@ -160,7 +163,7 @@ const CardButton = (props) => {
     }
 
     return (
-        <StyledCardButton type='button' onClick={props.onClick}>
+        <StyledCardButton right={props.right} type='button' onClick={props.onClick}>
             <span style={content}>
                 {props.text}
             </span>
@@ -168,6 +171,7 @@ const CardButton = (props) => {
         </StyledCardButton>
     );
 }
+
 
 const StyledProperty = (props) => {
     return (
@@ -194,6 +198,7 @@ class Plant extends Component {
         };
         this.handleFlip = this.handleFlip.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     
     handleFlip(e) {
@@ -202,6 +207,10 @@ class Plant extends Component {
 
     handleEditClick(e) {
         this.props.dispatch(openExistingPlant(this.props.plant.id));
+    }
+
+    handleDelete(e) {
+        this.props.dispatch(deletePlant(this.props.plant.id));
     }
 
     render() {
@@ -260,6 +269,7 @@ class Plant extends Component {
                     <CardFooter>
                         <CardButton text='Notes' onClick={this.handleFlip}></CardButton>
                         <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
+                        <CardButton right={true} onClick={this.handleDelete} text='Delete'></CardButton>
                     </CardFooter>
                 </Card>
                 <Card style={back}>
@@ -282,6 +292,7 @@ class Plant extends Component {
                     <CardFooter>
                         <CardButton text='Details' onClick={this.handleFlip}></CardButton>
                         <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
+                        <CardButton right={true} onClick={this.handleDelete} text='Delete'></CardButton>
                     </CardFooter>
                 </Card>
             </StyledPlant>
