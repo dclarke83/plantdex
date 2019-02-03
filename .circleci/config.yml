@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  ci:
     docker:
       - image: circleci/node:latest-browsers
     steps:
