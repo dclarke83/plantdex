@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { openExistingPlant, deletePlant } from './redux/actions';
+import { getFiltersAsObj } from './redux/selectors';
 
 const Card = styled.div`
     width: 100%;
@@ -213,6 +214,23 @@ class Plant extends Component {
         this.props.dispatch(deletePlant(this.props.plant.id));
     }
 
+    lookupValueLabels(name, value) {
+        let result = '';
+        if (this.props.filters && value) {
+            if(this.props.filters[name].multi && value.length > 0) {
+                result = value.reduce((acc, cur, i) => {
+                    const label = this.props.filters[name].options.find(option => option.value === cur);
+                    acc += ((i > 0) ? ' / ' : '') + ((label) ? label.label : '');
+                    return acc;
+                }, '');
+            } else {
+                const label = this.props.filters[name].options.find(option => option.value === value);
+                result = (label) ? label.label : '';
+            }
+        }
+        return result;
+    }
+
     render() {
         const front = {
             WebkitBackfaceVisibility: 'hidden',
@@ -255,13 +273,13 @@ class Plant extends Component {
                     </CardTitleHolder>
                     <CardContent className='cardContent'>
                         <PropertyBox className='propertyBox'>
-                            <StyledProperty name='Foliage' value={this.props.plant.foliage}></StyledProperty>
-                            <StyledProperty name='Exposure' value={this.props.plant.exposure}></StyledProperty>
-                            <StyledProperty name='Soil' value={this.props.plant.soil}></StyledProperty>
-                            <StyledProperty name='pH' value={this.props.plant.pH}></StyledProperty>
-                            <StyledProperty name='Sunlight' value={this.props.plant.sunlight}></StyledProperty>
-                            <StyledProperty name='Moisture' value={this.props.plant.moisture}></StyledProperty>
-                            <StyledProperty name='Hardiness' value={this.props.plant.hardiness}></StyledProperty>
+                            <StyledProperty name='Foliage' value={this.lookupValueLabels('foliage', this.props.plant.foliage)}></StyledProperty>
+                            <StyledProperty name='Exposure' value={this.lookupValueLabels('exposure', this.props.plant.exposure)}></StyledProperty>
+                            <StyledProperty name='Soil' value={this.lookupValueLabels('soil', this.props.plant.soil)}></StyledProperty>
+                            <StyledProperty name='pH' value={this.lookupValueLabels('pH', this.props.plant.pH)}></StyledProperty>
+                            <StyledProperty name='Sunlight' value={this.lookupValueLabels('sunlight', this.props.plant.sunlight)}></StyledProperty>
+                            <StyledProperty name='Moisture' value={this.lookupValueLabels('moisture', this.props.plant.moisture)}></StyledProperty>
+                            <StyledProperty name='Hardiness' value={this.lookupValueLabels('hardiness', this.props.plant.hardiness)}></StyledProperty>
                             <StyledProperty name='Purchased' value={this.props.plant.purchased}></StyledProperty>
                             <StyledProperty name='Height' value={this.props.plant.height + ' (' + this.props.plant.ageToMaxHeight + ')'}></StyledProperty>
                         </PropertyBox>
@@ -300,4 +318,8 @@ class Plant extends Component {
     }
 }
 
-export default connect()(Plant);
+const mapStateToProps = (state) => ({
+    filters: getFiltersAsObj(state)
+});
+
+export default connect(mapStateToProps)(Plant);
