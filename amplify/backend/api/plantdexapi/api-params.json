@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/plants",
+            "lambdaFunction": "plantdexplants",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        }
+    ],
+    "resourceName": "plantdexapi",
+    "apiName": "plantdexe6cf8a85",
+    "functionArns": [
+        {
+            "lambdaFunction": "plantdexplants"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "plantdex-20190203180011-authRole",
+        "unAuthRoleName": "plantdex-20190203180011-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "plantdexplants",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

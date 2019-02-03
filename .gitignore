@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+# backend dependencies and builds
+amplify/**/function/**/src/node_modules
+amplify/**/function/**/dist
+amplify/#current-cloud-backend
+
 # testing
 /coverage
 
@@ -22,3 +27,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 src/config.js
+amplify/backend/amplify-meta.json
+amplify/backend/auth/cognitob2d14dae/parameters.json

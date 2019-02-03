@@ -8,7 +8,21 @@ const awsmobile = {
     "aws_user_pools_web_client_id": "1gc7fes27srt28gne05ii0q8ch",
     "aws_content_delivery_bucket": "plantdex-dev",
     "aws_content_delivery_bucket_region": "eu-west-1",
-    "aws_content_delivery_url": "http://plantdex-dev.s3-website-eu-west-1.amazonaws.com"
+    "aws_content_delivery_url": "http://plantdex-dev.s3-website-eu-west-1.amazonaws.com",
+    "aws_dynamodb_all_tables_region": "eu-west-1",
+    "aws_dynamodb_table_schemas": [
+        {
+            "tableName": "plantdex-plants",
+            "region": "eu-west-1"
+        }
+    ],
+    "aws_cloud_logic_custom": [
+        {
+            "name": "plantdexapi",
+            "endpoint": "https://ouippa57p5.execute-api.eu-west-1.amazonaws.com/Prod",
+            "region": "eu-west-1"
+        }
+    ]
 };
 
 

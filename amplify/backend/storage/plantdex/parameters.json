@@ -1,0 +1,5 @@
+{
+    "tableName": "plantdex-plants",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}

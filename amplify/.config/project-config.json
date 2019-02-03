@@ -1,0 +1,20 @@
+{
+    "projectName": "plantdex",
+    "projectPath": "D:\\dev\\plantdex",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "C:\\Users\\danie\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm.cmd run-script build",
+            "StartCommand": "npm.cmd run-script start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "C:\\Users\\danie\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
+    }
+}

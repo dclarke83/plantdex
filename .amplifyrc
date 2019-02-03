@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "plantdex-20190203180011-authRole",
+            "UnauthRoleArn": "arn:aws:iam::331346657191:role/plantdex-20190203180011-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::331346657191:role/plantdex-20190203180011-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "plantdex-20190203180011-deployment",
+            "UnauthRoleName": "plantdex-20190203180011-unauthRole",
+            "StackName": "plantdex-20190203180011",
+            "StackId": "arn:aws:cloudformation:eu-west-1:331346657191:stack/plantdex-20190203180011/8bf118c0-27dd-11e9-b4a9-02a08d23d630"
+        }
+    }
+}
