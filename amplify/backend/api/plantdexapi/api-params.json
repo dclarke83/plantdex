@@ -7,6 +7,14 @@
                 "private": true,
                 "auth": "rw"
             }
+        },
+        {
+            "name": "/filters",
+            "lambdaFunction": "plantdexfilters",
+            "privacy": {
+                "private": true,
+                "auth": "r"
+            }
         }
     ],
     "resourceName": "plantdexapi",
@@ -14,10 +22,13 @@
     "functionArns": [
         {
             "lambdaFunction": "plantdexplants"
+        },
+        {
+            "lambdaFunction": "plantdexfilters"
         }
     ],
     "privacy": {
-        "auth": 1,
+        "auth": 2,
         "unauth": 0,
         "authRoleName": "plantdex-20190203180011-authRole",
         "unAuthRoleName": "plantdex-20190203180011-unauthRole"
@@ -30,6 +41,15 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "plantdexfilters",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "b055983f"
 }
