@@ -187,7 +187,7 @@
 		"apiplantdexapi": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/plantdex-20190203180011-deployment/amplify-cfn-templates/api/plantdexapi-cloudformation-template.1.json",
+				"TemplateURL": "https://s3.amazonaws.com/plantdex-20190203180011-deployment/amplify-cfn-templates/api/plantdexapi-cloudformation-template.json",
 				"Parameters": {
 					"functionplantdexplantsName": {
 						"Fn::GetAtt": [
