@@ -219,6 +219,10 @@ class NewPlant extends Component {
         this.props.dispatch(savePlant(this.state));
     }
 
+    capitalise(text) {
+        return text[0].toUpperCase() + text.substring(1);
+    }
+
     static getDerivedStateFromProps(nextProps, prevState) {
         // Set state from props only when we're ready 
         // (I.e. when moisture array is set from remote filter data
@@ -265,7 +269,7 @@ class NewPlant extends Component {
                                     className='plantdex-select-container'
                                     classNamePrefix='plantdex-select'
                                     name={field.name} 
-                                    placeholder={field.name}
+                                    placeholder={this.capitalise(field.name)}
                                     value={this.state[field.name]} 
                                     onChange={this.handleChange(field.name)}
                                     isMulti={field.multi}
