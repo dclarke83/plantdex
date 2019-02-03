@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:-browsers
+    steps:
+      - checkout
+      - run: npm install
+      - run: node node_modules\eslint\bin\eslint -c node_modules\eslint-config-react-app\index.js src
