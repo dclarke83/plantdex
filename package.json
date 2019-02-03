@@ -22,7 +22,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "dev-server": "json-server -p 8080 db.json"
+        "dev-server": "json-server -p 8080 db.json",
+        "lint": "node node_modules/eslint/bin/eslint -c node_modules/eslint-config-react-app/index.js src"
     },
     "eslintConfig": {
         "extends": "react-app"

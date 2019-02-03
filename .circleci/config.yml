@@ -15,4 +15,4 @@ jobs:
           paths:
             - ./node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: node node_modules/eslint/bin/eslint -c node_modules/eslint-config-react-app/index.js src
+      - run: npm run lint
