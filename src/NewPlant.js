@@ -50,10 +50,15 @@ const FormField = styled.label`
 `;
 
 const SelectField = styled.label`
-    flex: 0 1 49%;
-    margin-left: 5px;
-    margin-right: 5px;
+    flex: 0 1 50%;
     margin-bottom: 5px;
+`;
+
+const StyledSelect = styled(Select)`
+    &.plantdex-select-container {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 `;
 
 const ImageArea = styled.div`
@@ -256,7 +261,9 @@ class NewPlant extends Component {
                         <FormArea>
                         {this.props.selectFields.map((field) => (
                             <SelectField key={field.name}>
-                                <Select 
+                                <StyledSelect 
+                                    className='plantdex-select-container'
+                                    classNamePrefix='plantdex-select'
                                     name={field.name} 
                                     placeholder={field.name}
                                     value={this.state[field.name]} 
@@ -264,7 +271,7 @@ class NewPlant extends Component {
                                     isMulti={field.multi}
                                     isClearable={true}
                                     options={field.options}
-                                ></Select>
+                                ></StyledSelect>
                             </SelectField>
                         ))}
                         </FormArea>
