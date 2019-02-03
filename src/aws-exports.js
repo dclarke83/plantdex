@@ -14,6 +14,10 @@ const awsmobile = {
         {
             "tableName": "plantdex-plants",
             "region": "eu-west-1"
+        },
+        {
+            "tableName": "plantdex-filters",
+            "region": "eu-west-1"
         }
     ],
     "aws_cloud_logic_custom": [

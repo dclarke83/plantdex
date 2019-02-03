@@ -146,6 +146,17 @@
 				}
 			}
 		},
+		"storageplantdexfilters": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/plantdex-20190203180011-deployment/amplify-cfn-templates/storage/plantdexfilters-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "plantdex-filters",
+					"partitionKeyName": "name",
+					"partitionKeyType": "S"
+				}
+			}
+		},
 		"functionplantdexplants": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
@@ -164,6 +175,13 @@
 						]
 					}
 				}
+			}
+		},
+		"functionplantdexfilters": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/plantdex-20190203180011-deployment/amplify-cfn-templates/function/plantdexfilters-cloudformation-template.json",
+				"Parameters": {}
 			}
 		},
 		"apiplantdexapi": {

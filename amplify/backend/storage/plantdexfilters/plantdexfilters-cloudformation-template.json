@@ -1,0 +1,69 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "DynamoDB resource stack creation using Amplify CLI",
+    "Parameters": {
+        "partitionKeyName": {
+            "Type": "String"
+        },
+        "partitionKeyType": {
+            "Type": "String"
+        },
+
+        "tableName": {
+            "Type": "String"
+        }
+    },
+    "Resources": {
+        "DynamoDBTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "AttributeDefinitions": [{
+                    "AttributeName": "name",
+                    "AttributeType": "S"
+                }],
+                "KeySchema": [{
+                    "AttributeName": "name",
+                    "KeyType": "HASH"
+                }],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "1",
+                    "WriteCapacityUnits": "1"
+                },
+                "TableName": {
+                    "Ref": "tableName"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "Name": {
+            "Value": {
+                "Ref": "DynamoDBTable"
+            }
+        },
+        "Arn": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "DynamoDBTable",
+                    "Arn"
+                ]
+            }
+        },
+        "PartitionKeyName": {
+            "Value": {
+                "Ref": "partitionKeyName"
+            }
+        },
+        "PartitionKeyType": {
+            "Value": {
+                "Ref": "partitionKeyType"
+            }
+        },
+
+        "Region": {
+            "Value": {
+                "Ref": "AWS::Region"
+            }
+        }
+    }
+}

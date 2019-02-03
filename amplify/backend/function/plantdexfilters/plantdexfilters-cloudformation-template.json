@@ -1,16 +1,7 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
-	"Parameters": {
-		"storageplantdexName": {
-			"Type": "String",
-			"Default": "storageplantdexName"
-		},
-		"storageplantdexArn": {
-			"Type": "String",
-			"Default": "storageplantdexArn"
-		}
-	},
+	"Parameters": {},
 	"Resources": {
 		"LambdaFunction": {
 			"Type": "AWS::Lambda::Function",
@@ -20,7 +11,7 @@
 			},
 			"Properties": {
 				"Handler": "index.handler",
-				"FunctionName": "plantdexplants",
+				"FunctionName": "plantdexfilters",
 				"Role": {
 					"Fn::GetAtt": [
 						"LambdaExecutionRole",
@@ -31,14 +22,14 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "plantdex-20190203180011-deployment",
-					"S3Key": "amplify-builds/plantdexplants-1549230032-latest-build.zip"
+					"S3Key": "amplify-builds/plantdexfilters-1549231965-latest-build.zip"
 				}
 			}
 		},
 		"LambdaExecutionRole": {
 			"Type": "AWS::IAM::Role",
 			"Properties": {
-				"RoleName": "plantdexLambdaRoleda393ec4",
+				"RoleName": "plantdexfiltersLambdaRole66eb0976",
 				"AssumeRolePolicyDocument": {
 					"Version": "2012-10-17",
 					"Statement": [
@@ -107,9 +98,7 @@
 								"dynamodb:DeleteItem"
 							],
 							"Resource": [
-								{
-									"Ref": "storageplantdexArn"
-								}
+								"arn:aws:dynamodb:eu-west-1:331346657191:table/plantdex-filters"
 							]
 						}
 					]
