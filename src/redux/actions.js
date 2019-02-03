@@ -1,4 +1,6 @@
 import { post, put, remove } from '../helpers/ajax';
+import { API } from 'aws-amplify';
+
 import { 
     TOGGLE_FILTERS, 
     UPDATE_FILTER,
@@ -20,7 +22,11 @@ import {
     DELETE_PLANT_ERROR,
 } from './actionTypes';
 
-const apiUrl = 'http://localhost:8080/';
+const apiUrl = 'http://localhost:8080/'; //OLD / Local
+
+const apiName = 'plantdexapi';
+const plantRoute = '/plants';
+const filterRoute = '/filters';
 
 // FILTERS
 
@@ -64,15 +70,13 @@ export const errorFilters = (error) => ({
 export const fetchFilters = () => {
     return (dispatch) => {
         dispatch(requestFilters())
-        return fetch(apiUrl + 'filters')
-            .then(response => response.json())
-            .then((json) => {
-                const filters = json || [];
-                dispatch(receiveFilters(filters));
-            },
-            (error) => {
-                dispatch(errorFilters(error));
+        return API.get(apiName, filterRoute)
+            .then(response => {
+                dispatch(receiveFilters(response));
             })
+            .catch(error => {
+                dispatch(errorFilters(error));
+            });
     }
 };
 
@@ -106,16 +110,16 @@ export const errorPlants = (error) => ({
 export const fetchPlants = () => {
     return (dispatch) => {
         dispatch(requestPlants())
-        return fetch(apiUrl + 'plants')
-            .then(response => response.json())
-            .then((json) => {
-                dispatch(receivePlants(json));
-            },
-            (error) => {
-                dispatch(errorPlants(error));
+        return API.get(apiName, plantRoute)
+            .then(response => {
+                dispatch(receivePlants(response));
             })
+            .catch(error => {
+                dispatch(errorPlants(error));
+            });
     }
 };
+
 
 export const setSearch = (searchString) => ({
     type: SET_SEARCH,
@@ -142,7 +146,17 @@ export const closePlant = () => ({
 });
 
 const plantStatus = (plant) => {
-    return (plant.isNew) ? post(apiUrl + 'plants', transformPlantForSaving(plant)) : put(apiUrl + 'plants/' + plant.id, transformPlantForSaving(plant));
+    // TODO see how put/post/updates are handled for partial vs new
+
+    //return (plant.isNew) ? post(apiUrl + 'plants', transformPlantForSaving(plant)) : put(apiUrl + 'plants/' + plant.id, transformPlantForSaving(plant));
+
+    //if(plant.isNew) {
+        return API.post(apiName, plantRoute, {
+            body: transformPlantForSaving(plant)
+        });
+    //} else {
+
+    //}
 }
 
 export const savePlant = (plant) => {
@@ -178,6 +192,8 @@ const transformPlantForSaving = (plant) => {
     const MULTI = 'MULTI';
 
     const schema = {
+        id: STRING,
+
         name: STRING,
         commonName: STRING,
         mainImage: STRING,
@@ -205,7 +221,7 @@ const transformPlantForSaving = (plant) => {
     return schemaKeys.reduce((newPlant, key) => {
         switch (schema[key]) {
             case SINGLE: {
-                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key][0].value : '';
+                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key][0].value : ' ';
                 break;
             }
             case MULTI: {
@@ -214,7 +230,7 @@ const transformPlantForSaving = (plant) => {
             }
             case STRING:
             default: {
-                newPlant[key] = (plant[key]) ? plant[key] : '';
+                newPlant[key] = (plant[key]) ? plant[key] : ' ';
             }
         }
         return newPlant;
