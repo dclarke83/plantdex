@@ -281,6 +281,14 @@ class NewPlant extends Component {
                         </FormArea>
                         <FormArea>
                             <FormField>
+                                <input type='text' placeholder='Main Image' id='mainImage' name='mainImage' value={this.state.mainImage} onChange={this.handleChange('mainImage')}></input>
+                            </FormField>                            
+                            <FormField>
+                                <input type='text' placeholder='Link' id='link' name='link' value={this.state.link} onChange={this.handleChange('link')}></input>
+                            </FormField>                                                        
+                        </FormArea>
+                        <FormArea>
+                            <FormField>
                                 <textarea rows='4' name='notes' placeholder='Notes' value={this.state.notes} onChange={this.handleChange('notes')}></textarea>
                             </FormField>
                         </FormArea>
