@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { fetchPlants } from './redux/actions';
-import { getPlantsState, getFilteredPlants } from './redux/selectors';
+import { getPlantsState, getSearchedFilteredFormattedPlants } from './redux/selectors';
 
 import Plant from './Plant';
 import Spinner from './Spinner';
@@ -48,7 +48,7 @@ class PlantList extends Component {
 const mapStateToProps = (state) => {
     return {
         ...getPlantsState(state),
-        currentResults: getFilteredPlants(state),    
+        currentResults: getSearchedFilteredFormattedPlants(state),    
     }
 }
 

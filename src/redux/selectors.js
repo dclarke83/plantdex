@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import uuid from 'uuid';
+import { transformPlantForEditing, transformPlantForViewing } from '../helpers/plant-helpers';
 
 export const getEditingState = store => store.editing;
 
@@ -75,6 +76,15 @@ export const getFiltersAsObj = createSelector(
     }
 );
 
+export const getSearchedFilteredFormattedPlants = createSelector(
+    [getFilteredPlants, getFiltersAsObj],
+    (plants, filters) => {
+        return plants.map(plant => {
+            return transformPlantForViewing(plant, filters);
+        });
+    }
+);
+
 export const getNewPlantInfo = createSelector(
     [getEditingState, getAvailableFilters, getFiltersAsObj, getPlants],
     (editing, filtersArr, filtersObj, plants) => {
@@ -82,21 +92,7 @@ export const getNewPlantInfo = createSelector(
 
         if(editing.plantId) {
             const plant = Object.assign({}, plants.find(plant => plant.id === editing.plantId));
-            const plantKeys = Object.keys(plant);
-
-            editingPlant = plantKeys.reduce((newPlant, plantKey) => {
-                if(filtersObj.hasOwnProperty(plantKey)){
-                    if(Array.isArray(plant[plantKey])) {
-                        newPlant[plantKey] = filtersObj[plantKey].options.filter(option => plant[plantKey].indexOf(option.value) >= 0);
-                    } else {
-                        newPlant[plantKey] = filtersObj[plantKey].options.filter(option => plant[plantKey] === option.value);
-                    }
-                } else {
-                    newPlant[plantKey] = plant[plantKey];
-                }
-                return newPlant;
-            }, {});
-            
+            editingPlant = transformPlantForEditing(plant, filtersObj);            
             editingPlant.isNew = false;
         } else {
             editingPlant = {

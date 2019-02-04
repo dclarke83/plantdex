@@ -1,5 +1,6 @@
 import { post, put, remove } from '../helpers/ajax';
 import { API } from 'aws-amplify';
+import { transformPlantForSaving } from '../helpers/plant-helpers';
 
 import { 
     TOGGLE_FILTERS, 
@@ -107,12 +108,16 @@ export const errorPlants = (error) => ({
     }
 });
 
+const cleanStrings = (data) => {
+    return JSON.parse((JSON.stringify(data).replace(new RegExp('" "', 'g'), '""')));
+};
+
 export const fetchPlants = () => {
     return (dispatch) => {
         dispatch(requestPlants())
         return API.get(apiName, plantRoute)
             .then(response => {
-                dispatch(receivePlants(response));
+                dispatch(receivePlants(cleanStrings(response)));
             })
             .catch(error => {
                 dispatch(errorPlants(error));
@@ -146,24 +151,22 @@ export const closePlant = () => ({
 });
 
 const plantStatus = (plant) => {
-    // TODO see how put/post/updates are handled for partial vs new
-
-    //return (plant.isNew) ? post(apiUrl + 'plants', transformPlantForSaving(plant)) : put(apiUrl + 'plants/' + plant.id, transformPlantForSaving(plant));
-
-    //if(plant.isNew) {
+    if(plant.isNew) {
         return API.post(apiName, plantRoute, {
             body: transformPlantForSaving(plant)
         });
-    //} else {
-
-    //}
+    } else {
+        return API.put(apiName, plantRoute, {
+            body: transformPlantForSaving(plant)
+        });
+    }
 }
 
 export const savePlant = (plant) => {
     return (dispatch) => {
         return plantStatus(plant)
             .then((json) => {
-                dispatch(savePlantSuccess(json, plant.isNew));
+                dispatch(savePlantSuccess(plant, plant.isNew));
             },
             (error) => {
                 dispatch(savePlantError(error));
@@ -185,57 +188,6 @@ export const savePlantError = (error) => ({
         error: error
     }
 });
-
-const transformPlantForSaving = (plant) => {
-    const STRING = 'STRING';
-    const SINGLE = 'SINGLE';
-    const MULTI = 'MULTI';
-
-    const schema = {
-        id: STRING,
-
-        name: STRING,
-        commonName: STRING,
-        mainImage: STRING,
-        url: STRING,
-        purchased: STRING,
-        notes: STRING,
-        height: STRING,
-        spread: STRING,
-        ageToMaxHeight: STRING,
-
-        exposure: SINGLE,
-        foliage: SINGLE,
-        habit: SINGLE,
-        hardiness: SINGLE,
-        type: SINGLE,
-
-        moisture: MULTI,
-        pH: MULTI,
-        soil: MULTI,
-        sunlight: MULTI
-    };
-
-    const schemaKeys = Object.keys(schema);
-
-    return schemaKeys.reduce((newPlant, key) => {
-        switch (schema[key]) {
-            case SINGLE: {
-                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key][0].value : ' ';
-                break;
-            }
-            case MULTI: {
-                newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key].map(option => { return option.value; }) : [];
-                break;
-            }
-            case STRING:
-            default: {
-                newPlant[key] = (plant[key]) ? plant[key] : ' ';
-            }
-        }
-        return newPlant;
-    }, {});
-}
 
 export const deletePlant = (id) => {
     return (dispatch) => {
