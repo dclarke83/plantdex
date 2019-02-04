@@ -216,7 +216,7 @@ class Plant extends Component {
 
     lookupValueLabels(name, value) {
         let result = '';
-        if (this.props.filters && this.props.filters.length > 0 && value) {
+        if (this.props.filters && value) {
             if(this.props.filters[name].multi && value.length > 0) {
                 result = value.reduce((acc, cur, i) => {
                     const label = this.props.filters[name].options.find(option => option.value === cur);
