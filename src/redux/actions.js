@@ -1,4 +1,4 @@
-import { post, put, remove } from '../helpers/ajax';
+//import { post, put, remove } from '../helpers/ajax';
 import { API } from 'aws-amplify';
 import { transformPlantForSaving } from '../helpers/plant-helpers';
 
@@ -23,7 +23,7 @@ import {
     DELETE_PLANT_ERROR,
 } from './actionTypes';
 
-const apiUrl = 'http://localhost:8080/'; //OLD / Local
+//const apiUrl = 'http://localhost:8080/'; //OLD / Local
 
 const apiName = 'plantdexapi';
 const plantRoute = '/plants';
@@ -191,13 +191,13 @@ export const savePlantError = (error) => ({
 
 export const deletePlant = (id) => {
     return (dispatch) => {
-        remove(apiUrl + 'plants/' + id)
-        .then((json) => {
+        return API.del(apiName, plantRoute + '/object/' + id)
+        .then(() => {
             dispatch(deletePlantSuccess(id));
-        },
-        (error) => {
-            dispatch(deletePlantError(error));
         })
+        .catch(error => {
+            dispatch(deletePlantError(error));
+        });
     }
 }
 
