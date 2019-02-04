@@ -1,6 +1,10 @@
 # Plantdex
 
-A simple app to read information on the plants that we own from a google spreadsheet.
+I wrote this application as a learning project. I find it much easier to learn when I have a tangible goal/feature that I want to achieve - in this case, an application to manage the plants that we own.
+
+It uses React, Redux, and AWS-Amplify (providing Cognito for auth, DynamoDB as a datastore, and Lambda for backend code).
+
+-----------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
