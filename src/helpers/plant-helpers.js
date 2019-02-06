@@ -69,47 +69,54 @@ export const transformPlantForEditing = (plant, filtersObj) => {
 export const transformPlantForViewing = (plant, filtersObj) => {
     const schemaKeys = Object.keys(schema);
 
-    return schemaKeys.reduce((newPlant, key) => {
-        if(plant[key] === null || plant[key] === '' || plant[key] === ' ') {
-            newPlant[key] = plant[key];
-        } else {
-            switch (schema[key]) {
-                case SINGLE:{
-                    // Will either be a string (if straight from DB)
-                    // Or an object, if it has just been saved (and no refresh)
-                    let result = {};
-                    if (typeof plant[key] === 'string'){
-                        result = filtersObj[key].options.find(option => plant[key] === option.value);
-                    } else {
-                        result = filtersObj[key].options.find(option => plant[key].value === option.value);
+    if(Object.keys(filtersObj).length > 0) { 
+        return schemaKeys.reduce((newPlant, key) => {
+            if(plant[key] === null || plant[key] === '' || plant[key] === ' ') {
+                newPlant[key] = plant[key];
+            } else {
+                switch (schema[key]) {
+                    case SINGLE:{
+                        // Will either be a string (if straight from DB)
+                        // Or an object, if it has just been saved (and no refresh)
+                        let result = {};
+                        if (typeof plant[key] === 'string'){
+                            result = filtersObj[key].options.find(option => plant[key] === option.value);
+                        } else {
+                            result = filtersObj[key].options.find(option => plant[key].value === option.value);
+                        }
+                        newPlant[key] = (result && result.label) ? result.label : '';
+                        break;
                     }
-                    newPlant[key] = (result && result.label) ? result.label : '';
-                    break;
-                }
-                case MULTI: {
-                    let result = [];
-                    if(Array.isArray(plant[key]) && plant[key].length >0) {
-                        result = plant[key].reduce((output, selection, index) => {
-                            const matches = filtersObj[key].options.find(option => {
-                                if(typeof selection === 'string') {
-                                    return selection === option.value;
-                                } else {
-                                    return selection.value === option.value;
-                                }
-                            });
-                            output += ((index > 0) ? ' / ' : '') + ((matches) ? matches.label : selection.toUpperCase());
-                            return output;
-                        }, '');
+                    case MULTI: {
+                        let result = [];
+                        if(Array.isArray(plant[key]) && plant[key].length >0) {
+                            result = plant[key].reduce((output, selection, index) => {
+                                const matches = filtersObj[key].options.find(option => {
+                                    if(typeof selection === 'string') {
+                                        return selection === option.value;
+                                    } else {
+                                        return selection.value === option.value;
+                                    }
+                                });
+                                output += ((index > 0) ? ' / ' : '') + ((matches) ? matches.label : selection.toUpperCase());
+                                return output;
+                            }, '');
+                        }
+                        newPlant[key] = result;
+                        break;
                     }
-                    newPlant[key] = result;
-                    break;
-                }
-                case STRING:
-                default: {
-                    newPlant[key] = (plant[key]) ? plant[key] : ' ';
+                    case STRING:
+                    default: {
+                        newPlant[key] = (plant[key]) ? plant[key] : ' ';
+                    }
                 }
             }
-        }
-        return newPlant;
-    }, {})
+            return newPlant;
+        }, {});
+    } else {
+        return {
+            id: plant.id,
+            loading: true
+        };
+    }
 }
