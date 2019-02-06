@@ -79,6 +79,11 @@ const StyledPlant = styled.li`
     perspective: 1000px;
     position: relative;
     transform-style: preserve-3d;
+
+    @media (max-width: 700px) {
+        flex-basis: 100%;
+        flex-shrink: 1;
+    }
 `;
 
 const PropertyBox = styled.div`
