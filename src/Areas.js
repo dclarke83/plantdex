@@ -44,7 +44,7 @@ class Areas extends Component {
                     <li key={area.id}>
                         <Area>
                             <h1>
-                                {area.name}
+                                {area.name} <span>({area.plants.length})</span>
                             </h1>
                             {area.plants.length === 0 &&
                                 <div>
