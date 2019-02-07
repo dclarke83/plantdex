@@ -44,7 +44,7 @@ export const transformPlantForSaving = (plant) => {
                 break;
             }
             case TAGS: {
-                newPlant[key] = (plant[key]) ? plant[key] : [];
+                newPlant[key] = (plant[key]) ? plant[key].reduce((result, item) => result.concat([{ name: item.name }]),[]) : [];
                 break;
             }
             case STRING:
