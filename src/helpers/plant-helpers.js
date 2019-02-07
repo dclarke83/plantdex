@@ -1,6 +1,7 @@
 export const STRING = 'STRING';
 export const SINGLE = 'SINGLE';
 export const MULTI = 'MULTI';
+export const TAGS = 'TAGS';
 
 const schema = {
     id: STRING,
@@ -9,6 +10,7 @@ const schema = {
     commonName: STRING,
     mainImage: STRING,
     url: STRING,
+    link: STRING,
     purchased: STRING,
     notes: STRING,
     height: STRING,
@@ -24,7 +26,8 @@ const schema = {
     moisture: MULTI,
     pH: MULTI,
     soil: MULTI,
-    sunlight: MULTI
+    sunlight: MULTI,
+    areas: TAGS
 };
 
 export const transformPlantForSaving = (plant) => {
@@ -40,6 +43,10 @@ export const transformPlantForSaving = (plant) => {
                 newPlant[key] = (plant[key] && plant[key].length > 0) ? plant[key].map(option => { return option.value; }) : [];
                 break;
             }
+            case TAGS: {
+                newPlant[key] = (plant[key]) ? plant[key] : [];
+                break;
+            }
             case STRING:
             default: {
                 newPlant[key] = (plant[key]) ? plant[key] : ' ';
@@ -51,7 +58,6 @@ export const transformPlantForSaving = (plant) => {
 
 export const transformPlantForEditing = (plant, filtersObj) => {
     const plantKeys = Object.keys(plant);
-
     return plantKeys.reduce((newPlant, plantKey) => {
         if(filtersObj.hasOwnProperty(plantKey)){
             if(filtersObj[plantKey].multi) {
@@ -62,6 +68,8 @@ export const transformPlantForEditing = (plant, filtersObj) => {
         } else {
             newPlant[plantKey] = plant[plantKey];
         }
+        if(!newPlant.hasOwnProperty('areas')) newPlant.areas = [];
+        if(!newPlant.hasOwnProperty('schedules')) newPlant.schedules = [];
         return newPlant;
     }, {});
 }
@@ -71,7 +79,7 @@ export const transformPlantForViewing = (plant, filtersObj) => {
 
     if(Object.keys(filtersObj).length > 0) { 
         return schemaKeys.reduce((newPlant, key) => {
-            if(plant[key] === null || plant[key] === '' || plant[key] === ' ') {
+            if(plant[key] === null || plant[key] === undefined || plant[key] === '' || plant[key] === ' ') {
                 newPlant[key] = plant[key];
             } else {
                 switch (schema[key]) {
@@ -85,6 +93,10 @@ export const transformPlantForViewing = (plant, filtersObj) => {
                             result = filtersObj[key].options.find(option => plant[key].value === option.value);
                         }
                         newPlant[key] = (result && result.label) ? result.label : '';
+                        break;
+                    }
+                    case TAGS: {
+                        newPlant[key] = (plant[key]) ? plant[key] : [];
                         break;
                     }
                     case MULTI: {

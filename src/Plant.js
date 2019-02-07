@@ -199,7 +199,7 @@ class Plant extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isFlipped: false,
+            isFlipped: false
         };
         this.handleFlip = this.handleFlip.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);

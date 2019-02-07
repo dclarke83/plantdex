@@ -85,9 +85,30 @@ export const getSearchedFilteredFormattedPlants = createSelector(
     }
 );
 
+export const getDistinctAreas = createSelector(
+    [getPlants],
+    (plants) => {
+        let result = [];
+        result =  Object.keys(plants.reduce((areas, plant) => {
+                if(plant.areas) {
+                    plant.areas.forEach(area => {
+                        if(area && area.name && !areas[area.name]) {
+                            areas[area.name] = true;
+                        }
+                    });
+                }
+            return areas;
+        }, {})).reduce((output, tag) => {
+                output.push({ name: tag, id: uuid() });
+            return output;
+        }, []);
+        return result;
+    }
+);
+
 export const getNewPlantInfo = createSelector(
-    [getEditingState, getAvailableFilters, getFiltersAsObj, getPlants],
-    (editing, filtersArr, filtersObj, plants) => {
+    [getEditingState, getAvailableFilters, getFiltersAsObj, getPlants, getDistinctAreas],
+    (editing, filtersArr, filtersObj, plants, areas) => {
         let editingPlant = {};
 
         if(editing.plantId) {
@@ -97,6 +118,7 @@ export const getNewPlantInfo = createSelector(
         } else {
             editingPlant = {
                 isNew: true,
+                areas: [],
                 id: uuid(),
                 name: '',
                 commonName: '',
@@ -106,6 +128,7 @@ export const getNewPlantInfo = createSelector(
                 mainImage: '',
                 height: '',
                 spread: '',
+                schedules: [],
                 ageToMaxHeight: '',
                  ...filtersArr.reduce((obj, filter) => {
                     obj[filter.name] = (filter.multi) ? [] : '';
@@ -117,8 +140,27 @@ export const getNewPlantInfo = createSelector(
         return {
             ...editing,
             selectFields: filtersArr,
-            plant: editingPlant
+            plant: editingPlant,
+            suggestions: areas
         };
     }
 );
 
+export const getPlantsByArea = createSelector(
+    [getDistinctAreas, getSearchedFilteredFormattedPlants],
+    (areas, plants) => {
+        const output = areas.map(area => {
+            area.plants = plants.filter(plant => {
+                if(plant.areas) {
+                    return plant.areas.some(m => m.name === area.name);
+                }
+                return false;
+            });
+            return area;
+        });
+
+        return {
+            areas: output
+        };
+    }
+);
