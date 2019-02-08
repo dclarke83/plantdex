@@ -21,7 +21,7 @@ const NavContainer = styled.div`
 const NavButton = styled(NavLink)`
     color: #66bb6a;
     flex-grow: 1;
-    padding: 8px 12px 8px;
+    padding: 10px 12px 6px;
     min-width: 80px;
     max-width: 168px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,padding-top 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
