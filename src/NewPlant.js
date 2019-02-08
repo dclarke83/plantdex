@@ -11,8 +11,6 @@ import './tags-styles.css';
 import './modal.css';
 import ErrorBoundary from './ErrorBoundary';
 
-Modal.setAppElement('#root');
-
 const styles = {
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
