@@ -10,6 +10,9 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
+var https = require('https');
+var cheerio = require('cheerio');
+
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
@@ -22,6 +25,97 @@ app.use(function(req, res, next) {
   next()
 });
 
+app.get('/rhs/:url', function(req, res) {
+  const detail = decodeURIComponent(req.params.url);
+  const options = {
+    port: 443,
+    host: 'www.rhs.org.uk',
+    path: '/Plants/' + detail
+  };
+
+  https.get(options, (result) => {
+    collectResponse(result, processResponse);
+  }).on('error', error => {
+    return res.send({message: error.message });
+  });
+
+  const collectResponse = (response, cb) => {
+    let data = '';
+    response.on('data', chunk => {
+      data += chunk;
+    });
+    response.on('end', () => {
+      cb(data);
+    })
+  }
+
+  const processResponse = (data) => {
+    const options = {
+      normalizeWhitespace: true,
+      decodeEntities: true
+    };
+    const $ = cheerio.load(data, options);
+    
+    let plant = {};
+    plant.name = $('.Plant-formated-Name').text().trim();
+    plant.commonName = $('.ib h2').text().trim();
+    plant.mainImage = $('.plant-image img').attr('src');
+    plant.height = $('.ultimate-height p').text().replace('Ultimate height', '').trim();
+    plant.spread = $('.ultimate-spread p').text().replace('Ultimate spread', '').trim();
+    plant.ageToMaxHeight = $('.time-to-ultimate-height p').text().replace('Time to ultimate height', '').trim();
+
+    plant.sunlight = $('.sunlight li p').map((i, el) => {
+      return $(el).text().trim();
+    }).get();
+
+    plant.notes = $('p[data-facettype]').map((i, el) => {
+      return $(el).text().trim().replace(/\n/,': ').replace(/\s\s+/g, ' ');
+    }).get().join('\n');
+
+    $('.li-hardiness p').each((i, el) => {
+      if(['H1a', 'H1b', 'H1c', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7'].includes($(el).text().trim())) {
+        plant.hardiness = $(el).text().trim();
+        return;
+      }
+    });
+
+    $('.plant-detailed-description p').each((i, el) => {
+      switch($('strong', el).text().trim()){
+        case 'Foliage': {
+          plant.foliage = $(el).text().replace('Foliage', '').trim();
+          break;
+        }
+        case 'Habit': {
+          plant.habit = $(el).text().replace('Habit', '').trim();
+          break;       
+        }   
+        case 'Exposure': {
+          plant.exposure = $(el).text().replace('Exposure', '').trim();
+          break;         
+        }
+        case 'Moisture': {
+          plant.moisture = $(el).text().replace('Moisture', '').trim().split(', ');
+          break;         
+        }
+        case 'Soil': {
+          plant.soil = $(el).text().replace('Soil', '').trim().split(', ');
+          break;         
+        }
+        case 'pH': {
+          plant.pH = $(el).text().replace('pH', '').trim().split(', ');
+          break;         
+        }                          
+        default: {
+          return;
+        }
+      }
+    });
+
+    console.log(plant);
+
+    return res.json(plant);
+  }
+});
 
 /**********************
  * Example get method *

@@ -5,5 +5,6 @@ const server = awsServerlessExpress.createServer(app);
 
 exports.handler = (event, context) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
+  //console.log(`CONTEXT: ${JSON.stringify(context)}`);  
   awsServerlessExpress.proxy(server, event, context);
 };
