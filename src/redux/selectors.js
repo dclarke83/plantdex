@@ -116,25 +116,7 @@ export const getNewPlantInfo = createSelector(
             editingPlant = transformPlantForEditing(plant, filtersObj);            
             editingPlant.isNew = false;
         } else {
-            editingPlant = {
-                isNew: true,
-                areas: [],
-                id: uuid(),
-                name: '',
-                commonName: '',
-                purchased: '',
-                notes: '',
-                link: '',
-                mainImage: '',
-                height: '',
-                spread: '',
-                schedules: [],
-                ageToMaxHeight: '',
-                 ...filtersArr.reduce((obj, filter) => {
-                    obj[filter.name] = (filter.multi) ? [] : '';
-                    return obj;
-                }, {})
-            };
+            editingPlant = transformPlantForEditing(editing.newPlant, filtersObj);
         }
 
         return {

@@ -1,3 +1,5 @@
+import uuid from 'uuid';
+
 export const STRING = 'STRING';
 export const SINGLE = 'SINGLE';
 export const MULTI = 'MULTI';
@@ -29,6 +31,34 @@ const schema = {
     sunlight: MULTI,
     areas: TAGS
 };
+
+export const generateNewPlant = (plantSchema = schema) => {
+    const schemaKeys = Object.keys(plantSchema);
+    let plant = schemaKeys.reduce((newPlant, key) => {
+        if(key === 'id'){
+            newPlant[key] = uuid();
+        } else {
+            switch(plantSchema[key]) {
+                case MULTI:
+                case TAGS: {
+                    newPlant[key] = [];
+                    break;
+                }
+                case SINGLE: 
+                case STRING:
+                default:{
+                    newPlant[key] = '';
+                    break;
+                }
+            }
+        }
+        return newPlant;
+    }, {});
+
+    plant.isNew = true;
+    
+    return plant;
+}
 
 export const transformPlantForSaving = (plant, plantSchema = schema) => {
     const schemaKeys = Object.keys(plantSchema);
