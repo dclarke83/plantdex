@@ -29,8 +29,8 @@ class App extends Component {
             <Navigation></Navigation>
             <div style={AppContainer}>
               <FilterStatus></FilterStatus>
-              <Route exact path='/' render={<PlantList />} />
-              <Route exact path="/areas" render={<Areas />} />
+              <Route exact path='/' render={() => <PlantList /> } />
+              <Route exact path="/areas" render={() => <Areas />} />
             </div>
           </div>
         </Router>
