@@ -6,6 +6,7 @@ import {
     SET_LOADING,
     SAVE_PLANT_SUCCESS,
     DELETE_PLANT_SUCCESS,
+    RECEIVE_PLANT_INFO,
 
 } from '../actionTypes';
 
@@ -72,6 +73,20 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 plants: state.plants.filter(plant => plant.id !== action.payload.id)
+            }
+        }
+        case RECEIVE_PLANT_INFO: {
+            let plants = [];
+            plants = state.plants.map(plant => {
+                if(plant.id === action.payload.id) {
+                    plant = Object.assign({}, plant, action.payload.info);
+                    console.log(plant);
+                }
+                return plant;                
+            });
+            return {
+                ...state,
+                plants: plants
             }
         }
         default:
