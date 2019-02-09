@@ -5,12 +5,15 @@ import Modal from 'react-modal';
 import Select from 'react-select';
 import ReactTags from 'react-tag-autocomplete';
 import uuid from 'uuid';
-import { closePlant, savePlant } from './redux/actions';
+import { closePlant, savePlant, fetchPlantInfo, donePlantInfo } from './redux/actions';
 import { getNewPlantInfo } from './redux/selectors';
 import './tags-styles.css';
 import './modal.css';
+import './font-awesome-animation.min.css';
 import ErrorBoundary from './ErrorBoundary';
+import { FaSearch, FaSpinner, FaCheck, FaTimesCircle } from 'react-icons/fa';
 
+//#region styles
 const styles = {
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -221,6 +224,24 @@ const StyledButton = (props) => {
         </Button>
     );
 }
+//#endregion
+
+const SearchIcon = (props) => {
+    switch(props.searchStatus){
+        case 'searching': {
+            return <FaSpinner className='faa-spin animated' />
+        }
+        case 'success': {
+            return <FaCheck />
+        }
+        case 'error': {
+            return <FaTimesCircle/>
+        }
+        default: {
+            return <FaSearch />;
+        }
+    }
+}
 
 class NewPlant extends Component {
     constructor(props){
@@ -228,8 +249,10 @@ class NewPlant extends Component {
 
         this.state = {
             initial: true,
+            refresh: false,
             areas: [],
             schedules: [],
+            link: '',
             months: [
                 { value: 1, label: 'Jan' }, { value: 2, label: 'Feb' }, { value: 3, label: 'Mar' },
                 { value: 4, label: 'Apr' }, { value: 5, label: 'May' }, { value: 6, label: 'Jun' },
@@ -238,12 +261,17 @@ class NewPlant extends Component {
             ]
         };
 
+        this.handleLookupPlantInfo = this.handleLookupPlantInfo.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAreaAddition = this.handleAreaAddition.bind(this);
         this.handleAreaDelete = this.handleAreaDelete.bind(this);
         this.handleAddSchedule = this.handleAddSchedule.bind(this);
+    }
+
+    handleLookupPlantInfo() {
+        this.props.dispatch(fetchPlantInfo(this.props.plant.id, this.state.link));
     }
 
     handleClose(e) {
@@ -286,15 +314,22 @@ class NewPlant extends Component {
         return text[0].toUpperCase() + text.substring(1);
     }
 
+    componentDidUpdate(prevProps){
+        if(!prevProps.refresh && this.props.refresh){
+            this.props.dispatch(donePlantInfo())
+        }
+    }
+
     static getDerivedStateFromProps(nextProps, prevState) {
         // Set state from props only when we're ready 
         // (I.e. when moisture array is set from remote filter data
         // and uuid for id has been generated in the selector)
-        if(nextProps.plant.moisture && nextProps.plant.id && prevState.id !== nextProps.plant.id) {
-            console.log(nextProps.suggestions);
+        if((nextProps.plant.moisture && nextProps.plant.id && prevState.id !== nextProps.plant.id) || prevState.refresh !== nextProps.refresh ) {
+            
             return {
                  ...nextProps.plant,
-                 initial: false
+                 initial: false,
+                 refresh: false
             };
         } else {
             return prevState;
@@ -362,6 +397,12 @@ class NewPlant extends Component {
                                     </FormField>                            
                                     <FormField>
                                         <input type='text' placeholder='Link' id='link' name='link' value={this.state.link} onChange={this.handleChange('link')}></input>
+                                        <button 
+                                            type='button' 
+                                            onClick={this.handleLookupPlantInfo}
+                                            disabled={this.state.link.length === 0}>
+                                            <SearchIcon searchStatus={this.props.searchStatus} />
+                                        </button>
                                     </FormField>                                                        
                                 </FormArea>
                                 <FormArea>
