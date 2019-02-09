@@ -21,6 +21,10 @@ import {
     SAVE_PLANT_ERROR,
     DELETE_PLANT_SUCCESS,
     DELETE_PLANT_ERROR,
+    REQUEST_PLANT_INFO,
+    ERROR_PLANT_INFO,
+    RECEIVE_PLANT_INFO,
+    DONE_PLANT_INFO,
 } from './actionTypes';
 
 //const apiUrl = 'http://localhost:8080/'; //OLD / Local
@@ -28,6 +32,7 @@ import {
 const apiName = 'plantdexapi';
 const plantRoute = '/plants';
 const filterRoute = '/filters';
+const scrapeRoute = '/info'
 
 // FILTERS
 
@@ -214,3 +219,39 @@ export const deletePlantError = (error) => ({
         error: error
     }
 });
+
+export const requestPlantInfo = () => ({
+    type: REQUEST_PLANT_INFO,
+    payload: {}
+});
+
+export const receivePlantInfo = (id, info) => ({
+    type: RECEIVE_PLANT_INFO,
+    payload: {
+        info: info,
+        id: id
+    }
+});
+
+export const errorPlantInfo = () => ({
+    type: ERROR_PLANT_INFO,
+    payload: {}
+});
+
+export const donePlantInfo = () => ({
+    type: DONE_PLANT_INFO,
+    payload: {}
+});
+
+export const fetchPlantInfo = (id, detail) => {
+    return (dispatch) => {
+        dispatch(requestPlantInfo())
+        return API.get(apiName, scrapeRoute + '/' + encodeURIComponent(detail))
+            .then(response => {
+                dispatch(receivePlantInfo(id, response));
+            })
+            .catch(error => {
+                dispatch(errorPlantInfo(error));
+            });
+    }
+};
