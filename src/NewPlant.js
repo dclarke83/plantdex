@@ -243,6 +243,8 @@ const SearchIcon = (props) => {
     }
 }
 
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement(document.getElementById('root'));
+
 class NewPlant extends Component {
     constructor(props){
         super(props);
