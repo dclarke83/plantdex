@@ -184,6 +184,13 @@
 				"Parameters": {}
 			}
 		},
+		"functionplantdexscrape": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/plantdex-20190203180011-deployment/amplify-cfn-templates/function/plantdexscrape-cloudformation-template.json",
+				"Parameters": {}
+			}
+		},
 		"apiplantdexapi": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
