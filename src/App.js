@@ -12,7 +12,6 @@ import FilterStatus from './FilterStatus';
 import PlantList from './PlantList';
 import NewPlant from './NewPlant';
 import Areas from './Areas';
-import ErrorBoundary from './ErrorBoundary';
 import Navigation from './Navigation';
 
 Amplify.configure(awsmobile);
@@ -30,8 +29,8 @@ class App extends Component {
             <Navigation></Navigation>
             <div style={AppContainer}>
               <FilterStatus></FilterStatus>
-              <Route exact path="/" render={props => <ErrorBoundary><PlantList /></ErrorBoundary> } />
-              <Route exact path="/areas" render={props => <Areas /> } />
+              <Route exact path='/' render={<PlantList />} />
+              <Route exact path="/areas" render={<Areas />} />
             </div>
           </div>
         </Router>

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { FaHome, FaCalendarAlt, FaMapSigns, FaSignOutAlt } from 'react-icons/fa';
 
+//#region Styles
 const NavContainer = styled.div`
     height: 56px;
     display: flex;
@@ -57,6 +58,7 @@ const NavLinkContent = styled.span`
 const ActiveStyle = {
     color: '#fff'
 }
+//#endregion
 
 class Navigation extends Component {
     constructor(props) {
@@ -65,18 +67,18 @@ class Navigation extends Component {
         this.signOut = this.signOut.bind(this);
     }
 
-    signOut(){
+    signOut() {
         Auth.signOut()
             .then(data => console.log(data))
             .catch(err => console.log(err));
     }
-          
+
     render() {
         return (
-            <NavContainer>                  
+            <NavContainer>
                 <NavButton exact to='/' activeStyle={ActiveStyle}>
                     <NavLinkContent>
-                        <FaHome size='1.5em'/>
+                        <FaHome size='1.5em' />
                         <span>
                             Home
                         </span>
@@ -85,7 +87,7 @@ class Navigation extends Component {
 
                 <NavButton exact to='/areas' activeStyle={ActiveStyle}>
                     <NavLinkContent>
-                        <FaMapSigns size='1.5em'/>
+                        <FaMapSigns size='1.5em' />
                         <span>
                             Areas
                         </span>
@@ -94,21 +96,21 @@ class Navigation extends Component {
 
                 <NavButton exact to='/schedules' activeStyle={ActiveStyle}>
                     <NavLinkContent>
-                        <FaCalendarAlt size='1.5em'/>
+                        <FaCalendarAlt size='1.5em' />
                         <span>
                             Schedules
                         </span>
                     </NavLinkContent>
-                </NavButton>                
+                </NavButton>
 
                 <NavButton as='button' onClick={this.signOut}>
                     <NavLinkContent>
-                        <FaSignOutAlt size='1.5em'/>
+                        <FaSignOutAlt size='1.5em' />
                         <span>
                             Signout
                         </span>
                     </NavLinkContent>
-                </NavButton> 
+                </NavButton>
             </NavContainer>
         );
     }

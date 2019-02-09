@@ -30,11 +30,11 @@ const schema = {
     areas: TAGS
 };
 
-export const transformPlantForSaving = (plant) => {
-    const schemaKeys = Object.keys(schema);
+export const transformPlantForSaving = (plant, plantSchema = schema) => {
+    const schemaKeys = Object.keys(plantSchema);
 
     return schemaKeys.reduce((newPlant, key) => {
-        switch (schema[key]) {
+        switch (plantSchema[key]) {
             case SINGLE: {
                 newPlant[key] = (plant[key] && plant[key].value) ? plant[key].value : ' ';
                 break;
@@ -44,7 +44,7 @@ export const transformPlantForSaving = (plant) => {
                 break;
             }
             case TAGS: {
-                newPlant[key] = (plant[key]) ? plant[key].reduce((result, item) => result.concat([{ name: item.name }]),[]) : [];
+                newPlant[key] = (plant[key] && Array.isArray(plant[key])) ? plant[key].reduce((result, item) => result.concat([{ name: item.name }]),[]) : [];
                 break;
             }
             case STRING:
@@ -96,7 +96,7 @@ export const transformPlantForViewing = (plant, filtersObj) => {
                         break;
                     }
                     case TAGS: {
-                        newPlant[key] = (plant[key]) ? plant[key] : [];
+                        newPlant[key] = (plant[key] && Array.isArray(plant[key])) ? plant[key] : [];
                         break;
                     }
                     case MULTI: {
