@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
   next()
 });
 
-app.get('/rhs/:url', function(req, res) {
+app.get('/info/:url', function(req, res) {
   const detail = decodeURIComponent(req.params.url);
   const options = {
     port: 443,
@@ -56,7 +56,24 @@ app.get('/rhs/:url', function(req, res) {
     };
     const $ = cheerio.load(data, options);
     
+    const types = [
+      'aquatic',
+      'climber',
+      'conifer',
+      'fern',
+      'grass',
+      'perennial',
+      'shrub',
+      'spruce',
+      'tree'
+    ];
+
+    const foundTypes = types.find(type => {
+      return $('li[data-facettype=description]').text().includes(type);
+    });
+
     let plant = {};
+    plant.type = (foundTypes) ? foundTypes : '';
     plant.name = $('.Plant-formated-Name').text().trim();
     plant.commonName = $('.ib h2').text().trim();
     plant.mainImage = $('.plant-image img').attr('src');
@@ -65,7 +82,7 @@ app.get('/rhs/:url', function(req, res) {
     plant.ageToMaxHeight = $('.time-to-ultimate-height p').text().replace('Time to ultimate height', '').trim();
 
     plant.sunlight = $('.sunlight li p').map((i, el) => {
-      return $(el).text().trim();
+      return $(el).text().trim().toLocaleLowerCase();
     }).get();
 
     plant.notes = $('p[data-facettype]').map((i, el) => {
@@ -74,7 +91,7 @@ app.get('/rhs/:url', function(req, res) {
 
     $('.li-hardiness p').each((i, el) => {
       if(['H1a', 'H1b', 'H1c', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7'].includes($(el).text().trim())) {
-        plant.hardiness = $(el).text().trim();
+        plant.hardiness = $(el).text().trim().toLocaleLowerCase();
         return;
       }
     });
@@ -82,27 +99,27 @@ app.get('/rhs/:url', function(req, res) {
     $('.plant-detailed-description p').each((i, el) => {
       switch($('strong', el).text().trim()){
         case 'Foliage': {
-          plant.foliage = $(el).text().replace('Foliage', '').trim();
+          plant.foliage = $(el).text().replace('Foliage', '').trim().toLocaleLowerCase();
           break;
         }
         case 'Habit': {
-          plant.habit = $(el).text().replace('Habit', '').trim();
+          plant.habit = $(el).text().replace('Habit', '').trim().toLocaleLowerCase();
           break;       
         }   
         case 'Exposure': {
-          plant.exposure = $(el).text().replace('Exposure', '').trim();
+          plant.exposure = $(el).text().replace('Exposure', '').trim().toLocaleLowerCase().replace('exposed or sheltered', 'sheltered/exposed');
           break;         
         }
         case 'Moisture': {
-          plant.moisture = $(el).text().replace('Moisture', '').trim().split(', ');
+          plant.moisture = $(el).text().replace('Moisture', '').trim().toLocaleLowerCase().split(', ');
           break;         
         }
         case 'Soil': {
-          plant.soil = $(el).text().replace('Soil', '').trim().split(', ');
+          plant.soil = $(el).text().replace('Soil', '').trim().toLocaleLowerCase().split(', ');
           break;         
         }
         case 'pH': {
-          plant.pH = $(el).text().replace('pH', '').trim().split(', ');
+          plant.pH = $(el).text().replace('pH', '').trim().toLocaleLowerCase().split(', ');
           break;         
         }                          
         default: {

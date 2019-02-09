@@ -219,6 +219,18 @@
 							"functionplantdexfilters",
 							"Outputs.Arn"
 						]
+					},
+					"functionplantdexscrapeName": {
+						"Fn::GetAtt": [
+							"functionplantdexscrape",
+							"Outputs.Name"
+						]
+					},
+					"functionplantdexscrapeArn": {
+						"Fn::GetAtt": [
+							"functionplantdexscrape",
+							"Outputs.Arn"
+						]
 					}
 				}
 			}

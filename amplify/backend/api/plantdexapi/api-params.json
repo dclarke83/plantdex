@@ -15,6 +15,14 @@
                 "private": true,
                 "auth": "r"
             }
+        },
+        {
+            "name": "/info",
+            "lambdaFunction": "plantdexscrape",
+            "privacy": {
+                "private": true,
+                "auth": "r"
+            }
         }
     ],
     "resourceName": "plantdexapi",
@@ -25,10 +33,13 @@
         },
         {
             "lambdaFunction": "plantdexfilters"
+        },
+        {
+            "lambdaFunction": "plantdexscrape"
         }
     ],
     "privacy": {
-        "auth": 2,
+        "auth": 3,
         "unauth": 0,
         "authRoleName": "plantdex-20190203180011-authRole",
         "unAuthRoleName": "plantdex-20190203180011-unauthRole"
@@ -49,7 +60,15 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "plantdexscrape",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
     ],
-    "uuid": "b055983f"
+    "uuid": "212a3852"
 }
