@@ -34,9 +34,14 @@ app.get('/info/:url', function(req, res) {
   };
 
   https.get(options, (result) => {
+    if(result.statusCode !== 200) {
+      console.log('Plant not found', detail);
+      return res.status(404).send('Plant not found');
+    }
     collectResponse(result, processResponse);
   }).on('error', error => {
-    return res.send({message: error.message });
+    console.log(error);
+    return res.status(500).send({message: error.message });
   });
 
   const collectResponse = (response, cb) => {

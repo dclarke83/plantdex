@@ -21,7 +21,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "plantdex-20190203180011-deployment",
-					"S3Key": "amplify-builds/plantdexscrape-1549751078-latest-build.zip"
+					"S3Key": "amplify-builds/plantdexscrape-1549814763-latest-build.zip"
 				}
 			}
 		},
