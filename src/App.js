@@ -14,6 +14,8 @@ import NewPlant from './NewPlant';
 import Areas from './Areas';
 import Navigation from './Navigation';
 
+import { Snackbar } from 'react-redux-snackbar';
+
 Amplify.configure(awsmobile);
 
 const AppContainer = {
@@ -38,6 +40,7 @@ class App extends Component {
         <NewPlant></NewPlant>
         <AppHeader></AppHeader>
         <Filters></Filters>
+        <Snackbar />
       </div>
     );
   }
