@@ -1,6 +1,8 @@
 //import { post, put, remove } from '../helpers/ajax';
 import { API } from 'aws-amplify';
 import { transformPlantForSaving } from '../helpers/plant-helpers';
+import { showSnack } from 'react-redux-snackbar';
+import uuid from 'uuid';
 
 import { 
     TOGGLE_FILTERS, 
@@ -122,10 +124,15 @@ export const fetchPlants = () => {
         dispatch(requestPlants())
         return API.get(apiName, plantRoute)
             .then(response => {
-                dispatch(receivePlants(cleanStrings(response)));
+                dispatch(receivePlants(cleanStrings(response)));              
             })
             .catch(error => {
                 dispatch(errorPlants(error));
+                dispatch(showSnack(uuid(), {
+                    label: 'Error loading plant data',
+                    timeout: 7000,
+                    button: { label: 'OK' }
+                }));
             });
     }
 };
@@ -172,9 +179,17 @@ export const savePlant = (plant) => {
         return plantStatus(plant)
             .then((json) => {
                 dispatch(savePlantSuccess(plant, plant.isNew));
+                dispatch(showSnack(uuid(), {
+                    label: 'Save was successful',
+                    timeout: 2500
+                }));                  
             },
             (error) => {
                 dispatch(savePlantError(error));
+                dispatch(showSnack(uuid(), {
+                    label: 'Error attempting to save',
+                    timeout: 2500
+                }));                             
             })
     }
 };
@@ -199,9 +214,17 @@ export const deletePlant = (id) => {
         return API.del(apiName, plantRoute + '/object/' + id)
         .then(() => {
             dispatch(deletePlantSuccess(id));
+            dispatch(showSnack(uuid(), {
+                label: 'Plant deleted',
+                timeout: 2500
+            }));                
         })
         .catch(error => {
             dispatch(deletePlantError(error));
+            dispatch(showSnack(uuid(), {
+                label: 'Error deleting plant',
+                timeout: 2500
+            }));                
         });
     }
 }
@@ -249,9 +272,17 @@ export const fetchPlantInfo = (id, detail) => {
         return API.get(apiName, scrapeRoute + '/' + encodeURIComponent(detail))
             .then(response => {
                 dispatch(receivePlantInfo(id, response));
+                dispatch(showSnack(uuid(), {
+                    label: 'Successfully retrieved plant data',
+                    timeout: 2500
+                }));                    
             })
             .catch(error => {
                 dispatch(errorPlantInfo(error));
+                dispatch(showSnack(uuid(), {
+                    label: 'Error retrieving plant data',
+                    timeout: 2500
+                }));                    
             });
     }
 };
