@@ -22,6 +22,12 @@ const AppContainer = {
   paddingTop: '66px'
 }
 
+const snackStyles = {
+  snack: {
+    zIndex: 10000
+  }
+};
+
 class App extends Component {
   render() {
     return (
@@ -40,7 +46,7 @@ class App extends Component {
         <NewPlant></NewPlant>
         <AppHeader></AppHeader>
         <Filters></Filters>
-        <Snackbar />
+        <Snackbar customStyles={snackStyles}/>
       </div>
     );
   }
