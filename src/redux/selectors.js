@@ -117,6 +117,7 @@ export const getNewPlantInfo = createSelector(
             editingPlant.isNew = false;
         } else {
             editingPlant = transformPlantForEditing(editing.newPlant, filtersObj);
+            editingPlant.isNew = true;
         }
 
         return {

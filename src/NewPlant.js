@@ -337,7 +337,11 @@ class NewPlant extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.dispatch(savePlant(this.state));
+        const saveState = {
+            ...this.state,
+            isNew: this.props.plant.isNew
+        }
+        this.props.dispatch(savePlant(saveState));
     }
 
     handleAreaAddition(tag) {

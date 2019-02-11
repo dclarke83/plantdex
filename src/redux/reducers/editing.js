@@ -7,6 +7,7 @@ import {
     DONE_PLANT_INFO,
     ERROR_PLANT_INFO,
     REQUEST_PLANT_INFO,
+    SAVE_PLANT_SUCCESS,
 } from '../actionTypes';
 
 const initialState = {
@@ -27,6 +28,12 @@ export default function(state = initialState, action) {
             delete newState.plantId;
             return newState;
         }
+        case SAVE_PLANT_SUCCESS: {
+            return {
+                ...state,
+                plantId: action.payload.response.id
+            };
+        }
         case OPEN_EXISTING_PLANT: {
             return {
                 ...state,
@@ -36,7 +43,8 @@ export default function(state = initialState, action) {
         }
         case CLOSE_PLANT: {
             return {
-                ...state,
+                newPlant: {},
+                refresh: false,
                 newPlantModelOpen: false
             }
         }
