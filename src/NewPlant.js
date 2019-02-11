@@ -308,10 +308,11 @@ class NewPlant extends Component {
         switch(field){
             case 'scheduleMonthCheck':{
                 const details = value.target.name.split('_');
+                const checked = value.target.checked;
                 const scheduleId = details[0];
                 const month = details[1];
                 let newSchedule = this.state.schedules.find(schedule => schedule.id === scheduleId);
-                newSchedule.months[month] = (newValue === 'on') ? true : false;
+                newSchedule.months[month] = checked;
                 this.setState({
                     schedules: this.state.schedules.map(schedule => (schedule.id === scheduleId) ? schedule = newSchedule : schedule)
                 });
@@ -489,7 +490,7 @@ class NewPlant extends Component {
                                                 {this.state.months.map(month => (
                                                     <label key={month.value}>
                                                         {month.label}
-                                                        <input type='checkbox' name={schedule.id + '_' + month.label} checked={schedule[month.label]} onChange={this.handleChange('scheduleMonthCheck')}/>
+                                                        <input type='checkbox' name={schedule.id + '_' + month.label} checked={schedule.months[month.label]} onChange={this.handleChange('scheduleMonthCheck')}/>
                                                     </label>
                                                 ))}
                                             </div>
