@@ -4,6 +4,7 @@ export const STRING = 'STRING';
 export const SINGLE = 'SINGLE';
 export const MULTI = 'MULTI';
 export const TAGS = 'TAGS';
+export const SCHEDULES = 'SCHEDULES';
 
 const schema = {
     id: STRING,
@@ -29,7 +30,9 @@ const schema = {
     pH: MULTI,
     soil: MULTI,
     sunlight: MULTI,
-    areas: TAGS
+
+    areas: TAGS,
+    schedules: SCHEDULES
 };
 
 export const generateNewPlant = (plantSchema = schema) => {
@@ -39,6 +42,7 @@ export const generateNewPlant = (plantSchema = schema) => {
             newPlant[key] = uuid();
         } else {
             switch(plantSchema[key]) {
+                case SCHEDULES:
                 case MULTI:
                 case TAGS: {
                     newPlant[key] = [];
@@ -77,6 +81,15 @@ export const transformPlantForSaving = (plant, plantSchema = schema) => {
                 newPlant[key] = (plant[key] && Array.isArray(plant[key])) ? plant[key].reduce((result, item) => result.concat([{ name: item.name }]),[]) : [];
                 break;
             }
+            case SCHEDULES: {
+                newPlant[key] = (plant[key] && Array.isArray(plant[key])) ? plant[key].reduce((result, schedule) => {
+                    if(schedule.name.length > 0 && Object.keys(schedule.months).reduce((sum, month) => sum += (schedule.months[month]) ? 1 : 0, 0) > 0){
+                        result.concat([schedule]);
+                    }
+                    return result;
+                }, []) : [];
+                break;
+            }
             case STRING:
             default: {
                 newPlant[key] = (plant[key]) ? plant[key] : ' ';
@@ -100,6 +113,7 @@ export const transformPlantForEditing = (plant, filtersObj) => {
         }
         if(!newPlant.hasOwnProperty('areas')) newPlant.areas = [];
         if(!newPlant.hasOwnProperty('schedules')) newPlant.schedules = [];
+        newPlant.isNew = false;
         return newPlant;
     }, {});
 }

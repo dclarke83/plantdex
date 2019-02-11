@@ -11,7 +11,7 @@ import './tags-styles.css';
 import './modal.css';
 import './font-awesome-animation.min.css';
 import ErrorBoundary from './ErrorBoundary';
-import { FaSearch, FaSpinner, FaCheck, FaTimesCircle } from 'react-icons/fa';
+import { FaSearch, FaSpinner, FaCheck, FaTimesCircle, FaTimes } from 'react-icons/fa';
 
 //#region styles
 const styles = {
@@ -70,7 +70,28 @@ const FormField = styled.label`
         margin-bottom: 5px;
     }
 
-    input, textarea {
+    div.schedule-months {
+        width: 100%;
+        display: flex;
+        margin-left: 5px;
+        margin-right: 5px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+            text-align: center;
+            font-size: 0.75em;
+            line-height: 1.35em;
+
+            input[type=checkbox] {
+                margin: 0 0 0 3px;
+            }
+        }
+    }
+
+    input[type=text], textarea {
         width: 100%;
         margin-left: 5px;
         margin-right: 5px;
@@ -216,9 +237,10 @@ const StyledButton = (props) => {
     }
 
     return (
-        <Button type={props.type} onClick={props.onClick}>
+        <Button type={props.type} onClick={props.onClick} disabled={props.disabled} style={props.style}>
             <span style={content}>
                 {props.text}
+                {(props.children) && props.children}
             </span>
             <span style={spacer}></span>
         </Button>
@@ -282,9 +304,35 @@ class NewPlant extends Component {
 
     handleChange = field => value => {
         const newValue = (value && value.target) ? value.target.value : value;
-        this.setState({
-            [field]: newValue
-        });
+
+        switch(field){
+            case 'scheduleMonthCheck':{
+                const details = value.target.name.split('_');
+                const scheduleId = details[0];
+                const month = details[1];
+                let newSchedule = this.state.schedules.find(schedule => schedule.id === scheduleId);
+                newSchedule.months[month] = (newValue === 'on') ? true : false;
+                this.setState({
+                    schedules: this.state.schedules.map(schedule => (schedule.id === scheduleId) ? schedule = newSchedule : schedule)
+                });
+                break;
+            }
+            case 'scheduleName':{
+                const scheduleId = value.target.name;
+                let newSchedule = this.state.schedules.find(schedule => schedule.id === scheduleId);
+                newSchedule.name = newValue;
+                this.setState({
+                    schedules: this.state.schedules.map(schedule => (schedule.id === scheduleId) ? schedule = newSchedule : schedule)
+                });
+                break;
+            }
+            default:{
+                this.setState({
+                    [field]: newValue
+                });
+                break;
+            }
+        }
     }
 
     handleSubmit(e) {
@@ -303,11 +351,18 @@ class NewPlant extends Component {
         this.setState({ areas: tags });
     }
 
+    handleDeleteSchedule(scheduleId) {
+        const position = this.state.schedules.findIndex(schedule => schedule.id === scheduleId);
+        const newSchedules = this.state.schedules.slice(0);
+        newSchedules.splice(position, 1);
+        this.setState({ schedules: newSchedules });
+    }
+
     handleAddSchedule() {
         const schedules = [].concat(this.state.schedules, [{
             id: uuid(),
             name: '',
-            months: []
+            months: this.state.months.reduce((output, month) => { output[month.label] = false; return output; }, {})
         }]);
         this.setState({ schedules: schedules });
     }
@@ -326,8 +381,7 @@ class NewPlant extends Component {
         // Set state from props only when we're ready 
         // (I.e. when moisture array is set from remote filter data
         // and uuid for id has been generated in the selector)
-        if((nextProps.plant.moisture && nextProps.plant.id && prevState.id !== nextProps.plant.id) || prevState.refresh !== nextProps.refresh ) {
-            
+        if((nextProps.plant.moisture && nextProps.plant.id && prevState.id !== nextProps.plant.id) || (prevState.refresh !== nextProps.refresh)) {            
             return {
                  ...nextProps.plant,
                  initial: false,
@@ -399,12 +453,12 @@ class NewPlant extends Component {
                                     </FormField>                            
                                     <FormField>
                                         <input type='text' placeholder='Link' id='link' name='link' value={this.state.link} onChange={this.handleChange('link')}></input>
-                                        <button 
+                                        <StyledButton 
                                             type='button' 
                                             onClick={this.handleLookupPlantInfo}
-                                            disabled={this.state.link.length === 0}>
-                                            <SearchIcon searchStatus={this.props.searchStatus} />
-                                        </button>
+                                            disabled={this.state.link.length === 0}
+                                            children={<SearchIcon searchStatus={this.props.searchStatus} />}>
+                                        </StyledButton>
                                     </FormField>                                                        
                                 </FormArea>
                                 <FormArea>
@@ -424,26 +478,21 @@ class NewPlant extends Component {
                                 {this.state.schedules.map(schedule => (
                                     <FormArea key={schedule.id} >
                                         <FormField cols='2'>
-                                            <input type='text' placeholder='Enter schedule name' value={schedule.name} />
+                                            <input type='text' name={schedule.id} placeholder='Enter schedule name' value={schedule.name} onChange={this.handleChange('scheduleName')} />
                                         </FormField>
-                                        <SelectField cols='2'>
-                                            <StyledSelect 
-                                                className='plantdex-select-container'
-                                                classNamePrefix='plantdex-select'
-                                                placeholder='Enter schedule months'
-                                                value={schedule.months} 
-                                                onChange={this.handleChange(schedule.id)}
-                                                isMulti={true}
-                                                isClearable={true}
-                                                options={this.state.months}
-                                            ></StyledSelect>
-                                        </SelectField>
-                                        <button type='button'>Delete</button>
+                                        <FormField>
+                                            <div className='schedule-months'>
+                                                {this.state.months.map(month => (
+                                                    <label key={month.value}>
+                                                        {month.label}
+                                                        <input type='checkbox' name={schedule.id + '_' + month.label} checked={schedule[month.label]} onChange={this.handleChange('scheduleMonthCheck')}/>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                            <StyledButton type='button' onClick={() => this.handleDeleteSchedule(schedule.id)} children={<FaTimes />}></StyledButton>
+                                        </FormField>
                                     </FormArea>
                                 ))}
-                                <FormArea>
-                                    <button type='button' onClick={this.handleAddSchedule}>Add Schedule</button>
-                                </FormArea>
                                 <FormArea>
                                     <FormField>
                                         <textarea rows='4' name='notes' placeholder='Notes' value={this.state.notes} onChange={this.handleChange('notes')}></textarea>
@@ -451,8 +500,11 @@ class NewPlant extends Component {
                                 </FormArea>
                             </FormContent>
                             <FormFooter>
+                                <div>
                                     <StyledButton type='submit' text='Save' />
-                                    <StyledButton type='button' text='Close' onClick={this.handleClose} />
+                                    <StyledButton type='button' text='Add Schedule' onClick={this.handleAddSchedule} />
+                                </div>
+                                <StyledButton type='button' text='Close' onClick={this.handleClose} />
                             </FormFooter>                        
                         </form>
 
