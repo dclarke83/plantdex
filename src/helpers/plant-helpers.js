@@ -84,7 +84,7 @@ export const transformPlantForSaving = (plant, plantSchema = schema) => {
             case SCHEDULES: {
                 newPlant[key] = (plant[key] && Array.isArray(plant[key])) ? plant[key].reduce((result, schedule) => {
                     if(schedule.name.length > 0 && Object.keys(schedule.months).reduce((sum, month) => sum += (schedule.months[month]) ? 1 : 0, 0) > 0){
-                        result.concat([schedule]);
+                        result = result.concat([schedule]);
                     }
                     return result;
                 }, []) : [];
