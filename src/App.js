@@ -13,6 +13,7 @@ import PlantList from './PlantList';
 import NewPlant from './NewPlant';
 import Areas from './Areas';
 import Navigation from './Navigation';
+import Schedules from './Schedules';
 
 import { Snackbar } from 'react-redux-snackbar';
 
@@ -39,6 +40,7 @@ class App extends Component {
               <FilterStatus></FilterStatus>
               <Route exact path='/' render={() => <PlantList /> } />
               <Route exact path="/areas" render={() => <Areas />} />
+              <Route exact path="/schedules" render={() => <Schedules />} />
             </div>
           </div>
         </Router>
