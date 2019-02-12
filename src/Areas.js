@@ -41,24 +41,23 @@ class Areas extends Component {
         return (
             <AreaListContainer>
                 {this.props.areas.map(area => 
-                    <li key={area.id}>
-                        <Area>
-                            <h1>
-                                {area.name} <span>({area.plants.length})</span>
-                            </h1>
-                            {area.plants.length === 0 &&
-                                <div>
-                                    No matching plants
-                                </div>
-                            }
-                        </Area>
+                        <li key={area.id}>
+                            {area.plants.length > 0 &&
+                            <div>
+                                <Area>
+                                    <h1>
+                                        {area.name} <span>({area.plants.length})</span>
+                                    </h1>
+                                </Area>
 
-                        <StyledPlantList>
-                            {area.plants.map(plant =>
-                                <Plant key={plant.id} id={plant.id} plant={plant}/>
-                            )}
-                        </StyledPlantList>
-                    </li>
+                                <StyledPlantList>
+                                    {area.plants.map(plant =>
+                                        <Plant key={plant.id} id={plant.id} plant={plant}/>
+                                    )}
+                                </StyledPlantList>
+                            </div>
+                            }
+                        </li>
                 )}
             </AreaListContainer>
         );
