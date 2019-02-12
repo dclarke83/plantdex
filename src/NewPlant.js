@@ -87,6 +87,7 @@ const FormField = styled.label`
 
             input[type=checkbox] {
                 margin: 0 0 0 3px;
+                display: block;
             }
         }
     }
