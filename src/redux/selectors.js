@@ -147,3 +147,45 @@ export const getPlantsByArea = createSelector(
         };
     }
 );
+
+export const getDistinctSchedules = createSelector(
+    [getSearchedFilteredFormattedPlants],
+    (plants) => {
+        const months = [
+            { value: 1, label: 'Jan' }, { value: 2, label: 'Feb' }, { value: 3, label: 'Mar' },
+            { value: 4, label: 'Apr' }, { value: 5, label: 'May' }, { value: 6, label: 'Jun' },
+            { value: 7, label: 'Jul' }, { value: 8, label: 'Aug' }, { value: 9, label: 'Sep' },
+            { value: 10, label: 'Oct' }, { value: 11, label: 'Nov' }, { value: 12, label: 'Dec' }
+        ];
+        let result = [];
+
+        months.forEach(month => {           
+            let monthSchedules = {
+                monthValue: month.value,
+                monthLabel: month.label,
+                schedules: []
+            };
+
+            plants.forEach(plant => {
+                if(plant.schedules && Array.isArray(plant.schedules) && plant.schedules.length > 0) {
+                    plant.schedules.forEach(schedule => {
+                        if(schedule.months[month.label] === true) {
+                            const i = monthSchedules.schedules.findIndex(x => x.name === schedule.name);
+                            if(i !== -1){
+                                monthSchedules.schedules[i].plants.push(plant);
+                            } else {
+                                monthSchedules.schedules.push({
+                                    name: schedule.name,
+                                    plants: [ plant ]
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+
+            result.push(monthSchedules);
+        });
+        return { schedules: result };
+    }
+);
