@@ -8,8 +8,7 @@ const Card = styled.div`
     border: 0;
     display: flex;
     background: #fff;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    margin-bottom: 30px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);   
     border-radius: 6px;
     flex-direction: column;
 `;
@@ -79,6 +78,10 @@ const StyledPlant = styled.li`
     perspective: 1000px;
     position: relative;
     transform-style: preserve-3d;
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
 
     @media (max-width: 700px) {
         flex-basis: 100%;
@@ -251,7 +254,7 @@ class Plant extends Component {
 
         return (
             <StyledPlant className='styledPlant'>
-                <Card style={front}>
+                <Card style={front} padMargin={this.props.padMargin}>
                     <CardTitleHolder className='cardTitleHolder' image={this.props.plant.mainImage}>
                         <CardTitleContent className='cardTitleContent'>
                             <Title className='title'>{this.props.plant.name}</Title>
