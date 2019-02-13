@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { openExistingPlant, deletePlant } from './redux/actions';
+import StyledButton from './StyledButton';
 
 const Card = styled.div`
     width: 100%;
@@ -114,72 +115,10 @@ const CardFooter = styled.div`
     border-bottom-right-radius: 6px;
 `;
 
-const StyledCardButton = styled.button`
-    margin: 0 4px;
-    padding: 4px 8px;
-    min-width: 64px;
-    line-height: 1.75;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border: 0;
-    position: relative;
-    user-select: none;
-    vertical-align: middle;
-    display: inline-flex;
-    outline: none;
-    align-items: center;
-    background-color: transparent;
-    cursor: pointer;
-    color: #4caf50;
-    font-family: 'Roboto';
-    letter-spacing: 0.02857em;
-
-    position: ${props => (props.right) ? 'absolute' : 'relative' };
-    right: ${props => (props.right) ? '0' : 'auto' };
-
-    &:hover {
-        background-color: rgba(76, 175, 80, 0.08);
-        text-decoration:none;
-    }
-`;
-
 const Notes = styled.div`
     display: ${props => props.show ? 'block' : 'none' };
     margin-bottom:3px;
 `;
-
-const CardButton = (props) => {
-    const spacer = {
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'block',
-        zIndex: 0,
-        position: 'absolute',
-        overflow: 'hidden',
-        borderRadius: 'inherit',
-        pointerEvents: 'none',
-    };
-
-    const content = {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
-
-    return (
-        <StyledCardButton right={props.right} type='button' onClick={props.onClick}>
-            <span style={content}>
-                {props.text}
-            </span>
-            <span style={spacer}></span>
-        </StyledCardButton>
-    );
-}
-
 
 const StyledProperty = (props) => {
     return (
@@ -275,9 +214,9 @@ class Plant extends Component {
                         </PropertyBox>
                     </CardContent>
                     <CardFooter>
-                        <CardButton text='Notes' onClick={this.handleFlip}></CardButton>
-                        <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
-                        <CardButton right={true} onClick={this.handleDelete} text='Delete'></CardButton>
+                        <StyledButton hideBorder={true} text='Notes' onClick={this.handleFlip}></StyledButton>
+                        <StyledButton hideBorder={true} text='Edit' onClick={this.handleEditClick}></StyledButton>
+                        <StyledButton hideBorder={true} right={true} onClick={this.handleDelete} text='Delete'></StyledButton>
                     </CardFooter>
                 </Card>
                 <Card style={back}>
@@ -298,9 +237,9 @@ class Plant extends Component {
                         </Notes>
                     </CardContent>
                     <CardFooter>
-                        <CardButton text='Details' onClick={this.handleFlip}></CardButton>
-                        <CardButton text='Edit' onClick={this.handleEditClick}></CardButton>
-                        <CardButton right={true} onClick={this.handleDelete} text='Delete'></CardButton>
+                        <StyledButton hideBorder={true} text='Details' onClick={this.handleFlip}></StyledButton>
+                        <StyledButton hideBorder={true} text='Edit' onClick={this.handleEditClick}></StyledButton>
+                        <StyledButton hideBorder={true} right={true} onClick={this.handleDelete} text='Delete'></StyledButton>
                     </CardFooter>
                 </Card>
             </StyledPlant>

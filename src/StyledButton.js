@@ -13,7 +13,7 @@ const StyledButton = (props) => {
         font-weight: 500;
         text-transform: uppercase;
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        border: 1px solid #cacaca;
+        border: ${props => (props.hideBorder) ? '0' : '1px solid #cacaca' };
         border-radius: 4px;
         position: relative;
         user-select: none;
@@ -26,6 +26,9 @@ const StyledButton = (props) => {
         color: #4caf50;
         font-family: 'Roboto';
         letter-spacing: 0.02857em;
+
+        position: ${props => (props.right) ? 'absolute' : 'relative' };
+        right: ${props => (props.right) ? '0' : 'auto' };
 
         &:hover {
             background-color: rgba(76, 175, 80, 0.2);
@@ -54,7 +57,14 @@ const StyledButton = (props) => {
     }
 
     return (
-        <Button type={props.type} onClick={props.onClick} disabled={props.disabled} style={props.style}>
+        <Button 
+            type={props.type} 
+            onClick={props.onClick} 
+            disabled={props.disabled} 
+            style={props.style}
+            right={props.right}
+            hideBorder={props.hideBorder}
+        >
             <span style={content}>
                 {props.text}
                 {(props.children) && props.children}
