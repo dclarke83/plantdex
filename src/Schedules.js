@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getDistinctSchedules } from './redux/selectors';
 import Plant from './Plant';
 import Expander from './Expander';
+import StyledButton from './StyledButton';
 
 const SchedulesContainer = styled.div`
     margin-bottom: 64px;
@@ -22,28 +23,25 @@ const StyledPlantList = styled.ul`
     padding-top: 12px;
 `;
 
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+`;
 class Schedules extends Component {
     constructor(props){
         super(props);
 
         this.date = new Date();
         this.state = {
-            currentSchedule: {
-                plants: []
-            },
             startIndex: this.date.getMonth(),
             currentIndex: 0,
             started: false
         };        
 
-        this.handleSetSchedule = this.handleSetSchedule.bind(this);
-
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
-    }
-
-    handleSetSchedule = (schedule) => {
-        this.setState({ currentSchedule: schedule });
     }
 
     handleNext() {
@@ -65,11 +63,13 @@ class Schedules extends Component {
     render() {
         return (
             <SchedulesContainer>
-                <button onClick={this.handlePrev}>Prev</button>
-                <button onClick={this.handleNext}>Next</button>
-                <div>
-                    {this.props.schedules[this.state.currentIndex].monthLabel}
-                </div>
+                <Header>
+                    <StyledButton onClick={this.handlePrev}>Prev</StyledButton>
+                    <h1>
+                        {this.props.schedules[this.state.currentIndex].monthLabel}
+                    </h1>                
+                    <StyledButton onClick={this.handleNext}>Next</StyledButton>
+                </Header>
                 <div>
                     <div style={{padding: '16px'}}>
                         {this.props.schedules[this.state.currentIndex].schedules.map((schedule, i) => (
