@@ -52,7 +52,7 @@ class Areas extends Component {
 
                                 <StyledPlantList>
                                     {area.plants.map(plant =>
-                                        <Plant key={plant.id} id={plant.id} plant={plant}/>
+                                        <Plant key={plant.id} id={plant.id} plant={plant} />
                                     )}
                                 </StyledPlantList>
                             </div>
