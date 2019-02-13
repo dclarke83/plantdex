@@ -152,17 +152,17 @@ export const getDistinctSchedules = createSelector(
     [getSearchedFilteredFormattedPlants],
     (plants) => {
         const months = [
-            { value: 1, label: 'Jan' }, { value: 2, label: 'Feb' }, { value: 3, label: 'Mar' },
-            { value: 4, label: 'Apr' }, { value: 5, label: 'May' }, { value: 6, label: 'Jun' },
-            { value: 7, label: 'Jul' }, { value: 8, label: 'Aug' }, { value: 9, label: 'Sep' },
-            { value: 10, label: 'Oct' }, { value: 11, label: 'Nov' }, { value: 12, label: 'Dec' }
+            { value: 1, label: 'Jan', full: 'January' }, { value: 2, label: 'Feb', full: 'February' }, { value: 3, label: 'Mar', full: 'March' },
+            { value: 4, label: 'Apr', full: 'April' }, { value: 5, label: 'May', full: 'May' }, { value: 6, label: 'Jun', full: 'June' },
+            { value: 7, label: 'Jul', full: 'July' }, { value: 8, label: 'Aug', full: 'August' }, { value: 9, label: 'Sep', full: 'September' },
+            { value: 10, label: 'Oct', full: 'October' }, { value: 11, label: 'Nov', full: 'November' }, { value: 12, label: 'Dec', full: 'December' }
         ];
         let result = [];
 
         months.forEach(month => {           
             let monthSchedules = {
                 monthValue: month.value,
-                monthLabel: month.label,
+                monthLabel: month.full,
                 schedules: []
             };
 
