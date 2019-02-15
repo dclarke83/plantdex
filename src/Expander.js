@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import Spinner from './Spinner';
 
+//#region styles
 const Panel = styled.div`
     background-color: #fff;
     width: 100%;
@@ -51,23 +53,43 @@ const Content = styled.div`
     display: ${props => (props.expanded) ? 'block' : 'none' };
     transition: all .3s;
 `;
+//#endregion
 
 class Expander extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            expanded: false
+            expanded: false,
+            shouldRender: false
         };
-
-        this.handleToggle = this.handleToggle.bind(this);
     }
 
-    handleToggle(){
-        this.setState({ expanded: !this.state.expanded })
+    handleToggle = () => {
+        this.setState((prevState) => ({ expanded: !prevState.expanded }));
+        
+        setTimeout(() => {
+            this.setState((prevState) => ({ shouldRender: !prevState.shouldRender }));
+        }, 310); // tied to the .3s css transition
     }
 
     render(){
+        const RenderContent = () => {
+            if(this.state.expanded){
+                if(this.props.renderOnExpand){
+                    if(this.state.shouldRender){
+                        return this.props.children
+                    } else {
+                        return <Spinner loading={!this.state.shouldRender} />
+                    }
+                } else {
+                    return this.props.children
+                }
+            } else {
+                return null;
+            }
+        }
+
         return (
             <Panel expanded={this.state.expanded} first={this.props.first} last={this.props.last}>
                 <Bar onClick={this.handleToggle}>
@@ -81,7 +103,7 @@ class Expander extends Component {
                     </Buttons>                
                 </Bar>
                 <Content expanded={this.state.expanded}>
-                    {this.props.children}
+                    <RenderContent />
                 </Content>
             </Panel>
         );

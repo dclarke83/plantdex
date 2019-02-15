@@ -34,6 +34,7 @@ class Areas extends Component {
                         title={ area.name + ' (' + area.plants.length + ')' }
                         first={ i === 0 }
                         last={ i === this.props.areas.length-1 }
+                        renderOnExpand={true}
                     >
                         <StyledPlantList>
                             {area.plants.map(plant =>
