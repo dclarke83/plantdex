@@ -78,6 +78,7 @@ class Schedules extends Component {
                                 title={schedule.name + ' (' + schedule.plants.length + ')'}
                                 first={i === 0}
                                 last={i === this.props.schedules.length-1}
+                                renderOnExpand={true}
                             >
                                 <StyledPlantList>
                                     {schedule.plants.map(plant => 
